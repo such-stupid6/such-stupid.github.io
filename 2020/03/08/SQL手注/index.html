@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon_180.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon_32.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon_16.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo2.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: 'WKHA6YLSNH',
+      apiKey: '46dba96b67832c36609d31c01e6772af',
+      indexName: 'blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="导语SQL注入漏洞作为臭名昭著的漏洞，已经有很多全自动攻击的工具了，但是我们是优秀的同学，我们要会用工具，还知道工具的原理。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL手注">
+<meta property="og:url" content="http://such-stupid6.github.io/2020/03/08/SQL%E6%89%8B%E6%B3%A8/index.html">
+<meta property="og:site_name" content="Gμn_">
+<meta property="og:description" content="导语SQL注入漏洞作为臭名昭著的漏洞，已经有很多全自动攻击的工具了，但是我们是优秀的同学，我们要会用工具，还知道工具的原理。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308171041.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308174015.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308174419.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308174308.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308175018.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308174914.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308175140.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308175324.jpg">
+<meta property="article:published_time" content="2020-03-08T04:14:52.000Z">
+<meta property="article:modified_time" content="2020-03-09T11:22:00.334Z">
+<meta property="article:author" content="Gμn_">
+<meta property="article:tag" content="数据库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308171041.jpg">
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Gμn_" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://such-stupid6.github.io/2020/03/08/SQL手注/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>SQL手注 | Gμn_</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Gμn_</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Stay noob, will ya?</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://such-stupid6.github.io/2020/03/08/SQL%E6%89%8B%E6%B3%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gμn_">
+      <meta itemprop="description" content="a noob will become a big guy.">
+      <meta itemprop="image" content="/images/author.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gμn_">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">SQL手注
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-08 12:14:52" itemprop="dateCreated datePublished" datetime="2020-03-08T12:14:52+08:00">2020-03-08</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-09 19:22:00" itemprop="dateModified" datetime="2020-03-09T19:22:00+08:00">2020-03-09</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h1><p>SQL注入漏洞作为臭名昭著的漏洞，已经有很多全自动攻击的工具了，但是我们是优秀的同学，我们要会用工具，还知道工具的原理。</p>
+<a id="more"></a>
+
+<h1 id="寻找SQL注入漏洞"><a href="#寻找SQL注入漏洞" class="headerlink" title="寻找SQL注入漏洞"></a>寻找SQL注入漏洞</h1><p>SQL注入常常出现在可以传递参数的位置，包括URL参数、搜索框、目录名、文件名等等，很多马虎的管理者因为对参数的过滤不严导致被攻击者所利用。<br>常见判断是否存在注入的语句有<br>数字型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plain">and 1&#x3D;1&#x2F;and 1&#x3D;2<br>or 1&#x3D;1&#x2F;or 1&#x3D;2<br>\+ \- \* &#x2F; \&gt; &lt; &lt; &#x3D; \&gt; &#x3D; \*<br>1 like1&#x2F;1 like 2<br></code></pre></td></tr></table></figure>
+
+<p>字符型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plain">and &#39;1&#39;&#x3D;&#39;1 &#x2F;and &#39;1&#39;&#x3D;&#39;2<br>or &#39;1&#39;&#x3D;&#39;1&#x2F;or &#39;1&#39;&#x3D;&#39;2<br>+&#39; &#x2F;+&#39; -&#39; &#x2F;-&#39; \&gt; &lt; &lt;&#x3D; \&gt;&#x3D;<br>1&#39; like &#39;1&#x2F;1&#39; like &#39;2<br></code></pre></td></tr></table></figure>
+
+<p>只要我们对sql语句的掌握够深，类似的判断语句还很多</p>
+<h1 id="实战学习"><a href="#实战学习" class="headerlink" title="实战学习"></a>实战学习</h1><p>用了<a href="https://www.ctfhub.com/" target="_blank" rel="noopener">ctfhub</a>的sql注入题目。<br>首先整数型注入，按照提示输入个1<br><img src="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308171041.jpg" alt=""><br>下面也显示了对应的语句，但是我们发现他是select *，我们的注入语句是显示所有的查找到的条目，可是这里只返回了一条语句，猜测经过处理只显示一个条目。于是我们使用limit来验证猜测<br><img src="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308174015.jpg" alt=""><br>这条语句理论上应该返回3个条目或者报错，然而却只返回一个条目，因此我们的猜测是正确的。解决的问题也简单，我们只要输入一个不存在的id，这时后端查找到的是NULL，于是就可以显示我们的union select的内容了。<br>接下来我们使用order by来判断条目的字段数量。<br><img src="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308174419.jpg" alt=""><br><img src="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308174308.jpg" alt=""><br>在3的时候就没有回显了，我们也可以判断出后端做了处理不显示报错信息。<br>接下来我们应该使用union来判断条目的字段对应显示在那个位置，但是我们一共就俩字段，可以判断，但没必要。<br>直接看数据库名<br><img src="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308175018.jpg" alt=""><br>得到数据库的名字是sqli<br>然后information_schema3连<br><img src="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308174914.jpg" alt=""><br><img src="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308175140.jpg" alt=""><br><img src="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308175324.jpg" alt=""><br>顺利得到flag。</p>
+<h1 id="常见的获取敏感信息的函数"><a href="#常见的获取敏感信息的函数" class="headerlink" title="常见的获取敏感信息的函数"></a>常见的获取敏感信息的函数</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs plain">user()                      数据库用户名<br>current_user()              当前数据库用户名<br>database()                  数据库名<br>version()                   MYSQL数据库版本<br>@@datadir                   读取数据库路径<br>@@basedir                   MYSQL安装路径<br>@@version_compile_os        获取操作系统版本<br>load_file()                 MYSQL读取本地文件的函数<br></code></pre></td></tr></table></figure>
+
+<h1 id="举一反三"><a href="#举一反三" class="headerlink" title="举一反三"></a>举一反三</h1><p>那么我们就基本可以总结书sql注入的普遍思路了。</p>
+<ol>
+<li>判断是否有注入点</li>
+<li>使用order by来判断返回的条目的字段数量</li>
+<li>使用union判断每个字段的显示位置</li>
+<li>使用database()等函数获取有用的信息</li>
+<li>大声叫喊奥利给！</li>
+</ol>
+<h1 id="盲注"><a href="#盲注" class="headerlink" title="盲注"></a>盲注</h1><p>盲注和注入的最大区别在于他不会返回给你东西，只会在出错的时候报错或者显示不正常，因此盲注的payload通常类似下面<br>id=1 and (select length(database()))&gt;4 //判断数据库名称的长度<br>id=1 and select ascii(substr(database(),1,1))&gt;119 //判断数据库名第一个字符的ascii码<br>基本上除了比注入麻烦好多以外没什么特别难的</p>
+<h1 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h1><p>报错注入也是查询结果不给显示的时候使用的，主要依赖floor() extractvalue()(updatexml())函数</p>
+<h2 id="floor-的报错注入"><a href="#floor-的报错注入" class="headerlink" title="floor()的报错注入"></a>floor()的报错注入</h2><p>准确地说应该是floor()、rand()、group by的报错注入。<br>我们看下面这句</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">select count(*),(concat(floor(rand(0)*2),&#39;@&#39;,(select version())))x from users group by x<br></code></pre></td></tr></table></figure>
+<p>rand()函数的作用是随机生成一个0~1的数字，他还能接受一个seed的参数作为随机种子。rand(0)就是生成一个伪随机序列，自己试一下可以发现他是0110110。<br>而报错的主体是group by。<br>group by会形成一个虚拟表，首先以group by后面的表项作为主键，扫描select的每一个条目，将具有相同的主键的两个表项合并。这个过程对主键进行了两次运算。第一次是获取主键，第二次是向虚拟表中插入这个表项的时候。<br>在我们这个例子里，报错的过程大概是这样</p>
+<ol>
+<li>获取主键的名称，扫描users表的第一项，假设我们的数据库版本号是5.7.19，根据rand(0)的序列，x的值为<a href="mailto:0@5.7.19">0@5.7.19</a>（user只是单纯的提供我们能进行几次x的插入的工具表），此时虚拟表是空的，发现不存在这个条目，于是向其中添加一个条目，此时再次运算x的值为<a href="mailto:1@5.7.19">1@5.7.19</a>，那么此时这个虚拟表如下</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th>count(*)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="mailto:1@5.7.19">1@5.7.19</a></td>
+<td>count(*)</td>
+</tr>
+</tbody></table>
+<ol start="2">
+<li>扫描下一个，获取主键，这里应该是<a href="mailto:1@5.7.19">1@5.7.19</a>，发现在表里有，因此表变为（count(*)函数是统计有多少行的，null也包含，实际上就是个占位的。主键是<a href="mailto:1@5.7.19">1@5.7.19</a>。）</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th align="right">count(*)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="mailto:1@5.7.19">1@5.7.19</a></td>
+<td align="right">count(*)</td>
+</tr>
+</tbody></table>
+<p>3.再下一个，主键是<a href="mailto:0@5.7.19">0@5.7.19</a>，表内没有这个值，因此要插入<br><strong>但是</strong> ，插入表的时候再次计算得到x是<a href="mailto:1@5.7.19">1@5.7.19</a>，也就是要往表里再插入一条<a href="mailto:1@5.7.19">1@5.7.19</a>，count(*)的条目，由于主键是唯一的，所以必然会报错，这一条的结果也就返回了出来。</p>
+<p>看到这里，相信大家都懂了，那么就有人要问了，万一我的user表不够长咋办啊？gnls你user表连三项都没有你这小破站是干啥的？那你去找个seed能生成0101或者1010序列的⑧</p>
+<h2 id="extractvalue"><a href="#extractvalue" class="headerlink" title="extractvalue()"></a>extractvalue()</h2><p>extractvalue() :对XML文档进行查询的函数，其实就是相当于我们熟悉的HTML文件中用 &lt;div&gt;&lt;p&gt;&lt;a&gt;标签查找元素一样。<br>语法：extractvalue(目标xml文档，xml路径)<br>第二个参数 xml中的位置是可操作的地方，xml文档中查找字符位置是用 /xxx/xxx/xxx/…这种格式，如果我们写入其他格式，就会报错，并且会返回我们写入的非法格式内容，而这个非法的内容就是我们想要查询的内容。<br>直接使用~/XXX的非法格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">select username from security.user where id&#x3D;1 and (extractvalue(‘anything’,concat(‘~’,(select database()))))<br></code></pre></td></tr></table></figure>
+<p>于是他就会报错返回想要的内容。<br>此外还有updatexml()函数有相同的用法，只要把xml路径改成不合法的格式即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">select username from security.user where id&#x3D;1 and (updatexml(‘anything’,concat(‘~’,(select database())),’anything’))<br></code></pre></td></tr></table></figure>
+
+
+<p>参考<br><a href="https://blog.csdn.net/qq_41059320/article/details/89281125" target="_blank" rel="noopener">https://blog.csdn.net/qq_41059320/article/details/89281125</a><br><a href="https://blog.csdn.net/he_and/article/details/80455884" target="_blank" rel="noopener">https://blog.csdn.net/he_and/article/details/80455884</a><br><a href="https://blog.csdn.net/zpy1998zpy/article/details/80631036" target="_blank" rel="noopener">https://blog.csdn.net/zpy1998zpy/article/details/80631036</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Gμn_</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://such-stupid6.github.io/2020/03/08/SQL%E6%89%8B%E6%B3%A8/" title="SQL手注">http://such-stupid6.github.io/2020/03/08/SQL%E6%89%8B%E6%B3%A8/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"># 数据库</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/07/Makefile/" rel="next" title="Makefile">
+                <i class="fa fa-chevron-left"></i> Makefile
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/12/vs2017%E5%AE%89%E8%A3%85libjpeg%E5%BA%93/" rel="prev" title="vs2017安装libjpeg库">
+                vs2017安装libjpeg库 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/author.jpg"
+                alt="Gμn_" />
+            
+              <p class="site-author-name" itemprop="name">Gμn_</p>
+              <p class="site-description motion-element" itemprop="description">a noob will become a big guy.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/%20%7C%7C%20archive">
+                
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/such-stupid6" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:alexi_bi@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://my0sotis.github.io/" title="My0sotis" target="_blank">My0sotis</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#导语"><span class="nav-number">1.</span> <span class="nav-text">导语</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#寻找SQL注入漏洞"><span class="nav-number">2.</span> <span class="nav-text">寻找SQL注入漏洞</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实战学习"><span class="nav-number">3.</span> <span class="nav-text">实战学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见的获取敏感信息的函数"><span class="nav-number">4.</span> <span class="nav-text">常见的获取敏感信息的函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#举一反三"><span class="nav-number">5.</span> <span class="nav-text">举一反三</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#盲注"><span class="nav-number">6.</span> <span class="nav-text">盲注</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#报错注入"><span class="nav-number">7.</span> <span class="nav-text">报错注入</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#floor-的报错注入"><span class="nav-number">7.1.</span> <span class="nav-text">floor()的报错注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#extractvalue"><span class="nav-number">7.2.</span> <span class="nav-text">extractvalue()</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> &copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gμn_</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v4.2.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.5.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+      
+  
+  <script type="text/javascript" color='114,114,114' opacity='1' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script id="ribbon" type="text/javascript" size="300" alpha="0.6"  zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.5.0"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body>
+</html>

@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon_180.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon_32.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon_16.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo2.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: 'WKHA6YLSNH',
+      apiKey: '46dba96b67832c36609d31c01e6772af',
+      indexName: 'blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="导语GCC是GNU Compiler Collection的缩写，包含gcc、g++等编译工具。这个工具不仅包含编译器，还包含其他工具集，例如ar、nm等。今天简单的讲一讲这个工具。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GCC">
+<meta property="og:url" content="http://such-stupid6.github.io/2020/03/05/gcc/index.html">
+<meta property="og:site_name" content="Gμn_">
+<meta property="og:description" content="导语GCC是GNU Compiler Collection的缩写，包含gcc、g++等编译工具。这个工具不仅包含编译器，还包含其他工具集，例如ar、nm等。今天简单的讲一讲这个工具。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200305161017.jpg?raw=true">
+<meta property="og:image" content="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200305161056.jpg?raw=true">
+<meta property="og:image" content="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200305161148.jpg?raw=true">
+<meta property="og:image" content="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200305162537.jpg?raw=true">
+<meta property="og:image" content="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200306120956.jpg?raw=true">
+<meta property="og:image" content="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200306170344.jpg?raw=true">
+<meta property="og:image" content="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200306170358.jpg?raw=true">
+<meta property="og:image" content="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200306170412.jpg?raw=true">
+<meta property="article:published_time" content="2020-03-05T02:39:50.000Z">
+<meta property="article:modified_time" content="2020-03-09T11:22:43.221Z">
+<meta property="article:author" content="Gμn_">
+<meta property="article:tag" content="工具">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200305161017.jpg?raw=true">
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Gμn_" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://such-stupid6.github.io/2020/03/05/gcc/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>GCC | Gμn_</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Gμn_</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Stay noob, will ya?</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://such-stupid6.github.io/2020/03/05/gcc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gμn_">
+      <meta itemprop="description" content="a noob will become a big guy.">
+      <meta itemprop="image" content="/images/author.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gμn_">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">GCC
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-05 10:39:50" itemprop="dateCreated datePublished" datetime="2020-03-05T10:39:50+08:00">2020-03-05</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-09 19:22:43" itemprop="dateModified" datetime="2020-03-09T19:22:43+08:00">2020-03-09</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h1><p>GCC是GNU Compiler Collection的缩写，包含gcc、g++等编译工具。这个工具不仅包含编译器，还包含其他工具集，例如ar、nm等。今天简单的讲一讲这个工具。</p>
+<a id="more"></a>
+
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>GCC能编译C、C++、Objective-C、Fortran、Java、Ada等语言。GCC可以在不同的硬件平台编译，即支持交叉编译。<br>GCC的c编译器是gcc，其命令格式为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">Usage:gcc [options] file...<br></code></pre></td></tr></table></figure>
+<p>GCC支持默认拓展名策略，下表是GCC下默认文件拓展名的含义。<br><img src="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200305161017.jpg?raw=true" alt=""><br>GCC常用的编译器有<br><img src="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200305161056.jpg?raw=true" alt=""><br>头文件和库文件的默认路径是<br><img src="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200305161148.jpg?raw=true" alt=""></p>
+<h1 id="单个文件编译成执行文件"><a href="#单个文件编译成执行文件" class="headerlink" title="单个文件编译成执行文件"></a>单个文件编译成执行文件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">$gcc hello.c<br></code></pre></td></tr></table></figure>
+<p>会在当前目录下自动生成文件名为a.out的可执行文件。<br>如果想要指定生成的可执行文件名，啧加一个-o参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">$gcc -o hello hello.c<br></code></pre></td></tr></table></figure>
+<p>此时就会出现一个叫hello的可执行文件。</p>
+<h1 id="编译生成目标文件"><a href="#编译生成目标文件" class="headerlink" title="编译生成目标文件"></a>编译生成目标文件</h1><p>编译的过程分为如图所示<br><img src="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200305162537.jpg?raw=true" alt=""><br>源文件、目标文件和可执行文件是常用的三个词。源文件即是存放源代码的文件。目标文件是指经过了编译器的编译生成的二进制机器码，但是目标文件的一些函数过程没有相关的指示和说明，所以一般不可执行。可执行文件是目标文件与相关的库连接后的文件，它是可以执行的。<br>单个文件编译成可执行文件时，中间文件只在编译的过程中临时存在，在编译完成生成可执行文件之后，会删除掉目标文件。然而在大型项目中目标文件需要保留用于不同的编译目标。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">$gcc -c (-o hello.o) hello.c<br></code></pre></td></tr></table></figure>
+<p>GCC使用一个-c的选项来将源文件生成目标文件，而不是可执行文件，默认情况下生成的目标文件和源文件名称一样，拓展名为.o<br>如果要指定生成的目标文件的文件名，也是用-o的选项。<br>此外，可以用一条命令编译多个源文件。比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">$gcc -c file1.c file2.c file3.c<br></code></pre></td></tr></table></figure>
+
+<h1 id="多文件编译"><a href="#多文件编译" class="headerlink" title="多文件编译"></a>多文件编译</h1><p>不管是目标文件还是源文件，都可以用同一个命令编译到一个可执行文件之中。<br>比如我们有一个add.c和一个main.c，在main.c里有对add.c的调用，我们直接执行以下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">$gcc -o test main.c add.c<br></code></pre></td></tr></table></figure>
+<p>即可得到文件名为test的可执行文件。<br>当然我们也可以先把他们都编译成目标文件然后再链接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">$gcc -c main.c<br>$gcc -c add.c<br>$gcc -o test main.o add.o<br></code></pre></td></tr></table></figure>
+<p>甚至我们可以编译一个为目标文件，然后另一个为源文件使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">$gcc -c main.c<br>$gcc -o test main.o add.c<br></code></pre></td></tr></table></figure>
+<p>都可以得到一个test的可执行文件。</p>
+<h1 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h1><p>在C语言程序中，一般会定义一些宏。预处理过程将源文件中的头文件包含进源文件，并且将文件中定义的宏进行脱焊<br>用下面的命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">$gcc -E string.c<br></code></pre></td></tr></table></figure>
+<p>会告诉编译器进行预编译操作，如果要修改文件名，那么同样是加上参数-o</p>
+<h1 id="编译成汇编语言"><a href="#编译成汇编语言" class="headerlink" title="编译成汇编语言"></a>编译成汇编语言</h1><p>用下面的命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">$gcc -S string.c<br></code></pre></td></tr></table></figure>
+<p>编译string.c为汇编语言，文件名为string.s</p>
+<h1 id="静态链接库"><a href="#静态链接库" class="headerlink" title="静态链接库"></a>静态链接库</h1><p>静态链接库是obj文件的一个集合，同城以.a为后缀。静态库由程序ar生成。由于多数程序在使用动态库，静态库已经不再常见。<br>静态库的有点是可以在我不用重新编译程序代码的情况下，进行程序的重新链接，在编译大型程序的时候，这样可以节省很可观的时间。此外，静态库使开发者可以提供库文件给使用的人员，而不用开放源代码。<br>理论上，静态库的执行速度比动态库和共享库快1%到5%。</p>
+<h2 id="生成静态链接库"><a href="#生成静态链接库" class="headerlink" title="生成静态链接库"></a>生成静态链接库</h2><p>使用下面的命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">$ar -rcs libstr.a string.o<br></code></pre></td></tr></table></figure>
+<p>使用工具ar将string.o打包为库文件libstr.a<br>使用下面的命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">$ar 库文件名 obj文件1 obj文件2<br></code></pre></td></tr></table></figure>
+<p>来生成静态库或者将obj文件加到静态库里。</p>
+<h2 id="使用静态链接库"><a href="#使用静态链接库" class="headerlink" title="使用静态链接库"></a>使用静态链接库</h2><p>只需要在gcc的文件里加上.a文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">$gcc -o test main.c libstr.a<br></code></pre></td></tr></table></figure>
+<p>也可以使用命令-l 库名，库名时不包含函数库和拓展名的字符串。例如libstr.a的库名就是<del>lib</del>str<del>.a</del></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">$gcc -o test main.c -lstr<br></code></pre></td></tr></table></figure>
+<p>上面的命令将在系统默认的路径下查找str函数库。可能系统会提示无法找到库文件str，这是由于str不在默认路径下。我们可以用-L的参数来指定路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">$gcc -o test main.c -L.&#x2F; -lstr<br></code></pre></td></tr></table></figure>
+<p>是当库文件和当前编译文件在同一目录下。</p>
+<h1 id="动态链接库"><a href="#动态链接库" class="headerlink" title="动态链接库"></a>动态链接库</h1><p>动态链接库中存放的是目标文件，和静态链接库相比，目标文件在动态链接库中的函数和变量的地址是相对地址而不是绝对地址，真实地址在调用动态库的程序加载时形成。<br>动态链接库的名称有 别名(soname)，真名(realname)，和链接名(linker name)。别名形如libXX.so其中XX是库名。真名一般是别名价格小版本号或者发布版本。连接名是程序链接时使用的库的名字。动态链接库安装的时候，总是赋值库文件到某个目录下，然后用一个软连接生成别名，在库文件进行更新的视乎，仅仅更新软连接即可。</p>
+<h2 id="生成动态链接库"><a href="#生成动态链接库" class="headerlink" title="生成动态链接库"></a>生成动态链接库</h2><p>使用-fPIC选项或者-fpic选项，使gcc生成的代码是位置无关的，这样就能生成一个动态链接库。例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">$gcc -shared -Wl,-soname,libstr.so -o libstr.so.1 string.c<br></code></pre></td></tr></table></figure>
+<p>-share告诉编译器生成一个动态链接库<br>-Wl告诉编译器后面的参数传递给链接器<br>-soname指定了动态库的soname<br>-o指定了动态库的真名</p>
+<h2 id="动态链接库的配置"><a href="#动态链接库的配置" class="headerlink" title="动态链接库的配置"></a>动态链接库的配置</h2><p>动态链接库的使用需要指定系的动态链接库搜索路径，让系统找到运行所需要的动态链接库才行。/etc/ld.so.conf是动态链接库的搜索路径配置文件，里面存放着动态链接库所在目录的名字。</p>
+<h2 id="动态链接库的管理命令"><a href="#动态链接库的管理命令" class="headerlink" title="动态链接库的管理命令"></a>动态链接库的管理命令</h2><p>ldconfig命令让新增加的动态链接库能够被系统共享。它可以在系统默认的搜索路径和动态链接库的配置文件中列出的目录中搜索动态链接库，创建动态链接装入程序需要的链接和缓存文件，搜索完毕后将结果写入/etc/ld.so.chche缓存文件。<br>ldconfig的用法如下，选项含义见表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">ldconfig [-v|--verbose] [-n] [-N] [-X] [-f CONF] [-C CACHE] [-r ROOT] [-l] [-p|--print-cache] [-c FORMAT] [-V] [-?|--help|--suage] path...<br></code></pre></td></tr></table></figure>
+<p><img src="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200306120956.jpg?raw=true" alt=""></p>
+<h2 id="使用动态链接库"><a href="#使用动态链接库" class="headerlink" title="使用动态链接库"></a>使用动态链接库</h2><p>同使用静态链接库，使用”-l 库名”的方式引入动态链接库<br><strong>注意</strong> 实际上，在编译过程中也可以用L来指定动态链接库的路径，并且编译不会报错，但是在运行时则会出现无法加载动态链接库的报错。这是因为不同于静态链接库将整个库的目标文件一并写入可执行程序，动态链接库只提供一个动态链接库的库名，程序在执行时，会根据我们系统目录中保存的库名和路径去装载动态链接库内的函数，并且 <strong>如果有多个程序调用同一个库，在内存中值装载一份该共享库的实例。</strong><br>此外还要注意，如果系统的搜索路径下同时存在静态链接库和动态链接库，默认情况下会链接动态链接库，如果需要强制链接静态链接库，需要加上“-static”选项。</p>
+<h1 id="动态加载库"><a href="#动态加载库" class="headerlink" title="动态加载库"></a>动态加载库</h1><p>动态加载库类似于动态链接库，区别在于，动态链接库在程序启动时加载（load），而动态加载库则可以利用程序的方法来控制什么时候加载。动态加载库主要有dlopen()、dlerror()、dlsym()和dlclose()s。</p>
+<h2 id="dlopen"><a href="#dlopen" class="headerlink" title="dlopen()"></a>dlopen()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">void * dlopen(const char *filename, int flag);<br></code></pre></td></tr></table></figure>
+<p>按照用户指定的方式打开动态链接库，其中参数filename为动态链接库的文件名，flag为打开方式，一般为RTLD_LASY，函数的返回值是库的指针。</p>
+<h2 id="dlsym"><a href="#dlsym" class="headerlink" title="dlsym()"></a>dlsym()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">void * dlsym(void *handle, char *symbol)<br></code></pre></td></tr></table></figure>
+<p>获取动态链接库中指定的函数指针，然后可以用这个函数指针进行操作。handle为dlopen()打开库后返回的句柄，symbol为函数名称，返回值为函数指针。</p>
+<h1 id="GCC常用选项"><a href="#GCC常用选项" class="headerlink" title="GCC常用选项"></a>GCC常用选项</h1><p>在代码段里如果有</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">#if def MACRO<br>...<br>#endif<br></code></pre></td></tr></table></figure>
+<p>那么</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">$gcc -D MACRO<br></code></pre></td></tr></table></figure>
+<p>就可以指定这段被执行。<br>此外还有<br>-I dir：将头文件搜索路径扩大，包含dir目录<br>-L dir：将链接时使用的链接库搜索路径扩大，包含dir目录。<br>-static：使用静态库链接，gcc会优先使用动态库<br>-g：包括调试信息</p>
+<p>-On：优化程序，程序优化后执行速度会更快。n一般意义如下<br>-O0：关闭所有优化选项<br>-O1：基本优化，编译器会生成更快的代码<br>-O2：-O1的升级版，推荐使用<br>-O3：这是目前最高的优化级别，它会使用更多的编译时间，虽然它生成的代码只会比-O2块一点点（GCC3.x中是这样的，但是在GCC4.x中有时候可能还没有-O2快），但是它会增大二进制文件的体积并让他们更消耗内存，因此在GCC4.x中-O3是不推荐的。<br>-Os:这个级别是用来优化代码尺寸的，他只是给一些CPU缓存或是磁盘空间小的机器使用<br>-Ofast:<br>该选项将不会严格遵循语言标准，除了启用所有的-O3优化选项之外，也会针对某些语言启用部分优化。如：-ffast-math ，对于Fortran语言，还会启用下列选项：<br>-fno-protect-parens<br>-fstack-arrays<br>-Og:<br>该标识会精心挑选部分与-g选项不冲突的优化选项，当然就能提供合理的优化水平，同时产生较好的可调试信息和对语言标准的遵循程度。</p>
+<p>-W all：打开所有gcc能够提供的，常用的警告信息。<br>下表示具体的含义<br><img src="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200306170344.jpg?raw=true" alt=""><br><img src="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200306170358.jpg?raw=true" alt=""><br><img src="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200306170412.jpg?raw=true" alt=""></p>
+<p>参考：<br><a href="https://blog.csdn.net/hxxjxw/article/details/89670302?depth_1-utm_source=distribute.pc_relevant.none-task&amp;utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">https://blog.csdn.net/hxxjxw/article/details/89670302?depth_1-utm_source=distribute.pc_relevant.none-task&amp;utm_source=distribute.pc_relevant.none-task</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Gμn_</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://such-stupid6.github.io/2020/03/05/gcc/" title="GCC">http://such-stupid6.github.io/2020/03/05/gcc/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag"># 工具</a>
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/02/%E5%A4%87%E4%BB%BD%E6%96%87%E4%BB%B6%E6%B3%84%E9%9C%B2%E6%BC%8F%E6%B4%9E/" rel="next" title="备份文件泄露漏洞">
+                <i class="fa fa-chevron-left"></i> 备份文件泄露漏洞
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/07/Makefile/" rel="prev" title="Makefile">
+                Makefile <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/author.jpg"
+                alt="Gμn_" />
+            
+              <p class="site-author-name" itemprop="name">Gμn_</p>
+              <p class="site-description motion-element" itemprop="description">a noob will become a big guy.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/%20%7C%7C%20archive">
+                
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/such-stupid6" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:alexi_bi@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://my0sotis.github.io/" title="My0sotis" target="_blank">My0sotis</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#导语"><span class="nav-number">1.</span> <span class="nav-text">导语</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">2.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#单个文件编译成执行文件"><span class="nav-number">3.</span> <span class="nav-text">单个文件编译成执行文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译生成目标文件"><span class="nav-number">4.</span> <span class="nav-text">编译生成目标文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多文件编译"><span class="nav-number">5.</span> <span class="nav-text">多文件编译</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#预处理"><span class="nav-number">6.</span> <span class="nav-text">预处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译成汇编语言"><span class="nav-number">7.</span> <span class="nav-text">编译成汇编语言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#静态链接库"><span class="nav-number">8.</span> <span class="nav-text">静态链接库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#生成静态链接库"><span class="nav-number">8.1.</span> <span class="nav-text">生成静态链接库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用静态链接库"><span class="nav-number">8.2.</span> <span class="nav-text">使用静态链接库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态链接库"><span class="nav-number">9.</span> <span class="nav-text">动态链接库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#生成动态链接库"><span class="nav-number">9.1.</span> <span class="nav-text">生成动态链接库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态链接库的配置"><span class="nav-number">9.2.</span> <span class="nav-text">动态链接库的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态链接库的管理命令"><span class="nav-number">9.3.</span> <span class="nav-text">动态链接库的管理命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用动态链接库"><span class="nav-number">9.4.</span> <span class="nav-text">使用动态链接库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态加载库"><span class="nav-number">10.</span> <span class="nav-text">动态加载库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#dlopen"><span class="nav-number">10.1.</span> <span class="nav-text">dlopen()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dlsym"><span class="nav-number">10.2.</span> <span class="nav-text">dlsym()</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GCC常用选项"><span class="nav-number">11.</span> <span class="nav-text">GCC常用选项</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> &copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gμn_</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v4.2.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.5.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+      
+  
+  <script type="text/javascript" color='114,114,114' opacity='1' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script id="ribbon" type="text/javascript" size="300" alpha="0.6"  zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.5.0"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body>
+</html>

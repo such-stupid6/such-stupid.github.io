@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon_180.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon_32.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon_16.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo2.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: 'WKHA6YLSNH',
+      apiKey: '46dba96b67832c36609d31c01e6772af',
+      indexName: 'blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="导语python不多逼逼，大家都懂，sys和os是python非常基础且重要的两个模块，今天就由在下整理一下python os docspython sys docs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python-sys_os">
+<meta property="og:url" content="http://such-stupid6.github.io/2020/01/14/python-sys-os/index.html">
+<meta property="og:site_name" content="Gμn_">
+<meta property="og:description" content="导语python不多逼逼，大家都懂，sys和os是python非常基础且重要的两个模块，今天就由在下整理一下python os docspython sys docs">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-01-14T09:49:12.000Z">
+<meta property="article:modified_time" content="2020-03-09T11:29:29.826Z">
+<meta property="article:author" content="Gμn_">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="操作系统">
+<meta name="twitter:card" content="summary">
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Gμn_" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://such-stupid6.github.io/2020/01/14/python-sys-os/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>python-sys_os | Gμn_</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Gμn_</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Stay noob, will ya?</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://such-stupid6.github.io/2020/01/14/python-sys-os/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gμn_">
+      <meta itemprop="description" content="a noob will become a big guy.">
+      <meta itemprop="image" content="/images/author.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gμn_">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python-sys_os
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-01-14 17:49:12" itemprop="dateCreated datePublished" datetime="2020-01-14T17:49:12+08:00">2020-01-14</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-09 19:29:29" itemprop="dateModified" datetime="2020-03-09T19:29:29+08:00">2020-03-09</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h1><p>python不多逼逼，大家都懂，sys和os是python非常基础且重要的两个模块，今天就由在下整理一下<br><a href="https://docs.python.org/3/library/os.html" target="_blank" rel="noopener">python os docs</a><br><a href="https://docs.python.org/3/library/sys.html" target="_blank" rel="noopener">python sys docs</a></p>
+<a id="more"></a>
+<h1 id="os"><a href="#os" class="headerlink" title="os"></a>os</h1><p>os模块提供了多数操作系统的功能接口函数。当os模块被导入后，它会自适应于不同的操作系统平台，根据不同的平台进行相应的操作，在python编程时，经常和文件、目录打交道，所以离不了os模块。<br>根据手册，我用ipython在自己的电脑上全部实验了一下。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th align="center">作用</th>
+<th align="center">备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>os.name</td>
+<td align="center">显示当前操作系统的所属的平台</td>
+<td align="center">类linux为posix，windows为nt</td>
+</tr>
+<tr>
+<td>os.ctermid</td>
+<td align="center">显示对于此进程的控制终端的文件名</td>
+<td align="center">只适用于unix系统，我没跑出来</td>
+</tr>
+<tr>
+<td>os.environ[key]</td>
+<td align="center">接受一个参数key，显示目录下的环境变量</td>
+<td align="center">如果你不知道你的操作系统接受的参数都有什么，可以用os.environ.keys()。</td>
+</tr>
+<tr>
+<td>os.getenv(key,default=None)</td>
+<td align="center">同上</td>
+<td align="center">接受str，返回str</td>
+</tr>
+<tr>
+<td>os.environb</td>
+<td align="center">二进制下的os.environb</td>
+<td align="center">我的os模块里没有这个。因为如果要使用这个方法必须要os.support_bytes_enivron为True才可，这个值是取决于原生操作系统的环境的数据类型是否是字节型，而windows不是。</td>
+</tr>
+<tr>
+<td>os/getenvb(key,default=None)</td>
+<td align="center">同上</td>
+<td align="center">接受byte，返回byte</td>
+</tr>
+<tr>
+<td>os.fsencode(filename)</td>
+<td align="center">用文件系统编码文件名</td>
+<td align="center">在windows里就是os.fsencode(‘D:\1.txt’)=&gt;b’D:\1.txt’)</td>
+</tr>
+<tr>
+<td>os.fsdecode(filename)</td>
+<td align="center">用文件系统编码解码文件名</td>
+<td align="center">encode的逆过程</td>
+</tr>
+<tr>
+<td>os.fspath(path)</td>
+<td align="center">返回path的路径</td>
+<td align="center">主要是应对os.PathLike类型的，PathLike类型主要在pathlib中产生，引用也很多，他是一种文件系统路径的替代对象表示。pathlike包含了ducktype思想，就是看着这个挺像路径，那么我们就管他当路径，而使用fspath即可将他转化为标准的路径表达。</td>
+</tr>
+<tr>
+<td>os.get_exec_path(env=None)</td>
+<td align="center">返回可执行文件的搜索路径</td>
+<td align="center">好像就是我设置的环境变量的’PATH’里的值</td>
+</tr>
+<tr>
+<td>os.getegid()</td>
+<td align="center">返回egid（关于uid、gid、euid、egid的知识有空再写）</td>
+<td align="center">只适用于unix</td>
+</tr>
+<tr>
+<td>os.setegid(egid)</td>
+<td align="center">设置egid</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>os.geteuid()</td>
+<td align="center">返回euid</td>
+<td align="center">只适用unix</td>
+</tr>
+<tr>
+<td>os.seteuid(euid)</td>
+<td align="center">设置euid</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>os.getgid()</td>
+<td align="center">返回gid</td>
+<td align="center">只使用unix</td>
+</tr>
+<tr>
+<td>os.setgid(gid)</td>
+<td align="center">设置gid</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>os.getgrouplist(user,group)</td>
+<td align="center">返回user所在的组里面的所有id,group一般是通过user的密码记录而确定的组id</td>
+<td align="center">只适用于unix</td>
+</tr>
+<tr>
+<td>os.getgroups()</td>
+<td align="center">返回对当前进程提供了支持的组id</td>
+<td align="center">只适用于unix</td>
+</tr>
+<tr>
+<td>os.setgroups(groups)</td>
+<td align="center">设置group</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>os.getlogin()</td>
+<td align="center">返回当前登录的用户</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>os.getpgid(pid)</td>
+<td align="center">返回pgid（关于PID、PGID、PPID、SID、TID、TTY的知识有空再写）</td>
+<td align="center">只适用于unix</td>
+</tr>
+<tr>
+<td>os.setpgid(pid, pgrp)</td>
+<td align="center">设置pgid</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>os.getpgrp()</td>
+<td align="center">返回pgrp</td>
+<td align="center">只适用于unix</td>
+</tr>
+<tr>
+<td>os.setpgrp()</td>
+<td align="center">设置pgrp</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>os.getpid()</td>
+<td align="center">返回pid</td>
+<td align="center">windows也适用</td>
+</tr>
+<tr>
+<td>os.getppid()</td>
+<td align="center">返回ppid</td>
+<td align="center">windows也适用</td>
+</tr>
+<tr>
+<td>os.getpriority(which, who)</td>
+<td align="center">返回调度优先级</td>
+<td align="center">只适用于unix</td>
+</tr>
+<tr>
+<td>os.setpriority(which, who, priority)</td>
+<td align="center">设置优先级</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>os.PRIO_PROCESS</td>
+<td align="center">getpriority和setpriority的参数</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>os.PRIO_PGRP</td>
+<td align="center">同上</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>os.PRIO_USER</td>
+<td align="center">同上</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>os.getresuid()</td>
+<td align="center">Return a tuple (rgid, egid, sgid)</td>
+<td align="center">三合一奥利给</td>
+</tr>
+<tr>
+<td>os.getuid()</td>
+<td align="center">返回当前进程的真实用户的uid</td>
+<td align="center">只适用于unix</td>
+</tr>
+<tr>
+<td>os.os.initgroups(username, gid)</td>
+<td align="center">调用系统的initgroups（）函数来初始化user所在的group的group access list</td>
+<td align="center">只适用于unix</td>
+</tr>
+<tr>
+<td>os.putenv(key,value)</td>
+<td align="center">设置环境参数为变量名key</td>
+<td align="center">会影响os.system()、popen()、fork()和execv（）</td>
+</tr>
+<tr>
+<td>os.setregid(rgid, egid)</td>
+<td align="center">设置regid</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>os.setresgid(rgid, egid, sgid)</td>
+<td align="center">设置resgid</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>os.setresuid(ruid, euid, suid)</td>
+<td align="center">设置resuid</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>os.setreuid(ruid, euid)</td>
+<td align="center">设置reuid</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>os.getsid(pid)</td>
+<td align="center">返回sid</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>os.setsid()</td>
+<td align="center">设置sid</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>os.setuid(uid)</td>
+<td align="center">设置uid</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>os.strerror(code)</td>
+<td align="center">返回code中对应的错误信息</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p>os.path.abspath(path)|返回path规范化的绝对路径|<br>os.path.split(path)|将path分割成目录和文件名的二元组返回</p>
+<p>os.chdir(path)|改变当前的工作路径为path<br>os.fchdir(fd)<br>os.getcwd()|获取当前的工作路径|</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Gμn_</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://such-stupid6.github.io/2020/01/14/python-sys-os/" title="python-sys_os">http://such-stupid6.github.io/2020/01/14/python-sys-os/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" rel="tag"># 操作系统</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/13/cdn/" rel="next" title="cdn">
+                <i class="fa fa-chevron-left"></i> cdn
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/15/%E6%B1%87%E7%BC%96/" rel="prev" title="汇编">
+                汇编 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/author.jpg"
+                alt="Gμn_" />
+            
+              <p class="site-author-name" itemprop="name">Gμn_</p>
+              <p class="site-description motion-element" itemprop="description">a noob will become a big guy.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/%20%7C%7C%20archive">
+                
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/such-stupid6" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:alexi_bi@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://my0sotis.github.io/" title="My0sotis" target="_blank">My0sotis</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#导语"><span class="nav-number">1.</span> <span class="nav-text">导语</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#os"><span class="nav-number">2.</span> <span class="nav-text">os</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> &copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gμn_</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v4.2.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.5.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+      
+  
+  <script type="text/javascript" color='114,114,114' opacity='1' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script id="ribbon" type="text/javascript" size="300" alpha="0.6"  zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.5.0"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body>
+</html>

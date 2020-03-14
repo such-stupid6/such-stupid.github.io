@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon_180.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon_32.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon_16.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo2.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: 'WKHA6YLSNH',
+      apiKey: '46dba96b67832c36609d31c01e6772af',
+      indexName: 'blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="导语众所周知，一个程序从源码到可执行需要经过编译和链接两个步骤，而Makefile文件描述了整个工程的编译、链接规则。作为一个给力的Unix程序猿，必须要会写makefile嗷！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Makefile">
+<meta property="og:url" content="http://such-stupid6.github.io/2020/03/07/Makefile/index.html">
+<meta property="og:site_name" content="Gμn_">
+<meta property="og:description" content="导语众所周知，一个程序从源码到可执行需要经过编译和链接两个步骤，而Makefile文件描述了整个工程的编译、链接规则。作为一个给力的Unix程序猿，必须要会写makefile嗷！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/Makefile/TIM%E6%88%AA%E5%9B%BE20200305110722.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/Makefile/TIM%E6%88%AA%E5%9B%BE20200307162847.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/Makefile/TIM%E6%88%AA%E5%9B%BE20200312192316.jpg">
+<meta property="article:published_time" content="2020-03-07T02:38:40.000Z">
+<meta property="article:modified_time" content="2020-03-12T11:33:47.140Z">
+<meta property="article:author" content="Gμn_">
+<meta property="article:tag" content="工具">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/Makefile/TIM%E6%88%AA%E5%9B%BE20200305110722.jpg">
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Gμn_" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://such-stupid6.github.io/2020/03/07/Makefile/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Makefile | Gμn_</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Gμn_</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Stay noob, will ya?</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://such-stupid6.github.io/2020/03/07/Makefile/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gμn_">
+      <meta itemprop="description" content="a noob will become a big guy.">
+      <meta itemprop="image" content="/images/author.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gμn_">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Makefile
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-07 10:38:40" itemprop="dateCreated datePublished" datetime="2020-03-07T10:38:40+08:00">2020-03-07</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-03-12 19:33:47" itemprop="dateModified" datetime="2020-03-12T19:33:47+08:00">2020-03-12</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h1><p>众所周知，一个程序从源码到可执行需要经过编译和链接两个步骤，而Makefile文件描述了整个工程的编译、链接规则。作为一个给力的Unix程序猿，必须要会写makefile嗷！</p>
+<a id="more"></a>
+
+<h1 id="编译、链接"><a href="#编译、链接" class="headerlink" title="编译、链接"></a>编译、链接</h1><p>以C和C++举例，对于一段源码，首先要进行<strong>编译</strong>的过程，将源码编译成为中间代码文件，在windows下后缀名为.obj，在UNIX下后缀名是.o。然后进行<strong>链接</strong>过程，将所有的中间代码连接起来。<br>编译时，编译器需要的是语法的正确，函数与变量的声明的正确。对于后者，通常是你需要告诉编译器头文件的所在位置（头文件中应该只是声明，而定义应该放在C/C++文件中），只要所有的语法正确，编译器就可以编译出中间目标文件。一般来说，每个源文件都应该对应于一个中间目标文件（O文件或是OBJ文件）。<br>链接时，主要是链接函数和全局变量，所以，我们可以使用这些中间目标文件（O文件或是OBJ文件）来链接我们的应用程序。链接器并不管函数所在的源文件，只管函数的中间目标文件（Object File），在大多数时候，由于源文件太多，编译生成的中间目标文件太多，而在链接时需要明显地指出中间目标文件名，这对于编译很不方便，所以，我们要给中间目标文件打个包，在Windows下这种包叫“库文件”（Library File)，也就是 .lib 文件，在UNIX下，是Archive File，也就是 .a 文件。</p>
+<h1 id="一个多文件工程的例子"><a href="#一个多文件工程的例子" class="headerlink" title="一个多文件工程的例子"></a>一个多文件工程的例子</h1><p><img src="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/Makefile/TIM%E6%88%AA%E5%9B%BE20200305110722.jpg" alt=""><br>对于这个多文件工程，我们可以在命令行手动编译，另一种方式是编写Makefile。</p>
+<h2 id="手动编译"><a href="#手动编译" class="headerlink" title="手动编译"></a>手动编译</h2><p>既然要编译，那显然要将所有的.c文件都编译一下，然后进行链接</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-variable">$gcc</span> -c add/add_int.c -o add/add_int.o<br><span class="hljs-variable">$gcc</span> -c add/add_float.c -o add/add_float.o<br><span class="hljs-variable">$gcc</span> -c sub/sub_int.c -o sub/sub_int.o<br><span class="hljs-variable">$gcc</span> -c sub/sub_float.c -o sub/sub_float.o<br><span class="hljs-variable">$gcc</span> -c main.c -o main.o<br><span class="hljs-variable">$gcc</span> -o cacu add/add_int.o add/add_float.o sub/sub_int.o sub/sub_float.o main.o<br></code></pre></td></tr></table></figure>
+<p>也可以用gcc的默认规则</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">$gcc -o cacu add&#x2F;add_int.c add&#x2F;add_float.c sub&#x2F;sub_int.c sub&#x2F;sub_float.c main.c<br></code></pre></td></tr></table></figure>
+<p>这里我们就不禁发出疑问，这gcc默认规则感觉简单又高效，为什么还要用makefile呢？<br>事实上，如果项目中的文件比较多，关系比较复杂，或者我们需要迭代版本修改自己的源代码的话，使用gcc命令行会变的很繁琐，于是我们就引入了makefile。</p>
+<h2 id="makefile"><a href="#makefile" class="headerlink" title="makefile"></a>makefile</h2><p>我们是用make（cmake、nmake）警星项目管理的时候，需要衣蛾makefile文件，make在编译的时候，从makefile中读取设置情况，运行相关规则。<br>比如对之前的那个项目我们建立一个如下的makefile</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs plain">cacu:add_int.o add_float.o sub_int.o sub_float.o main.o<br>    gcc -o cacu add&#x2F;add_int.o add&#x2F;add_float.o \<br>        sub&#x2F;sub_int.o sub&#x2F;sub_float.o main.o<br>add_int.o:add&#x2F;add_int.c add&#x2F;add.h<br>    gcc -c -o add&#x2F;add_int.o add&#x2F;add_int.c<br>add_float.o:add&#x2F;add_float.c add&#x2F;add.h<br>    gcc -c -o add&#x2F;add_float.o add.add_float.c<br>sub_int.o:sub&#x2F;sub_int.c sub&#x2F;sub.h<br>    gcc -c -o sub&#x2F;sub_int.o sub&#x2F;sub_int.c<br>sub_float.o:sub&#x2F;sub_float.c sub&#x2F;sub.h<br>    gcc -c -o sub&#x2F;sub_float.o sub&#x2F;sub_float.c<br>main.o:main.c add&#x2F;add.h sub&#x2F;sub.h<br>    gcc -c -o main.o main.c -Iadd -Isub<br><br>clean:<br>    rm -f cacu add&#x2F;add_int.o add&#x2F;add_float.o\<br>        sub&#x2F;sub_int.o sub&#x2F;sub_float.o main.o<br></code></pre></td></tr></table></figure>
+<p>在默认情况下会执行Makefile中的第一个规则，也就是cacu相关的规则，而cacu又依赖于多个目标文件，所以编译器会先生成依赖文件的.o</p>
+<h1 id="makefile的规则"><a href="#makefile的规则" class="headerlink" title="makefile的规则"></a>makefile的规则</h1><p>makefile的框架是由规则构成的，而规则的基本格式是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plain">TATGET... : DEPENDEDS...<br>    COMMAND<br>    ...<br>    ...<br></code></pre></td></tr></table></figure>
+<p>TARGET:规则所定义的目标。通常规则是最后生成的可执行文件的文件名或者为了生成可执行文件而依赖的目标文件的文件名，也可以是一个动作，称之为“伪目标”<br>DEPENDS:执行此规则所必须的依赖条件，DEPENDS也可以是某个TARGET，形成嵌套<br>COMMAND:规则所执行的命令，例如编译文件、生成库文件、进入目录等等。动作可以是多个命令，每个命令占一行。</p>
+<h2 id="规则的书写"><a href="#规则的书写" class="headerlink" title="规则的书写"></a>规则的书写</h2><p>为了使makefile更加清晰，要用反斜线将教程的行分解为多行。<br>命令必须以tab键开始，make程序吧出现在一条规则之后的所有连续的以tab键开始的行都作为命令处理。</p>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>makefile可以是具体文件，也可以是动作，比如cacu就是生成cacu的规则，有很多依赖项及相关的命令动作。而clean是清楚当前生成文件的一个动作。</p>
+<h2 id="文件时间戳"><a href="#文件时间戳" class="headerlink" title="文件时间戳"></a>文件时间戳</h2><p>make命令执行的时候会根据文件的时间戳判定是否执行相关命令。例如对main.c文件进行修改后保存，文件的生成日期就发生了改变，再次调用make命令编译的时候，就只会编译main.c，并且执行规则cacu，重新连接程序。</p>
+<h2 id="模式匹配"><a href="#模式匹配" class="headerlink" title="模式匹配"></a>模式匹配</h2><p>在之前的makefile中，main.o的书写方式如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">main.o:main.c add&#x2F;add.h sub&#x2F;sub.h<br>    gcc -c -o main.o main.c -Iadd -Isub<br></code></pre></td></tr></table></figure>
+<p>有一种渐变的方法可以实现与上面相同的功能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">main.o:%o:%c<br>    gcc -c $&lt; -o $@<br></code></pre></td></tr></table></figure>
+<p>make命令允许对文件名进行类似正则运算的匹配，</p>
+<h1 id="makefile中使用变量"><a href="#makefile中使用变量" class="headerlink" title="makefile中使用变量"></a>makefile中使用变量</h1><h2 id="makefile中的用户自定义变量"><a href="#makefile中的用户自定义变量" class="headerlink" title="makefile中的用户自定义变量"></a>makefile中的用户自定义变量</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">OBJS &#x3D; add&#x2F;add_int.o add&#x2F;add_float.o sub&#x2F;sub_int.o sub&#x2F;sub_float.o main.o<br></code></pre></td></tr></table></figure>
+<p>用类似这样的代码来自定义用户变量，在使用时，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">gcc -o cacu $(OBJS)<br></code></pre></td></tr></table></figure>
+
+<h2 id="makefile中的预定义变量"><a href="#makefile中的预定义变量" class="headerlink" title="makefile中的预定义变量"></a>makefile中的预定义变量</h2><p>如表<br><img src="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/Makefile/TIM%E6%88%AA%E5%9B%BE20200307162847.jpg" alt=""></p>
+<h2 id="makefile中常见的自动变量和含义"><a href="#makefile中常见的自动变量和含义" class="headerlink" title="makefile中常见的自动变量和含义"></a>makefile中常见的自动变量和含义</h2><p>如表<br><img src="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/Makefile/TIM%E6%88%AA%E5%9B%BE20200312192316.jpg" alt=""></p>
+<h1 id="搜索路径"><a href="#搜索路径" class="headerlink" title="搜索路径"></a>搜索路径</h1><p>在打得系统中，通常存在很多目录，手动添加目录的方法不仅十分笨拙且容易造成错误。make存在一个目录搜索功能，make会自动找到指定文件的目录并且添加到文件上。使用方法入下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">VPATH&#x3D;path1:path2:...<br></code></pre></td></tr></table></figure>
+<p>VPATH右边是冒号分隔的路径名称</p>
+<h1 id="递归make"><a href="#递归make" class="headerlink" title="递归make"></a>递归make</h1><p>递归make体现了makefile的模块化思想，每个模块各自make自己，而总程序可以调用他们的makefile来实现各个模块的功能，</p>
+<h2 id="调用方式"><a href="#调用方式" class="headerlink" title="调用方式"></a>调用方式</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">add:<br>    cd add &amp;&amp; $(MAKE)<br></code></pre></td></tr></table></figure>
+<p>等价于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plain">add:<br>    $(MAKE) -C add<br></code></pre></td></tr></table></figure>
+
+<h2 id="总控makefile"><a href="#总控makefile" class="headerlink" title="总控makefile"></a>总控makefile</h2><p>调用$(MAKE) -C 的makefile 叫做总控makefile。如果总控makefile需要传递变量给下层的makefile，可以使用export命令<br>例如向下层makefile传递目标文件的导出路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">export OBJSDIR&#x3D;.&#x2F;objs<br></code></pre></td></tr></table></figure>
+
+<h1 id="makefile中的函数"><a href="#makefile中的函数" class="headerlink" title="makefile中的函数"></a>makefile中的函数</h1><h2 id="获取匹配模式的文件名-wildcard"><a href="#获取匹配模式的文件名-wildcard" class="headerlink" title="获取匹配模式的文件名 wildcard"></a>获取匹配模式的文件名 wildcard</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">$(wildcard PATTERN)<br></code></pre></td></tr></table></figure>
+<p>返回当前目录下所有符合模式PATTERN的文件名</p>
+<h2 id="模式替换函数-patsubst"><a href="#模式替换函数-patsubst" class="headerlink" title="模式替换函数 patsubst"></a>模式替换函数 patsubst</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">$(patsubst pattern,replacement,text)<br></code></pre></td></tr></table></figure>
+<p>查找字符串text中按照空格分开的单词，将符合模式pattern的字符串替换成replacement。</p>
+<h2 id="循环函数foreach"><a href="#循环函数foreach" class="headerlink" title="循环函数foreach"></a>循环函数foreach</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">$(foreach VAR,LIST,TEXT)<br></code></pre></td></tr></table></figure>
+<p>将LIST字符串中一个空格分开的单词，先传给临时变量VAR，然后执行TEXT表达式，TEXT变道时处理结束后输出。其返回值是空格分表达式TEXT的计算结果。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Gμn_</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://such-stupid6.github.io/2020/03/07/Makefile/" title="Makefile">http://such-stupid6.github.io/2020/03/07/Makefile/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag"># 工具</a>
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/05/gcc/" rel="next" title="GCC">
+                <i class="fa fa-chevron-left"></i> GCC
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/08/SQL%E6%89%8B%E6%B3%A8/" rel="prev" title="SQL手注">
+                SQL手注 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/author.jpg"
+                alt="Gμn_" />
+            
+              <p class="site-author-name" itemprop="name">Gμn_</p>
+              <p class="site-description motion-element" itemprop="description">a noob will become a big guy.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/%20%7C%7C%20archive">
+                
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/such-stupid6" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:alexi_bi@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://my0sotis.github.io/" title="My0sotis" target="_blank">My0sotis</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#导语"><span class="nav-number">1.</span> <span class="nav-text">导语</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编译、链接"><span class="nav-number">2.</span> <span class="nav-text">编译、链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一个多文件工程的例子"><span class="nav-number">3.</span> <span class="nav-text">一个多文件工程的例子</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#手动编译"><span class="nav-number">3.1.</span> <span class="nav-text">手动编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#makefile"><span class="nav-number">3.2.</span> <span class="nav-text">makefile</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#makefile的规则"><span class="nav-number">4.</span> <span class="nav-text">makefile的规则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#规则的书写"><span class="nav-number">4.1.</span> <span class="nav-text">规则的书写</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目标"><span class="nav-number">4.2.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件时间戳"><span class="nav-number">4.3.</span> <span class="nav-text">文件时间戳</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模式匹配"><span class="nav-number">4.4.</span> <span class="nav-text">模式匹配</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#makefile中使用变量"><span class="nav-number">5.</span> <span class="nav-text">makefile中使用变量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#makefile中的用户自定义变量"><span class="nav-number">5.1.</span> <span class="nav-text">makefile中的用户自定义变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#makefile中的预定义变量"><span class="nav-number">5.2.</span> <span class="nav-text">makefile中的预定义变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#makefile中常见的自动变量和含义"><span class="nav-number">5.3.</span> <span class="nav-text">makefile中常见的自动变量和含义</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搜索路径"><span class="nav-number">6.</span> <span class="nav-text">搜索路径</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#递归make"><span class="nav-number">7.</span> <span class="nav-text">递归make</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#调用方式"><span class="nav-number">7.1.</span> <span class="nav-text">调用方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总控makefile"><span class="nav-number">7.2.</span> <span class="nav-text">总控makefile</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#makefile中的函数"><span class="nav-number">8.</span> <span class="nav-text">makefile中的函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取匹配模式的文件名-wildcard"><span class="nav-number">8.1.</span> <span class="nav-text">获取匹配模式的文件名 wildcard</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模式替换函数-patsubst"><span class="nav-number">8.2.</span> <span class="nav-text">模式替换函数 patsubst</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环函数foreach"><span class="nav-number">8.3.</span> <span class="nav-text">循环函数foreach</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> &copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gμn_</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v4.2.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.5.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+      
+  
+  <script type="text/javascript" color='114,114,114' opacity='1' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script id="ribbon" type="text/javascript" size="300" alpha="0.6"  zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.5.0"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body>
+</html>
