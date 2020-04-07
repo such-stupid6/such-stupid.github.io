@@ -119,7 +119,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/Makefile/TIM%E6%88%AA%E5%9B%BE20200307162847.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/Makefile/TIM%E6%88%AA%E5%9B%BE20200312192316.jpg">
 <meta property="article:published_time" content="2020-03-07T02:38:40.000Z">
-<meta property="article:modified_time" content="2020-03-12T11:33:47.140Z">
+<meta property="article:modified_time" content="2020-03-26T09:45:05.653Z">
 <meta property="article:author" content="Gμn_">
 <meta property="article:tag" content="工具">
 <meta property="article:tag" content="Linux">
@@ -269,7 +269,7 @@
           
           <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />归档</a>
   </li>
 
       
@@ -414,7 +414,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-03-12 19:33:47" itemprop="dateModified" datetime="2020-03-12T19:33:47+08:00">2020-03-12</time>
+                <time title="修改时间：2020-03-26 17:45:05" itemprop="dateModified" datetime="2020-03-26T17:45:05+08:00">2020-03-26</time>
               
             
           </span>
@@ -465,7 +465,7 @@
 <p>也可以用gcc的默认规则</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">$gcc -o cacu add&#x2F;add_int.c add&#x2F;add_float.c sub&#x2F;sub_int.c sub&#x2F;sub_float.c main.c<br></code></pre></td></tr></table></figure>
 <p>这里我们就不禁发出疑问，这gcc默认规则感觉简单又高效，为什么还要用makefile呢？<br>事实上，如果项目中的文件比较多，关系比较复杂，或者我们需要迭代版本修改自己的源代码的话，使用gcc命令行会变的很繁琐，于是我们就引入了makefile。</p>
-<h2 id="makefile"><a href="#makefile" class="headerlink" title="makefile"></a>makefile</h2><p>我们是用make（cmake、nmake）警星项目管理的时候，需要衣蛾makefile文件，make在编译的时候，从makefile中读取设置情况，运行相关规则。<br>比如对之前的那个项目我们建立一个如下的makefile</p>
+<h2 id="makefile"><a href="#makefile" class="headerlink" title="makefile"></a>makefile</h2><p>我们是用make（cmake、nmake）警星项目管理的时候，需要一个makefile文件，make在编译的时候，从makefile中读取设置情况，运行相关规则。<br>比如对之前的那个项目我们建立一个如下的makefile</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs plain">cacu:add_int.o add_float.o sub_int.o sub_float.o main.o<br>    gcc -o cacu add&#x2F;add_int.o add&#x2F;add_float.o \<br>        sub&#x2F;sub_int.o sub&#x2F;sub_float.o main.o<br>add_int.o:add&#x2F;add_int.c add&#x2F;add.h<br>    gcc -c -o add&#x2F;add_int.o add&#x2F;add_int.c<br>add_float.o:add&#x2F;add_float.c add&#x2F;add.h<br>    gcc -c -o add&#x2F;add_float.o add.add_float.c<br>sub_int.o:sub&#x2F;sub_int.c sub&#x2F;sub.h<br>    gcc -c -o sub&#x2F;sub_int.o sub&#x2F;sub_int.c<br>sub_float.o:sub&#x2F;sub_float.c sub&#x2F;sub.h<br>    gcc -c -o sub&#x2F;sub_float.o sub&#x2F;sub_float.c<br>main.o:main.c add&#x2F;add.h sub&#x2F;sub.h<br>    gcc -c -o main.o main.c -Iadd -Isub<br><br>clean:<br>    rm -f cacu add&#x2F;add_int.o add&#x2F;add_float.o\<br>        sub&#x2F;sub_int.o sub&#x2F;sub_float.o main.o<br></code></pre></td></tr></table></figure>
 <p>在默认情况下会执行Makefile中的第一个规则，也就是cacu相关的规则，而cacu又依赖于多个目标文件，所以编译器会先生成依赖文件的.o</p>
 <h1 id="makefile的规则"><a href="#makefile的规则" class="headerlink" title="makefile的规则"></a>makefile的规则</h1><p>makefile的框架是由规则构成的，而规则的基本格式是</p>
@@ -635,9 +635,9 @@
               
                 <div class="site-state-item site-state-posts">
                 
-                  <a href="/archives/%20%7C%7C%20archive">
+                  <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">22</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -682,7 +682,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">15</span>
+                      
+                    
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -728,7 +730,7 @@
               <ul class="links-of-blogroll-list">
                 
                   <li class="links-of-blogroll-item">
-                    <a href="https://my0sotis.github.io/" title="My0sotis" target="_blank">My0sotis</a>
+                    <a href="mlogs.top" title="My0sotis" target="_blank">My0sotis</a>
                   </li>
                 
               </ul>
@@ -984,6 +986,13 @@
   
 
   
+  
+
+  
+  
+
+  
+
 
   
   
