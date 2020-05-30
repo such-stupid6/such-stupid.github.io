@@ -115,14 +115,14 @@
 <meta property="og:site_name" content="Gμn_">
 <meta property="og:description" content="导语计算机系统中，信息以二进制的方式存储，而检错在计信息传输的过程中十分重要。最近计网考试复习的时候觉得应该简单的总结一下检错手法（水一篇）">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/u%3D4037051707%2C4151905798%26fm%3D173%26s%3DEF4AA1578FC0494348DD90CE00005070%26w%3D379%26h%3D153%26img.JPEG">
-<meta property="og:image" content="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/1.png">
+<meta property="og:image" content="http://such-stupid6.github.io/2020/01/02/%E6%A3%80%E9%94%99/u%3D4037051707%2C4151905798%26fm%3D173%26s%3DEF4AA1578FC0494348DD90CE00005070%26w%3D379%26h%3D153%26img.JPEG">
+<meta property="og:image" content="http://such-stupid6.github.io/2020/01/02/%E6%A3%80%E9%94%99/1.png">
 <meta property="article:published_time" content="2020-01-02T10:24:04.000Z">
-<meta property="article:modified_time" content="2020-03-09T11:29:39.149Z">
+<meta property="article:modified_time" content="2020-05-30T05:50:13.590Z">
 <meta property="article:author" content="Gμn_">
 <meta property="article:tag" content="计算机基础">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/u%3D4037051707%2C4151905798%26fm%3D173%26s%3DEF4AA1578FC0494348DD90CE00005070%26w%3D379%26h%3D153%26img.JPEG">
+<meta name="twitter:image" content="http://such-stupid6.github.io/2020/01/02/%E6%A3%80%E9%94%99/u%3D4037051707%2C4151905798%26fm%3D173%26s%3DEF4AA1578FC0494348DD90CE00005070%26w%3D379%26h%3D153%26img.JPEG">
 
 
   
@@ -412,7 +412,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-03-09 19:29:39" itemprop="dateModified" datetime="2020-03-09T19:29:39+08:00">2020-03-09</time>
+                <time title="修改时间：2020-05-30 13:50:13" itemprop="dateModified" datetime="2020-05-30T13:50:13+08:00">2020-05-30</time>
               
             
           </span>
@@ -456,8 +456,8 @@
         <h1 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h1><p>计算机系统中，信息以二进制的方式存储，而检错在计信息传输的过程中十分重要。最近计网考试复习的时候觉得应该简单的总结一下检错手法（水一篇）</p>
 <a id="more"></a>
 <h2 id="奇偶校验"><a href="#奇偶校验" class="headerlink" title="奇偶校验"></a>奇偶校验</h2><p>奇偶校验分为奇校验和偶校验，都十分简单，只是在比特串后面加一个校验位，使得整个比特串的每一位异或为0（偶校验）或者1（奇校验）。<br>比如对一个8位长度的比特串10010011，进行奇校验之后就会为10010011 <strong>1</strong>，偶校验就会10010011 <strong>0</strong><br>在传输过程中一般对应编码的一个码元加一个校验位。<br>奇偶校验的局限就是连着错偶数个就傻了。</p>
-<h2 id="海明校验"><a href="#海明校验" class="headerlink" title="海明校验"></a>海明校验</h2><p>海明校验感觉就是进阶的奇偶校验。<br>对于数据位m的数据，加入k位的校验码,它应满足香农第二定理： <strong>n=m+k ≤ 2^k-1</strong><br>m是数据的长度，k是校验码的长度<br>校验码分别插在第2^0、2^1……位<br><img src="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/u%3D4037051707%2C4151905798%26fm%3D173%26s%3DEF4AA1578FC0494348DD90CE00005070%26w%3D379%26h%3D153%26img.JPEG" alt=""><br>个人觉得好记一点的说法，第n个校验位校验的是位数的二进制第一位为n的所有位，比如1=1（2），3=11（2），5=（101）2，他们的2^0位都是1，所以第一个校验位都校验他们。最终要求是校验位和他们所校验的所有位的异或为0。<br><strong>指错字</strong> 是将校验位和他们所校验的所有位数异或，如果没有出错的话就应该是0000……如果有一个位出错了，那么校验这个位的所有校验位算出来的指错字都会变成1，比如第3位错了，那么指错位1和指错位2都会变成1，指错字就会变成000011，那么我们就知道第3位出错了。<br>海明的局限也是出错两个以后会出现很多情况，指错字没法指出哪个地方是错的，有时候指错字为0000也不见得没有错误。</p>
-<h2 id="循环冗余校验CRC"><a href="#循环冗余校验CRC" class="headerlink" title="循环冗余校验CRC"></a>循环冗余校验CRC</h2><p>CRC是传输过程中应用比较广泛的一个检错方法。<br>对于一个比特串x，发送方和接收方一起约定一个对应的长度为r的二进制串m，发送方在x后面加上r-1个0然后二进制除m，将得到的结果放在x的后面一起传输<br><img src="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/1.png" alt=""><br>接收方只需要将得到的比特串二进制除m，如果没有错误的话余数应该为0<br>CRC可以检测所有的1位、2位、奇数个位错误 、长度小于等于r的突发错误</p>
+<h2 id="海明校验"><a href="#海明校验" class="headerlink" title="海明校验"></a>海明校验</h2><p>海明校验感觉就是进阶的奇偶校验。<br>对于数据位m的数据，加入k位的校验码,它应满足香农第二定理： <strong>n=m+k ≤ 2^k-1</strong><br>m是数据的长度，k是校验码的长度<br>校验码分别插在第2^0、2^1……位<br><img src="/2020/01/02/%E6%A3%80%E9%94%99/u%3D4037051707%2C4151905798%26fm%3D173%26s%3DEF4AA1578FC0494348DD90CE00005070%26w%3D379%26h%3D153%26img.JPEG" alt><br>个人觉得好记一点的说法，第n个校验位校验的是位数的二进制第一位为n的所有位，比如1=1（2），3=11（2），5=（101）2，他们的2^0位都是1，所以第一个校验位都校验他们。最终要求是校验位和他们所校验的所有位的异或为0。<br><strong>指错字</strong> 是将校验位和他们所校验的所有位数异或，如果没有出错的话就应该是0000……如果有一个位出错了，那么校验这个位的所有校验位算出来的指错字都会变成1，比如第3位错了，那么指错位1和指错位2都会变成1，指错字就会变成000011，那么我们就知道第3位出错了。<br>海明的局限也是出错两个以后会出现很多情况，指错字没法指出哪个地方是错的，有时候指错字为0000也不见得没有错误。</p>
+<h2 id="循环冗余校验CRC"><a href="#循环冗余校验CRC" class="headerlink" title="循环冗余校验CRC"></a>循环冗余校验CRC</h2><p>CRC是传输过程中应用比较广泛的一个检错方法。<br>对于一个比特串x，发送方和接收方一起约定一个对应的长度为r的二进制串m，发送方在x后面加上r-1个0然后二进制除m，将得到的结果放在x的后面一起传输<br><img src="/2020/01/02/%E6%A3%80%E9%94%99/1.png" alt><br>接收方只需要将得到的比特串二进制除m，如果没有错误的话余数应该为0<br>CRC可以检测所有的1位、2位、奇数个位错误 、长度小于等于r的突发错误</p>
 
       
     </div>

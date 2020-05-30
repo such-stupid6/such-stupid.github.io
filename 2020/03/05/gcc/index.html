@@ -115,21 +115,21 @@
 <meta property="og:site_name" content="Gμn_">
 <meta property="og:description" content="导语GCC是GNU Compiler Collection的缩写，包含gcc、g++等编译工具。这个工具不仅包含编译器，还包含其他工具集，例如ar、nm等。今天简单的讲一讲这个工具。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200305161017.jpg?raw=true">
-<meta property="og:image" content="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200305161056.jpg?raw=true">
-<meta property="og:image" content="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200305161148.jpg?raw=true">
-<meta property="og:image" content="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200305162537.jpg?raw=true">
-<meta property="og:image" content="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200306120956.jpg?raw=true">
-<meta property="og:image" content="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200306170344.jpg?raw=true">
-<meta property="og:image" content="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200306170358.jpg?raw=true">
-<meta property="og:image" content="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200306170412.jpg?raw=true">
+<meta property="og:image" content="http://such-stupid6.github.io/2020/03/05/gcc/TIM%E6%88%AA%E5%9B%BE20200305161017.jpg">
+<meta property="og:image" content="http://such-stupid6.github.io/2020/03/05/gcc/TIM%E6%88%AA%E5%9B%BE20200305161056.jpg">
+<meta property="og:image" content="http://such-stupid6.github.io/2020/03/05/gcc/TIM%E6%88%AA%E5%9B%BE20200305161148.jpg">
+<meta property="og:image" content="http://such-stupid6.github.io/2020/03/05/gcc/TIM%E6%88%AA%E5%9B%BE20200305162537.jpg">
+<meta property="og:image" content="http://such-stupid6.github.io/2020/03/05/gcc/TIM%E6%88%AA%E5%9B%BE20200306120956.jpg">
+<meta property="og:image" content="http://such-stupid6.github.io/2020/03/05/gcc/TIM%E6%88%AA%E5%9B%BE20200306170344.jpg">
+<meta property="og:image" content="http://such-stupid6.github.io/2020/03/05/gcc/TIM%E6%88%AA%E5%9B%BE20200306170358.jpg">
+<meta property="og:image" content="http://such-stupid6.github.io/2020/03/05/gcc/TIM%E6%88%AA%E5%9B%BE20200306170412.jpg">
 <meta property="article:published_time" content="2020-03-05T02:39:50.000Z">
-<meta property="article:modified_time" content="2020-03-09T11:22:43.221Z">
+<meta property="article:modified_time" content="2020-05-30T05:10:23.466Z">
 <meta property="article:author" content="Gμn_">
 <meta property="article:tag" content="工具">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200305161017.jpg?raw=true">
+<meta name="twitter:image" content="http://such-stupid6.github.io/2020/03/05/gcc/TIM%E6%88%AA%E5%9B%BE20200305161017.jpg">
 
 
   
@@ -419,7 +419,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-03-09 19:22:43" itemprop="dateModified" datetime="2020-03-09T19:22:43+08:00">2020-03-09</time>
+                <time title="修改时间：2020-05-30 13:10:23" itemprop="dateModified" datetime="2020-05-30T13:10:23+08:00">2020-05-30</time>
               
             
           </span>
@@ -465,12 +465,13 @@
 
 <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>GCC能编译C、C++、Objective-C、Fortran、Java、Ada等语言。GCC可以在不同的硬件平台编译，即支持交叉编译。<br>GCC的c编译器是gcc，其命令格式为</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">Usage:gcc [options] file...<br></code></pre></td></tr></table></figure>
-<p>GCC支持默认拓展名策略，下表是GCC下默认文件拓展名的含义。<br><img src="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200305161017.jpg?raw=true" alt=""><br>GCC常用的编译器有<br><img src="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200305161056.jpg?raw=true" alt=""><br>头文件和库文件的默认路径是<br><img src="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200305161148.jpg?raw=true" alt=""></p>
+
+<p>GCC支持默认拓展名策略，下表是GCC下默认文件拓展名的含义。<br><img src="/2020/03/05/gcc/TIM%E6%88%AA%E5%9B%BE20200305161017.jpg" alt><br>GCC常用的编译器有<br><img src="/2020/03/05/gcc/TIM%E6%88%AA%E5%9B%BE20200305161056.jpg" alt><br>头文件和库文件的默认路径是<br><img src="/2020/03/05/gcc/TIM%E6%88%AA%E5%9B%BE20200305161148.jpg" alt></p>
 <h1 id="单个文件编译成执行文件"><a href="#单个文件编译成执行文件" class="headerlink" title="单个文件编译成执行文件"></a>单个文件编译成执行文件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">$gcc hello.c<br></code></pre></td></tr></table></figure>
 <p>会在当前目录下自动生成文件名为a.out的可执行文件。<br>如果想要指定生成的可执行文件名，啧加一个-o参数</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">$gcc -o hello hello.c<br></code></pre></td></tr></table></figure>
 <p>此时就会出现一个叫hello的可执行文件。</p>
-<h1 id="编译生成目标文件"><a href="#编译生成目标文件" class="headerlink" title="编译生成目标文件"></a>编译生成目标文件</h1><p>编译的过程分为如图所示<br><img src="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200305162537.jpg?raw=true" alt=""><br>源文件、目标文件和可执行文件是常用的三个词。源文件即是存放源代码的文件。目标文件是指经过了编译器的编译生成的二进制机器码，但是目标文件的一些函数过程没有相关的指示和说明，所以一般不可执行。可执行文件是目标文件与相关的库连接后的文件，它是可以执行的。<br>单个文件编译成可执行文件时，中间文件只在编译的过程中临时存在，在编译完成生成可执行文件之后，会删除掉目标文件。然而在大型项目中目标文件需要保留用于不同的编译目标。</p>
+<h1 id="编译生成目标文件"><a href="#编译生成目标文件" class="headerlink" title="编译生成目标文件"></a>编译生成目标文件</h1><p>编译的过程分为如图所示<br><img src="/2020/03/05/gcc/TIM%E6%88%AA%E5%9B%BE20200305162537.jpg" alt><br>源文件、目标文件和可执行文件是常用的三个词。源文件即是存放源代码的文件。目标文件是指经过了编译器的编译生成的二进制机器码，但是目标文件的一些函数过程没有相关的指示和说明，所以一般不可执行。可执行文件是目标文件与相关的库连接后的文件，它是可以执行的。<br>单个文件编译成可执行文件时，中间文件只在编译的过程中临时存在，在编译完成生成可执行文件之后，会删除掉目标文件。然而在大型项目中目标文件需要保留用于不同的编译目标。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">$gcc -c (-o hello.o) hello.c<br></code></pre></td></tr></table></figure>
 <p>GCC使用一个-c的选项来将源文件生成目标文件，而不是可执行文件，默认情况下生成的目标文件和源文件名称一样，拓展名为.o<br>如果要指定生成的目标文件的文件名，也是用-o的选项。<br>此外，可以用一条命令编译多个源文件。比如</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">$gcc -c file1.c file2.c file3.c<br></code></pre></td></tr></table></figure>
@@ -508,7 +509,8 @@
 <h2 id="动态链接库的配置"><a href="#动态链接库的配置" class="headerlink" title="动态链接库的配置"></a>动态链接库的配置</h2><p>动态链接库的使用需要指定系的动态链接库搜索路径，让系统找到运行所需要的动态链接库才行。/etc/ld.so.conf是动态链接库的搜索路径配置文件，里面存放着动态链接库所在目录的名字。</p>
 <h2 id="动态链接库的管理命令"><a href="#动态链接库的管理命令" class="headerlink" title="动态链接库的管理命令"></a>动态链接库的管理命令</h2><p>ldconfig命令让新增加的动态链接库能够被系统共享。它可以在系统默认的搜索路径和动态链接库的配置文件中列出的目录中搜索动态链接库，创建动态链接装入程序需要的链接和缓存文件，搜索完毕后将结果写入/etc/ld.so.chche缓存文件。<br>ldconfig的用法如下，选项含义见表</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">ldconfig [-v|--verbose] [-n] [-N] [-X] [-f CONF] [-C CACHE] [-r ROOT] [-l] [-p|--print-cache] [-c FORMAT] [-V] [-?|--help|--suage] path...<br></code></pre></td></tr></table></figure>
-<p><img src="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200306120956.jpg?raw=true" alt=""></p>
+
+<p><img src="/2020/03/05/gcc/TIM%E6%88%AA%E5%9B%BE20200306120956.jpg" alt></p>
 <h2 id="使用动态链接库"><a href="#使用动态链接库" class="headerlink" title="使用动态链接库"></a>使用动态链接库</h2><p>同使用静态链接库，使用”-l 库名”的方式引入动态链接库<br><strong>注意</strong> 实际上，在编译过程中也可以用L来指定动态链接库的路径，并且编译不会报错，但是在运行时则会出现无法加载动态链接库的报错。这是因为不同于静态链接库将整个库的目标文件一并写入可执行程序，动态链接库只提供一个动态链接库的库名，程序在执行时，会根据我们系统目录中保存的库名和路径去装载动态链接库内的函数，并且 <strong>如果有多个程序调用同一个库，在内存中值装载一份该共享库的实例。</strong><br>此外还要注意，如果系统的搜索路径下同时存在静态链接库和动态链接库，默认情况下会链接动态链接库，如果需要强制链接静态链接库，需要加上“-static”选项。</p>
 <h1 id="动态加载库"><a href="#动态加载库" class="headerlink" title="动态加载库"></a>动态加载库</h1><p>动态加载库类似于动态链接库，区别在于，动态链接库在程序启动时加载（load），而动态加载库则可以利用程序的方法来控制什么时候加载。动态加载库主要有dlopen()、dlerror()、dlsym()和dlclose()s。</p>
 <h2 id="dlopen"><a href="#dlopen" class="headerlink" title="dlopen()"></a>dlopen()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">void * dlopen(const char *filename, int flag);<br></code></pre></td></tr></table></figure>
@@ -521,7 +523,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">$gcc -D MACRO<br></code></pre></td></tr></table></figure>
 <p>就可以指定这段被执行。<br>此外还有<br>-I dir：将头文件搜索路径扩大，包含dir目录<br>-L dir：将链接时使用的链接库搜索路径扩大，包含dir目录。<br>-static：使用静态库链接，gcc会优先使用动态库<br>-g：包括调试信息</p>
 <p>-On：优化程序，程序优化后执行速度会更快。n一般意义如下<br>-O0：关闭所有优化选项<br>-O1：基本优化，编译器会生成更快的代码<br>-O2：-O1的升级版，推荐使用<br>-O3：这是目前最高的优化级别，它会使用更多的编译时间，虽然它生成的代码只会比-O2块一点点（GCC3.x中是这样的，但是在GCC4.x中有时候可能还没有-O2快），但是它会增大二进制文件的体积并让他们更消耗内存，因此在GCC4.x中-O3是不推荐的。<br>-Os:这个级别是用来优化代码尺寸的，他只是给一些CPU缓存或是磁盘空间小的机器使用<br>-Ofast:<br>该选项将不会严格遵循语言标准，除了启用所有的-O3优化选项之外，也会针对某些语言启用部分优化。如：-ffast-math ，对于Fortran语言，还会启用下列选项：<br>-fno-protect-parens<br>-fstack-arrays<br>-Og:<br>该标识会精心挑选部分与-g选项不冲突的优化选项，当然就能提供合理的优化水平，同时产生较好的可调试信息和对语言标准的遵循程度。</p>
-<p>-W all：打开所有gcc能够提供的，常用的警告信息。<br>下表示具体的含义<br><img src="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200306170344.jpg?raw=true" alt=""><br><img src="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200306170358.jpg?raw=true" alt=""><br><img src="https://github.com/such-stupid6/such-stupid6.github.io/blob/master/image/GCC/TIM%E6%88%AA%E5%9B%BE20200306170412.jpg?raw=true" alt=""></p>
+<p>-W all：打开所有gcc能够提供的，常用的警告信息。<br>下表示具体的含义<br><img src="/2020/03/05/gcc/TIM%E6%88%AA%E5%9B%BE20200306170344.jpg" alt><br><img src="/2020/03/05/gcc/TIM%E6%88%AA%E5%9B%BE20200306170358.jpg" alt><br><img src="/2020/03/05/gcc/TIM%E6%88%AA%E5%9B%BE20200306170412.jpg" alt></p>
 <p>参考：<br><a href="https://blog.csdn.net/hxxjxw/article/details/89670302?depth_1-utm_source=distribute.pc_relevant.none-task&amp;utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">https://blog.csdn.net/hxxjxw/article/details/89670302?depth_1-utm_source=distribute.pc_relevant.none-task&amp;utm_source=distribute.pc_relevant.none-task</a></p>
 
       

@@ -115,20 +115,20 @@
 <meta property="og:site_name" content="Gμn_">
 <meta property="og:description" content="导语SQL注入漏洞作为臭名昭著的漏洞，已经有很多全自动攻击的工具了，但是我们是优秀的同学，我们要会用工具，还知道工具的原理。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308171041.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308174015.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308174419.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308174308.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308175018.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308174914.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308175140.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308175324.jpg">
+<meta property="og:image" content="http://such-stupid6.github.io/2020/03/08/SQL%E6%89%8B%E6%B3%A8/TIM%E6%88%AA%E5%9B%BE20200308171041.jpg">
+<meta property="og:image" content="http://such-stupid6.github.io/2020/03/08/SQL%E6%89%8B%E6%B3%A8/TIM%E6%88%AA%E5%9B%BE20200308174015.jpg">
+<meta property="og:image" content="http://such-stupid6.github.io/2020/03/08/SQL%E6%89%8B%E6%B3%A8/TIM%E6%88%AA%E5%9B%BE20200308174419.jpg">
+<meta property="og:image" content="http://such-stupid6.github.io/2020/03/08/SQL%E6%89%8B%E6%B3%A8/TIM%E6%88%AA%E5%9B%BE20200308174308.jpg">
+<meta property="og:image" content="http://such-stupid6.github.io/2020/03/08/SQL%E6%89%8B%E6%B3%A8/TIM%E6%88%AA%E5%9B%BE20200308175018.jpg">
+<meta property="og:image" content="http://such-stupid6.github.io/2020/03/08/SQL%E6%89%8B%E6%B3%A8/TIM%E6%88%AA%E5%9B%BE20200308174914.jpg">
+<meta property="og:image" content="http://such-stupid6.github.io/2020/03/08/SQL%E6%89%8B%E6%B3%A8/TIM%E6%88%AA%E5%9B%BE20200308175140.jpg">
+<meta property="og:image" content="http://such-stupid6.github.io/2020/03/08/SQL%E6%89%8B%E6%B3%A8/TIM%E6%88%AA%E5%9B%BE20200308175324.jpg">
 <meta property="article:published_time" content="2020-03-08T04:14:52.000Z">
-<meta property="article:modified_time" content="2020-03-09T11:22:00.334Z">
+<meta property="article:modified_time" content="2020-05-30T05:47:34.047Z">
 <meta property="article:author" content="Gμn_">
 <meta property="article:tag" content="数据库">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308171041.jpg">
+<meta name="twitter:image" content="http://such-stupid6.github.io/2020/03/08/SQL%E6%89%8B%E6%B3%A8/TIM%E6%88%AA%E5%9B%BE20200308171041.jpg">
 
 
   
@@ -418,7 +418,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-03-09 19:22:00" itemprop="dateModified" datetime="2020-03-09T19:22:00+08:00">2020-03-09</time>
+                <time title="修改时间：2020-05-30 13:47:34" itemprop="dateModified" datetime="2020-05-30T13:47:34+08:00">2020-05-30</time>
               
             
           </span>
@@ -469,7 +469,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs plain">and &#39;1&#39;&#x3D;&#39;1 &#x2F;and &#39;1&#39;&#x3D;&#39;2<br>or &#39;1&#39;&#x3D;&#39;1&#x2F;or &#39;1&#39;&#x3D;&#39;2<br>+&#39; &#x2F;+&#39; -&#39; &#x2F;-&#39; \&gt; &lt; &lt;&#x3D; \&gt;&#x3D;<br>1&#39; like &#39;1&#x2F;1&#39; like &#39;2<br></code></pre></td></tr></table></figure>
 
 <p>只要我们对sql语句的掌握够深，类似的判断语句还很多</p>
-<h1 id="实战学习"><a href="#实战学习" class="headerlink" title="实战学习"></a>实战学习</h1><p>用了<a href="https://www.ctfhub.com/" target="_blank" rel="noopener">ctfhub</a>的sql注入题目。<br>首先整数型注入，按照提示输入个1<br><img src="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308171041.jpg" alt=""><br>下面也显示了对应的语句，但是我们发现他是select *，我们的注入语句是显示所有的查找到的条目，可是这里只返回了一条语句，猜测经过处理只显示一个条目。于是我们使用limit来验证猜测<br><img src="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308174015.jpg" alt=""><br>这条语句理论上应该返回3个条目或者报错，然而却只返回一个条目，因此我们的猜测是正确的。解决的问题也简单，我们只要输入一个不存在的id，这时后端查找到的是NULL，于是就可以显示我们的union select的内容了。<br>接下来我们使用order by来判断条目的字段数量。<br><img src="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308174419.jpg" alt=""><br><img src="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308174308.jpg" alt=""><br>在3的时候就没有回显了，我们也可以判断出后端做了处理不显示报错信息。<br>接下来我们应该使用union来判断条目的字段对应显示在那个位置，但是我们一共就俩字段，可以判断，但没必要。<br>直接看数据库名<br><img src="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308175018.jpg" alt=""><br>得到数据库的名字是sqli<br>然后information_schema3连<br><img src="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308174914.jpg" alt=""><br><img src="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308175140.jpg" alt=""><br><img src="https://raw.githubusercontent.com/such-stupid6/such-stupid6.github.io/master/image/SQL%E6%B3%A8%E5%85%A5/TIM%E6%88%AA%E5%9B%BE20200308175324.jpg" alt=""><br>顺利得到flag。</p>
+<h1 id="实战学习"><a href="#实战学习" class="headerlink" title="实战学习"></a>实战学习</h1><p>用了<a href="https://www.ctfhub.com/" target="_blank" rel="noopener">ctfhub</a>的sql注入题目。<br>首先整数型注入，按照提示输入个1<br><img src="/2020/03/08/SQL%E6%89%8B%E6%B3%A8/TIM%E6%88%AA%E5%9B%BE20200308171041.jpg" alt><br>下面也显示了对应的语句，但是我们发现他是select *，我们的注入语句是显示所有的查找到的条目，可是这里只返回了一条语句，猜测经过处理只显示一个条目。于是我们使用limit来验证猜测<br><img src="/2020/03/08/SQL%E6%89%8B%E6%B3%A8/TIM%E6%88%AA%E5%9B%BE20200308174015.jpg" alt><br>这条语句理论上应该返回3个条目或者报错，然而却只返回一个条目，因此我们的猜测是正确的。解决的问题也简单，我们只要输入一个不存在的id，这时后端查找到的是NULL，于是就可以显示我们的union select的内容了。<br>接下来我们使用order by来判断条目的字段数量。<br><img src="/2020/03/08/SQL%E6%89%8B%E6%B3%A8/TIM%E6%88%AA%E5%9B%BE20200308174419.jpg" alt><br><img src="/2020/03/08/SQL%E6%89%8B%E6%B3%A8/TIM%E6%88%AA%E5%9B%BE20200308174308.jpg" alt><br>在3的时候就没有回显了，我们也可以判断出后端做了处理不显示报错信息。<br>接下来我们应该使用union来判断条目的字段对应显示在那个位置，但是我们一共就俩字段，可以判断，但没必要。<br>直接看数据库名<br><img src="/2020/03/08/SQL%E6%89%8B%E6%B3%A8/TIM%E6%88%AA%E5%9B%BE20200308175018.jpg" alt><br>得到数据库的名字是sqli<br>然后information_schema3连<br><img src="/2020/03/08/SQL%E6%89%8B%E6%B3%A8/TIM%E6%88%AA%E5%9B%BE20200308174914.jpg" alt><br><img src="/2020/03/08/SQL%E6%89%8B%E6%B3%A8/TIM%E6%88%AA%E5%9B%BE20200308175140.jpg" alt><br><img src="/2020/03/08/SQL%E6%89%8B%E6%B3%A8/TIM%E6%88%AA%E5%9B%BE20200308175324.jpg" alt><br>顺利得到flag。</p>
 <h1 id="常见的获取敏感信息的函数"><a href="#常见的获取敏感信息的函数" class="headerlink" title="常见的获取敏感信息的函数"></a>常见的获取敏感信息的函数</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs plain">user()                      数据库用户名<br>current_user()              当前数据库用户名<br>database()                  数据库名<br>version()                   MYSQL数据库版本<br>@@datadir                   读取数据库路径<br>@@basedir                   MYSQL安装路径<br>@@version_compile_os        获取操作系统版本<br>load_file()                 MYSQL读取本地文件的函数<br></code></pre></td></tr></table></figure>
 
 <h1 id="举一反三"><a href="#举一反三" class="headerlink" title="举一反三"></a>举一反三</h1><p>那么我们就基本可以总结书sql注入的普遍思路了。</p>
