@@ -456,7 +456,7 @@
         <h1 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h1><p>我的憨憨同学们在群里炫耀起了他的烂橘子下apex可以达到10m/s，并且强力向我们安利他的加速器，说是还能一键修复origin平台，属实是居家旅行的必备好物。<br>然而实际上我们只需修改一下origin平台的cdn即可，多年以前搁学校下载的时候裸下就10多m/s，具体怎么操作，cdn是什么呢，容我随意的介绍一哈。</p>
 <a id="more"></a>
 <h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><p>首先到origin的安装目录下，找到EAcore.ini文件，如果你是憨憨经常找不到文件的位置，那我推荐你用 <a href="https://www.voidtools.com/zh-cn/" target="_blank" rel="noopener">everything</a>，他采用了更加高效的搜索排序算法能让你更快地根据文件名定位到具体的文件。<br>然后用什么文本修改工具打开它，向其中加上如下代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plain">[connection]<br>EnvironmentName&#x3D;production<br><br>[Feature]<br>CdnOverride&#x3D;akamai<br></code></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[connection]</span><br><span class="hljs-attr">EnvironmentName</span>=production<br><br><span class="hljs-section">[Feature]</span><br><span class="hljs-attr">CdnOverride</span>=akamai<br></code></pre></td></tr></table></figure>
 
 <p>保存，完事。<br>不过记得重启你的橘子客户端。<br>这段代码也很简单，设置了ASP.NET Core的hostenvironment（default值理论上好像也是production来着，感觉理论上不改也行，但我没试过），修改了cdn服务器，没了。</p>
 <h1 id="什么是cdn"><a href="#什么是cdn" class="headerlink" title="什么是cdn"></a>什么是cdn</h1><p>CDN的全称是Content Delivery Network，即内容分发网络。CDN是构建在现有网络基础之上的智能虚拟网络，依靠部署在各地的边缘服务器，通过中心平台的负载均衡、内容分发、调度等功能模块，使用户就近获取所需内容，降低网络拥塞，提高用户访问响应速度和命中率。CDN的关键技术主要有内容存储和分发技术。CDN加速意思就是在用户和我们的服务器之间加一个缓存机制，通过这个缓存机制动态获取IP地址根据地理位置，让用户到最近的服务器访问。本质上就是拿空间换时间。</p>
@@ -607,7 +607,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">30</span>
+                    <span class="site-state-item-count">31</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
