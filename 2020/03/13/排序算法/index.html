@@ -118,7 +118,7 @@
 <meta property="og:image" content="http://such-stupid6.github.io/2020/03/13/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/1.jpg">
 <meta property="og:image" content="http://such-stupid6.github.io/2020/03/13/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/2.gif">
 <meta property="og:image" content="http://such-stupid6.github.io/2020/03/13/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/3.gif">
-<meta property="og:image" content="http://such-stupid6.github.io/2020/03/13/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/1.gif">
+<meta property="og:image" content="http://such-stupid6.github.io/2020/03/13/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/4.gif">
 <meta property="og:image" content="http://such-stupid6.github.io/2020/03/13/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/5.jpg">
 <meta property="og:image" content="http://such-stupid6.github.io/2020/03/13/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/6.jpg">
 <meta property="og:image" content="http://such-stupid6.github.io/2020/03/13/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/7.gif">
@@ -128,7 +128,7 @@
 <meta property="og:image" content="http://such-stupid6.github.io/2020/03/13/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/11.jpg">
 <meta property="og:image" content="http://such-stupid6.github.io/2020/03/13/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/12.gif">
 <meta property="article:published_time" content="2020-03-13T10:35:57.000Z">
-<meta property="article:modified_time" content="2020-06-18T12:18:25.757Z">
+<meta property="article:modified_time" content="2020-07-10T07:11:31.704Z">
 <meta property="article:author" content="Gμn_">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
@@ -422,7 +422,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-06-18 20:18:25" itemprop="dateModified" datetime="2020-06-18T20:18:25+08:00">2020-06-18</time>
+                <time title="修改时间：2020-07-10 15:11:31" itemprop="dateModified" datetime="2020-07-10T15:11:31+08:00">2020-07-10</time>
               
             
           </span>
@@ -469,8 +469,8 @@
 <h2 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h2><p>k：桶个数<br>in-place：不占用额外内存<br>out-place：占用额外内存</p>
 <h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><p>每轮从头开始比较相邻的元素，如果第一个比第二个大（小），就交换位置，否则不交换，这样就可以使最大（小）的元素在数组的尾部。第i轮可以将第i大（小）的元素放在倒数第i位。同时如果在第i轮发现没有任何元素交换位置就说明已经排序成功。<br><img src="/2020/03/13/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/2.gif" alt><br>最优时间复杂度在整个数组恰好顺序于所需要的顺序，只需要扫描第一遍就能发现是没有交换位置，也就是说明排序成功了。T(n)=n=O(n)<br>最差时间复杂度在整个数组恰好倒序于所需要的顺序，T(n)=(n-1)+(n-2)+……+1=(n-2)*n/2=O($n^2$)<br>平均情况是O($n^2$)</p>
 <h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><p>每一轮都扫描全部的元素，找到最大(小)的那个元素，然后把它和未排序序列的第一个（也就是已排序序列的下一个）交换位置。<br><img src="/2020/03/13/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/3.gif" alt><br>因为他每一轮其实不管未排序序列的情况如何，都需要挨个比较一边，所以他的复杂度稳定，永远是O($n^2$)</p>
-<h1 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h1><p>插入排序将整个序列分为有序部分和无序部分两个部分，开始时有序部分为空，而无序部分为整个序列。<br>在每一轮，拿出无序部分的第一个元素，在有序部分中找到他应该在的位置插入，使得有序部分仍保持有序。<br><img src="/2020/03/13/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/1.gif" alt><br>最优时间复杂度在整个数组恰好顺序于所需要的顺序，每一次拿一个无序序列的元素就能直接一步到胃插入到对的位置，T(n)=n=O(n)<br>最差时间复杂度在整个数组恰好倒序于所需要的顺序，每次拿到元素都要扫描整个有序序列才能找到对的位置。T(n)=(n-1)+(n-2)+……+1=(n-2)*n/2=O($n^2$)<br>平均情况是O($n^2$)</p>
-<h1 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h1><p>希尔排序是非常有地位的一个算法，由希尔在1959年提出，它的基本思想也是插入排序，但经过了优化改进之后使得它的复杂度突破了O($n^2$)。希尔排序又叫缩小增量排序<br>希尔排序的思想是将整个待排序的序列依据一定的增量来分组，对每一组采用直接插入排序的方式来排序，然后缩小增量再次分组，然后再次排序，如此循环。在经典的希尔排序里，这个增量是2/n,4/n,8/n……<br><img src="/2020/03/13/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/5.jpg" alt><br>每经过一轮分组，整个序列就会越趋向于有序，也就是在下一轮时分组内的插入排序会趋向于简单。<br>可以把算法看成两个步骤，第一个步骤是分组，第二个步骤是插入排序。<br>分组的时间复杂度都是$\log_2{n}$，因此评价希尔排序的最优和最劣主要还是看直接插入排序过程里的复杂度。<br><img src="/2020/03/13/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/6.jpg" alt><br>迄今为止，还无法从理论上精准地分析希尔排序的效率，有各种各样基于试验的评估，估计它的时间级介于O(N3/2)与O(N7/6)之间。我们可以认为希尔排序的平均时间复杂度为O(N<em>(logN)2)。专家们提倡，几乎任何排序工作在开始时都可以用希尔排序，若在实际使用中证明它不够快，再改成快速排序这样更高级的排序算法。<br>然而，Donald Knuth提出使用h=3</em>h+1的序列让增量之间互质可以有效的提高效率。</p>
+<h1 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h1><p>插入排序将整个序列分为有序部分和无序部分两个部分，开始时有序部分为空，而无序部分为整个序列。<br>在每一轮，拿出无序部分的第一个元素，在有序部分中找到他应该在的位置插入，使得有序部分仍保持有序。<br><img src="/2020/03/13/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/4.gif" alt><br>最优时间复杂度在整个数组恰好顺序于所需要的顺序，每一次拿一个无序序列的元素就能直接一步到胃插入到对的位置，T(n)=n=O(n)<br>最差时间复杂度在整个数组恰好倒序于所需要的顺序，每次拿到元素都要扫描整个有序序列才能找到对的位置。T(n)=(n-1)+(n-2)+……+1=(n-2)*n/2=O($n^2$)<br>平均情况是O($n^2$)</p>
+<h1 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h1><p>希尔排序是非常有地位的一个算法，由希尔在1959年提出，它的基本思想也是插入排序，但经过了优化改进之后使得它的复杂度突破了O($n^2$)。希尔排序又叫缩小增量排序<br>希尔排序的思想是将整个待排序的序列依据一定的增量来分组，对每一组采用直接插入排序的方式来排序，然后缩小增量再次分组，然后再次排序，如此循环。在经典的希尔排序里，这个增量是2/n,4/n,8/n……<br><img src="/2020/03/13/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/5.jpg" alt><br>每经过一轮分组，整个序列就会越趋向于有序，也就是在下一轮时分组内的插入排序会趋向于简单。<br>可以把算法看成两个步骤，第一个步骤是分组，第二个步骤是插入排序。<br>分组的时间复杂度都是$\log_2{n}$，因此评价希尔排序的最优和最劣主要还是看直接插入排序过程里的复杂度。<br><img src="/2020/03/13/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/6.jpg" alt><br>迄今为止，还无法从理论上精准地分析希尔排序的效率，有各种各样基于试验的评估，估计它的时间级介于O(N3/2)与O(N7/6)之间。我们可以认为希尔排序的平均时间复杂度为O(N*(logN)2)。专家们提倡，几乎任何排序工作在开始时都可以用希尔排序，若在实际使用中证明它不够快，再改成快速排序这样更高级的排序算法。<br>然而，Donald Knuth提出使用h=3*h+1的序列让增量之间互质可以有效的提高效率。</p>
 <h1 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h1><p>归并排序使用了分治思想，分治就是“分而治之”，将大问题细分为小问题，将序列分为小的子序列，将每个子序列变得有序，然后在合并有序的子序列，最终使得整个序列都有序。<br>经典的归并排序即二路归并，首先将整个序列分为两个n/2长度的子序列，对每个子序列再二分，一直分到序列只有一个元素，自然有序为止。这是归并中的“归”：归一<br>然后在对子序列进行归并中的“并”：合并<br>因为两个子序列都是有序的，因此我们可以很快地将两个子序列合并成有序的一个序列。<br><img src="/2020/03/13/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/7.gif" alt><br>最佳情况全部有序，只有在合并过程中的一次次比较扫描了整个序列，因此复杂度为T(n)=$\log_2{n}$+n=O(n)<br>最差情况全部无序，每一次合并都全部扫描，复杂度为O($n\log_2{n}$)<br>平均情况是O($n\log_2{n}$)</p>
 <h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><p>快速排序首先选择一个元素作为基准，然后将剩下的所有元素分为比基准大的元素们和比基准小的元素们，然后将基准差在他们俩中间，然后分别对这两个部分进行快速排序。<br><img src="/2020/03/13/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/8.gif" alt><br>在最优情况下，Partition每次都划分得很均匀，如果排序n个关键字，其递归树的深度就为.log2n.+1（.x.表示不大于x的最大整数），即仅需递归log2n次，需要时间为T（n）的话，第一次Partiation应该是需要对整个数组扫描一遍，做n次比较。然后，获得的枢轴将数组一分为二，那么各自还需要T（n/2）的时间（注意是最好情况，所以平分两半）。于是不断地划分下去，我们就有了下面的不等式推断。<br>T（n）≤2T（n/2） +n，T（1）=0<br>T（n）≤2（2T（n/4）+n/2） +n=4T（n/4）+2n<br>T（n）≤4（2T（n/8）+n/4） +2n=8T（n/8）+3n<br>……<br>T（n）≤nT（1）+（log2n）×n= O(nlogn)<br>此时复杂度为O($n\log_2{n}$)<br>最差情况下，每次划分只得到一个比上一次划分少一个记录的子序列，直接退化为冒泡排序，复杂度O($n^2$)<br>平均情况O($n\log_2{n}$)</p>
 <h1 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h1><p>堆排序是依据堆的数据结构而设计的一种算法。堆是一个近似完全二叉树的结构，并且子节点的键值或索引总是小于（或大于）它的父节点。<br>堆排序就是将待排序按照树的结构插进去，然后用堆的组成算法把它变成一个大顶堆。然后根据这个大顶堆的性质，根节点是最大的，所以我们把它掏出来，让最底层的节点放在根节点上，这时显然这个堆不是一个堆（？），所以再利用堆的操作将他变成正确的堆，这也就将最大的节点又放在了根节点上。<br><img src="/2020/03/13/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/9.gif" alt><br>最优、最劣、平均算法复杂度都为O($n\log_2{n}$)</p>
@@ -611,7 +611,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">31</span>
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -660,7 +660,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">17</span>
+                      
+                    
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
