@@ -117,10 +117,12 @@
 <meta property="og:site_name" content="π1L4r">
 <meta property="og:description" content="导语由于浏览器最核心、最基本的安全功能——同源策略，的限制，不同源的客户端脚本在没有明确授权的情况下，不能读写对方资源。跨域的问题可以说是前端程序员的一坨心病，与此同时跨域安全也是安全程序员的一大坨心病，今天由我来简单说说~">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.smartpillar.xyz/2021/01/15/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E5%AE%89%E5%85%A8/1.jpg">
 <meta property="article:published_time" content="2021-01-15T03:46:01.000Z">
-<meta property="article:modified_time" content="2021-01-15T03:56:06.300Z">
+<meta property="article:modified_time" content="2021-01-17T12:45:57.926Z">
 <meta property="article:author" content="π1L4r">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.smartpillar.xyz/2021/01/15/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E5%AE%89%E5%85%A8/1.jpg">
 
 
   
@@ -393,12 +395,24 @@
                 
               
 
-              <time title="创建时间：2021-01-15 11:46:01 / 修改时间：11:56:06" itemprop="dateCreated datePublished" datetime="2021-01-15T11:46:01+08:00">2021-01-15</time>
+              <time title="创建时间：2021-01-15 11:46:01" itemprop="dateCreated datePublished" datetime="2021-01-15T11:46:01+08:00">2021-01-15</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2021-01-17 20:45:57" itemprop="dateModified" datetime="2021-01-17T20:45:57+08:00">2021-01-17</time>
               
             
           </span>
@@ -441,6 +455,67 @@
       
         <h1 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h1><p>由于浏览器最核心、最基本的安全功能——同源策略，的限制，不同源的客户端脚本在没有明确授权的情况下，不能读写对方资源。跨域的问题可以说是前端程序员的一坨心病，与此同时跨域安全也是安全程序员的一大坨心病，今天由我来简单说说~</p>
 <a id="more"></a>
+
+<h1 id="同源策略是什么"><a href="#同源策略是什么" class="headerlink" title="同源策略是什么"></a>同源策略是什么</h1><p>同源策略是浏览器最核心、最基本的安全功能，是对不同域资源的管理策略。简单来说就是在没有明确授权的情况下，一个源的脚本能且仅能访问自己的源的资源。<br>这里的“资源”主要包括：</p>
+<ol>
+<li>非同源网页的 Cookie、LocalStorage 和 IndexedDB</li>
+<li>非同源网页的 DOM</li>
+<li>非同源地址发送 AJAX 请求浏览器会拒绝响应</li>
+</ol>
+<p>而要想搞明白同源策略，首先要知道怎么样算“同源”：如果两个页面的协议 <strong>协议</strong>、 <strong>域名</strong> 和 <strong>端口</strong> 都相同的话，那么他们就是同源的。<br>举个栗子，针对 <a href="http://smartpillar.xyz" target="_blank" rel="noopener">http://smartpillar.xyz</a> 这个页面</p>
+<table>
+<thead>
+<tr>
+<th>URL</th>
+<th>是否同源</th>
+<th align="right">Why？</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="http://smartpillar.xyz/跨域及安全" target="_blank" rel="noopener">http://smartpillar.xyz/跨域及安全</a></td>
+<td>是</td>
+<td align="right">协议：http 域名：<a href="http://www.smartpillar.xyz">www.smartpillar.xyz</a> 端口：默认（80）</td>
+</tr>
+<tr>
+<td><a href="https://smartpillar.xyz/分区表" target="_blank" rel="noopener">https://smartpillar.xyz/分区表</a></td>
+<td>不是</td>
+<td align="right">协议不同</td>
+</tr>
+<tr>
+<td><a href="http://api.smartpillar.xyz" target="_blank" rel="noopener">http://api.smartpillar.xyz</a></td>
+<td>不是</td>
+<td align="right">域名不同</td>
+</tr>
+<tr>
+<td><a href="http://smartpillar.xyz:27016" target="_blank" rel="noopener">http://smartpillar.xyz:27016</a></td>
+<td>不是</td>
+<td align="right">端口不同</td>
+</tr>
+</tbody></table>
+<p>比如说你想在smartpillar.xyz的某个接口里读noobgun.club/flag.txt你就不能行</p>
+<p>可以抽象一点：<br>你：浏览器老师，我想借我同桌的橡皮！<br>浏览器：不行，你同桌的橡皮不是你的橡皮！<br>你（心想）：还能难住我？</p>
+<h1 id="怎么应对跨域"><a href="#怎么应对跨域" class="headerlink" title="怎么应对跨域"></a>怎么应对跨域</h1><h2 id="不同源怎么拿cookie"><a href="#不同源怎么拿cookie" class="headerlink" title="不同源怎么拿cookie"></a>不同源怎么拿cookie</h2><p>同源策略认为域和子域属于不同的域，如果两个页面主域相同而次域不同，比如api.smartpillar.xyz和cdn.smartpillar.xyz之间，可以通过设定document.domain为相同的值来共享cookie</p>
+<p>抽象：浏览器老师知道你和你弟是亲戚，并且你和你弟都给老师说你们的橡皮（cookie）的所有者是你们的家族，浏览器老师想想，觉得合理，你和你弟就都可以用橡皮了。</p>
+<h2 id="不同源怎么ajax请求"><a href="#不同源怎么ajax请求" class="headerlink" title="不同源怎么ajax请求"></a>不同源怎么ajax请求</h2><p>同源政策规定，AJAX 请求只能发给同源的网址，否则就报错。<br>因此，一个非常直接的方法就是用代理服务器，通过一些方法设置代理，在请求发送(接收)之前加入中间层，将不同的域转换成相同的，就解决了问题。<br>抽象：你把你的橡皮给浏览器老师，浏览器老师给了中转服务器校长，并且说这个是你的橡皮，校长说，不对，这是XXX的橡皮。老师也就说，好好好，这是XXX的橡皮，然后XXX就可以用你的橡皮了</p>
+<h3 id="jsonp"><a href="#jsonp" class="headerlink" title="jsonp"></a>jsonp</h3><p>跨域对某些资源是没有限制的，比如&lt;script&gt;、&lt;image&gt;、&lt;link&gt;和&lt;iframe&gt;标签<br>jsonp的核心思想就是通过添加一个&lt;script&gt;元素，向服务器请求 JSON 数据，服务器收到请求后，将数据放在一个指定名字的回调函数的参数位置传回来。<br>抽象：老师不让你们传橡皮，但是让你们传衣服，所以你把橡皮塞到衣服里，然后传给了同桌，这样同桌把橡皮从衣服里掏出来就能用了。</p>
+<h3 id="PostMessage"><a href="#PostMessage" class="headerlink" title="PostMessage"></a>PostMessage</h3><p>PostMeaage是H5新引入的实现跨域窗口之间的通讯，可以安全地实现windows对象之间的跨域通信<br>PostMessage主要依靠Window.postMessage方法，该方法有三个参数</p>
+<ol>
+<li>message：发送到其他窗口的数据</li>
+<li>targetOrigin：接受数据消息的目标窗口,当该值为星号（* ）表示任意一个域都可以接受消息</li>
+<li>transfer： 可选项，代表纤细的所有权</li>
+</ol>
+<p>除了发送之外，必然有一个接受消息的窗口，一般用window.addEventListener(“message”,receiveMessage.false),用以接受消息数据<br>他的消息流程如下图<br><img src="/2021/01/15/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E5%AE%89%E5%85%A8/1.jpg" alt><br>抽象：老师不让传橡皮，但是班长规定了一个新的可以传橡皮的方法。</p>
+<h3 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h3><p>CORS 是跨域资源分享（Cross-Origin Resource Sharing）的缩写。它是 W3C 标准，属于跨源 AJAX 请求的根本解决方法。<br>简单来说就是在后端设一个Access-Control-Allow-Origin来确定与哪些域共享资源。如果共享资源包括cookie的话，还需在前端设一个对应的字段来说明。<br>抽象：你早上没写作业，打算问要一本别人的作业抄抄，众所周知，作业不能给别人抄，但是课代表（后端）知道谁谁谁和你关系好，你们经常臭味相投互相抄，于是就给了你一份。</p>
+<h1 id="同源策略存在的安全问题"><a href="#同源策略存在的安全问题" class="headerlink" title="同源策略存在的安全问题"></a>同源策略存在的安全问题</h1><h2 id="jsonp-1"><a href="#jsonp-1" class="headerlink" title="jsonp"></a>jsonp</h2><ol>
+<li><p>对于输入的callback函数名过滤不严格，导致输入的数据直接输出到前端造成XSS<br>直接改函数名字，比如 <code>http://XXXXXXX/index.php?callback=jsonp&lt;img src=x onerror=alert(/xss/)\&gt;</code>就可以反射型XSS了,反射型XSS的危害就不赘述了。</p>
+</li>
+<li><p>JSONP劫持漏洞，由于对于来源域没有严格限制，因此来源于不安全的域的请求也会被响应<br>JSONP劫持，实质上算是一种读类型的CSRF，在恶意的网页中构造恶意的JS代码，当合法用户点击该网页，由于目标站点存在JSONP劫持漏洞的接口，因此会将用户的该接口对应的信息劫持，并将其发送到攻击者的服务器。比如说你与某网站的jsonp接口没有refer头的确认，也就是说这个接口就无脑响应，也就存在了jsonp劫持漏洞。<br>假设你是用户，你先访问了wb，且你和wb有jsonp接口，而wb又没有做好防护，此时，你登陆了wb，同时你又访问了一个坏人的网站，这个网站直接在head里整了一个自动执行的脚本，功能是通过wb的jsonp请求并传数据到他手里，你直接一个个人信息的泄露。</p>
+</li>
+</ol>
+<h2 id="PostMessage-1"><a href="#PostMessage-1" class="headerlink" title="PostMessage"></a>PostMessage</h2><p>PostMessage跨越一般威胁点在于对于目标域限制不严格导致的，大多数开发人员由于对于postmessage防范中targetOrigin参数默认为* ，因此只要包含了该方法页面，构造利用代码，就能够获取到敏感信息。<br>可以构造XSS来整，主要针对发送消息的域，把发送的消息截断</p>
+<h2 id="CROS"><a href="#CROS" class="headerlink" title="CROS"></a>CROS</h2><p>CORS一般最常见的安全威胁就是CORS错误配置导致资源信息泄漏，与JSONP劫持基本上一致。<br>比如嫌麻烦直接Access-Control-Allow-Origin设为*，然后让有心之人直接构造对应请求就完事了。</p>
+<p>参考：<br><a href="https://blog.csdn.net/qq_38128179/article/details/84956552" target="_blank" rel="noopener">https://blog.csdn.net/qq_38128179/article/details/84956552</a><br><a href="https://www.cnblogs.com/dfzj/p/13663301.html" target="_blank" rel="noopener">https://www.cnblogs.com/dfzj/p/13663301.html</a><br><a href="https://www.freebuf.com/articles/web/208672.html" target="_blank" rel="noopener">https://www.freebuf.com/articles/web/208672.html</a><br><a href="https://www.cnblogs.com/happystudyhuan/p/11583384.html" target="_blank" rel="noopener">https://www.cnblogs.com/happystudyhuan/p/11583384.html</a></p>
+
       
     </div>
 
@@ -688,7 +763,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#导语"><span class="nav-number">1.</span> <span class="nav-text">导语</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#导语"><span class="nav-number">1.</span> <span class="nav-text">导语</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#同源策略是什么"><span class="nav-number">2.</span> <span class="nav-text">同源策略是什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#怎么应对跨域"><span class="nav-number">3.</span> <span class="nav-text">怎么应对跨域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#不同源怎么拿cookie"><span class="nav-number">3.1.</span> <span class="nav-text">不同源怎么拿cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不同源怎么ajax请求"><span class="nav-number">3.2.</span> <span class="nav-text">不同源怎么ajax请求</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jsonp"><span class="nav-number">3.2.1.</span> <span class="nav-text">jsonp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PostMessage"><span class="nav-number">3.2.2.</span> <span class="nav-text">PostMessage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CORS"><span class="nav-number">3.2.3.</span> <span class="nav-text">CORS</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#同源策略存在的安全问题"><span class="nav-number">4.</span> <span class="nav-text">同源策略存在的安全问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#jsonp-1"><span class="nav-number">4.1.</span> <span class="nav-text">jsonp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PostMessage-1"><span class="nav-number">4.2.</span> <span class="nav-text">PostMessage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CROS"><span class="nav-number">4.3.</span> <span class="nav-text">CROS</span></a></li></ol></li></ol></div>
             
 
           </div>
