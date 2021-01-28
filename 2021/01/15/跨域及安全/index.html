@@ -119,7 +119,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.smartpillar.xyz/2021/01/15/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E5%AE%89%E5%85%A8/1.jpg">
 <meta property="article:published_time" content="2021-01-15T03:46:01.000Z">
-<meta property="article:modified_time" content="2021-01-17T12:45:57.926Z">
+<meta property="article:modified_time" content="2021-01-18T13:50:26.370Z">
 <meta property="article:author" content="π1L4r">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.smartpillar.xyz/2021/01/15/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E5%AE%89%E5%85%A8/1.jpg">
@@ -412,7 +412,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2021-01-17 20:45:57" itemprop="dateModified" datetime="2021-01-17T20:45:57+08:00">2021-01-17</time>
+                <time title="修改时间：2021-01-18 21:50:26" itemprop="dateModified" datetime="2021-01-18T21:50:26+08:00">2021-01-18</time>
               
             
           </span>
@@ -512,7 +512,7 @@
 <li><p>JSONP劫持漏洞，由于对于来源域没有严格限制，因此来源于不安全的域的请求也会被响应<br>JSONP劫持，实质上算是一种读类型的CSRF，在恶意的网页中构造恶意的JS代码，当合法用户点击该网页，由于目标站点存在JSONP劫持漏洞的接口，因此会将用户的该接口对应的信息劫持，并将其发送到攻击者的服务器。比如说你与某网站的jsonp接口没有refer头的确认，也就是说这个接口就无脑响应，也就存在了jsonp劫持漏洞。<br>假设你是用户，你先访问了wb，且你和wb有jsonp接口，而wb又没有做好防护，此时，你登陆了wb，同时你又访问了一个坏人的网站，这个网站直接在head里整了一个自动执行的脚本，功能是通过wb的jsonp请求并传数据到他手里，你直接一个个人信息的泄露。</p>
 </li>
 </ol>
-<h2 id="PostMessage-1"><a href="#PostMessage-1" class="headerlink" title="PostMessage"></a>PostMessage</h2><p>PostMessage跨越一般威胁点在于对于目标域限制不严格导致的，大多数开发人员由于对于postmessage防范中targetOrigin参数默认为* ，因此只要包含了该方法页面，构造利用代码，就能够获取到敏感信息。<br>可以构造XSS来整，主要针对发送消息的域，把发送的消息截断</p>
+<h2 id="PostMessage-1"><a href="#PostMessage-1" class="headerlink" title="PostMessage"></a>PostMessage</h2><p>PostMessage跨越一般威胁点在于对于目标域限制不严格导致的，大多数开发人员在发送时对于postmessage防范中targetOrigin参数默认为* ，因此只要包含了该方法页面，就能被任何人所接受监听。<br>或者说接受方直接就接收，而不去判断发送方的身份，这样就有可能被别有用心的人发送一些未经授权的消息。<br>而别用用心主要是在接收方设置的读为<code>messageEle.innerHTML</code>方式，这样发送消息的一方就可以发送类似于<code>&lt;img src=&#39;x&#39; onerror=alert(1);&gt;</code>的代码进行XSS。</p>
 <h2 id="CROS"><a href="#CROS" class="headerlink" title="CROS"></a>CROS</h2><p>CORS一般最常见的安全威胁就是CORS错误配置导致资源信息泄漏，与JSONP劫持基本上一致。<br>比如嫌麻烦直接Access-Control-Allow-Origin设为*，然后让有心之人直接构造对应请求就完事了。</p>
 <p>参考：<br><a href="https://blog.csdn.net/qq_38128179/article/details/84956552" target="_blank" rel="noopener">https://blog.csdn.net/qq_38128179/article/details/84956552</a><br><a href="https://www.cnblogs.com/dfzj/p/13663301.html" target="_blank" rel="noopener">https://www.cnblogs.com/dfzj/p/13663301.html</a><br><a href="https://www.freebuf.com/articles/web/208672.html" target="_blank" rel="noopener">https://www.freebuf.com/articles/web/208672.html</a><br><a href="https://www.cnblogs.com/happystudyhuan/p/11583384.html" target="_blank" rel="noopener">https://www.cnblogs.com/happystudyhuan/p/11583384.html</a></p>
 
@@ -565,6 +565,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/" rel="prev" title="i春秋-Pretty_good_privacy">
+                i春秋-Pretty_good_privacy <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -638,7 +642,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-count">37</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

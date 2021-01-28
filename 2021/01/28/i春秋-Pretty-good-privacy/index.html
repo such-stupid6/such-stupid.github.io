@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="mLMdqFLzjo" />
+<meta name="google-site-verification" content="7uHr04pXNVB5CV_DNSdpXbHErUHjpYDOT-B74_X6vhY" />
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon_180.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon_32.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon_16.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo2.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.5.0',
+    sidebar: {"position":"left","width":300,"display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: 'WKHA6YLSNH',
+      apiKey: '46dba96b67832c36609d31c01e6772af',
+      indexName: 'blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="导语点击这里去答题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="i春秋-Pretty_good_privacy">
+<meta property="og:url" content="https://www.smartpillar.xyz/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/index.html">
+<meta property="og:site_name" content="π1L4r">
+<meta property="og:description" content="导语点击这里去答题">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.smartpillar.xyz/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/1.jpg">
+<meta property="og:image" content="https://www.smartpillar.xyz/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/2.jpg">
+<meta property="og:image" content="https://www.smartpillar.xyz/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/3.jpg">
+<meta property="og:image" content="https://www.smartpillar.xyz/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/4.jpg">
+<meta property="og:image" content="https://www.smartpillar.xyz/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/5.jpg">
+<meta property="og:image" content="https://www.smartpillar.xyz/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/6.jpg">
+<meta property="og:image" content="https://www.smartpillar.xyz/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/7.jpg">
+<meta property="og:image" content="https://www.smartpillar.xyz/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/8.jpg">
+<meta property="og:image" content="https://www.smartpillar.xyz/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/9.jpg">
+<meta property="og:image" content="https://www.smartpillar.xyz/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/10.jpg">
+<meta property="article:published_time" content="2021-01-28T10:05:27.000Z">
+<meta property="article:modified_time" content="2021-01-28T10:40:34.803Z">
+<meta property="article:author" content="π1L4r">
+<meta property="article:tag" content="ctf">
+<meta property="article:tag" content="misc">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.smartpillar.xyz/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/1.jpg">
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="π1L4r" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="https://www.smartpillar.xyz/2021/01/28/i春秋-Pretty-good-privacy/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>i春秋-Pretty_good_privacy | π1L4r</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">π1L4r</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Stay sharp, stay cool</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />归档</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.smartpillar.xyz/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="π1L4r">
+      <meta itemprop="description" content="changed my nickname= =.">
+      <meta itemprop="image" content="/images/author.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="π1L4r">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">i春秋-Pretty_good_privacy
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-01-28 18:05:27 / 修改时间：18:40:34" itemprop="dateCreated datePublished" datetime="2021-01-28T18:05:27+08:00">2021-01-28</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h1><p><a href="https://www.ichunqiu.com/battalion?q=2333" target="_blank" rel="noopener">点击这里去答题</a></p>
+<a id="more"></a>
+<p><img src="/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/1.jpg" alt></p>
+<h1 id="pretty-good-privacy"><a href="#pretty-good-privacy" class="headerlink" title="pretty good privacy"></a>pretty good privacy</h1><p>看到题目，立刻想到要用pgp。<br>我没有，因此去<a href="https://www.gnupg.org/download/index.html" target="_blank" rel="noopener">https://www.gnupg.org/download/index.html</a> 下载一个Gpg4win。安装的时候默认安装的模块都安装了就完事了。</p>
+<p>解压题目，可以看到一个这<br><img src="/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/2.jpg" alt><br>打开doc文件，可以看到这样的内容<br><img src="/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/3.jpg" alt><br>当然你得先开了word的显示隐藏内容的选项才能看到下面那个TrueCrypt的内容。<br>然后全选，设置字体颜色为黑色，可以看到这个藏比还多藏了一点，但不多。（？）<br><img src="/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/4.jpg" alt></p>
+<p>看到TrueCrypt，立即推要用TrueCrypt。<br>我没有，因此去<a href="https://sourceforge.net/projects/truecrypt/files/TrueCrypt/TrueCrypt-7.2.exe/download" target="_blank" rel="noopener">https://sourceforge.net/projects/truecrypt/files/TrueCrypt/TrueCrypt-7.2.exe/download</a> 下一个并且安装。</p>
+<p>然后我们就看一下.pgp，由于目前我们没有获得密钥，所以是无法解密的。</p>
+<p>看到有TrueCrypt，试着用TrueCrypt挂载CISCN2016<br>如果你在第一层，用的是第一行的密码，那么你可以看到<br><img src="/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/5.jpg" alt><br>那你能帮帮我吗（？）<br><img src="/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/6.jpg" alt></p>
+<p>然而我们老misc选手word可能没有显示隐藏内容吗？使用下面的密码挂载TrueCrypt，即可得到pgp密钥对。<br><img src="/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/7.jpg" alt><br>使用pgp加载了两个密钥，即可解密SECRET.docx.pgp<br><img src="/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/8.jpg" alt><br><img src="/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/9.jpg" alt><br>打开docx，即得flag。<br><img src="/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/10.jpg" alt></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>π1L4r</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.smartpillar.xyz/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/" title="i春秋-Pretty_good_privacy">https://www.smartpillar.xyz/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ctf/" rel="tag"># ctf</a>
+          
+            <a href="/tags/misc/" rel="tag"># misc</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/01/15/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E5%AE%89%E5%85%A8/" rel="next" title="跨域及安全">
+                <i class="fa fa-chevron-left"></i> 跨域及安全
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/author.jpg"
+                alt="π1L4r" />
+            
+              <p class="site-author-name" itemprop="name">π1L4r</p>
+              <p class="site-description motion-element" itemprop="description">changed my nickname= =.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/such-stupid6" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:alexi_bi@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mlogs.top" title="My0sotis" target="_blank">My0sotis</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=320 height=110 src="//music.163.com/outchain/player?type=0&id=5055514487&auto=1&height=90"></iframe>
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#导语"><span class="nav-number">1.</span> <span class="nav-text">导语</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#pretty-good-privacy"><span class="nav-number">2.</span> <span class="nav-text">pretty good privacy</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> &copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">π1L4r</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v4.2.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.5.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+      
+  
+  <script type="text/javascript" color='114,114,114' opacity='1' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script id="ribbon" type="text/javascript" size="300" alpha="0.6"  zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.5.0"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
