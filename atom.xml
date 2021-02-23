@@ -6,7 +6,7 @@
   <link href="https://www.smartpillar.xyz/atom.xml" rel="self"/>
   
   <link href="https://www.smartpillar.xyz/"/>
-  <updated>2021-02-23T08:09:15.430Z</updated>
+  <updated>2021-02-23T17:16:35.328Z</updated>
   <id>https://www.smartpillar.xyz/</id>
   
   <author>
@@ -21,15 +21,12 @@
     <link href="https://www.smartpillar.xyz/2021/02/23/wmi/"/>
     <id>https://www.smartpillar.xyz/2021/02/23/wmi/</id>
     <published>2021-02-23T08:09:15.000Z</published>
-    <updated>2021-02-23T08:09:15.430Z</updated>
+    <updated>2021-02-23T17:16:35.328Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h1><p>wmi全称为Windows Management Instrumentation，在win10下是一个非常好使的插件，可以用来管理、监控计算机资源。<a id="more"></a></p><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>WMI基于CIMOM，即公共信息模型对象管理器，是一个描述操作系统构成单元的对象数据库。WMI有一组API，因此很多语言都可以对wmi进行相应的调用。<br>windows官方建议使用VB和C#。（但没必要<br>针对WMI的脚本对象编程本质上来将就是针对CIM（Common Information Model，公共信息模型）的编程，WMI的获取与操作的内容都来自于CIM存储库<br>一般使用wql语句来获取想要的内容，wql类似于sql，比如下面这句。<br><code>usagelist = wmi.ExecQuery(r&#39;select IDProcess,Name,PercentProcessorTime from Win32_PerfFormattedData_PerfProc_Process&#39;)</code><br>就可以返回进程id，进程名和他的CPU占用率，非常的好用。</p><h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p>WMI支持Powershell、Vbscript和C#script，而windows本身也提供了几个UI工具来使用，包括WMIC.exe、WBEMTest.exe和WMI Administrative Tools等。<br>直接在cmd输入wbemtest即可使用WBEMTest<br><img src="/2021/02/23/wmi/1.jpg" alt><br>点击连接，使用root/cimv2的命名空间。多数为windows托管资源建模的类都在其中，包括关于计算机、磁盘、外围设备、文件、文件夹、文件系统、网络组件、操作系统、打印机、进程、安全性、服务、共享、SAM 用户及组，以及更多资源的信息。<br><img src="/2021/02/23/wmi/2.jpg" alt><br>然后我们点选枚举类，啥也不输入，选择递归，即可列出这个明明空间内的各个类。<br><img src="/2021/02/23/wmi/3.jpg" alt><br>当然，对于想要实现的某些特定需求，我们一定要获知具体是那个类在管理他，只有如此才能实现对其操作进而达到目标。这如此多的类，当然需要借助面向google编程技巧才行啦。<br>当然，in case你想完善而全面的了解各个类所控制的资源<br><a href="https://docs.microsoft.com/zh-cn/windows/win32/wmisdk/wmi-reference?redirectedfrom=MSDN">WMI Reference</a><br>然而，如果只是这样使用UI或者是命令行工具，显然是无法满足我们这些小可爱的需求的，那么我们要怎样使用脚本去操作wmi呢？</p><h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><p>当然首先建议你去用VB或者.NET编程实现，毕竟官方原生支持，相关文档也会多一点。不过python的好处不正是如果有大佬做了相应的包并且还挺好用的话，像我一样的菜逼就能非常灵动的使用了吗（误<br>言归正传，首先你得安装wmi模块，这个模块基本上是从包装了一下的pywin32模块。用pip instal都可以简单的意见安装。建议都装了。<br>然后就很简单了<br>比如我编写的监控CPU信息的脚本</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> wmi<br>wmi=wmi.WMI()<br>usagelist = wmi.ExecQuery(<span class="hljs-string">r&#x27;select IDProcess,Name,PercentProcessorTime from Win32_PerfFormattedData_PerfProc_Process&#x27;</span>)<br><span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> usagelist:<br>    <span class="hljs-keyword">if</span> item.PercentProcessorTime &gt; <span class="hljs-number">70</span> :<br>        print(<span class="hljs-built_in">str</span>(item.IdProcess)+<span class="hljs-string">&#x27;,&#x27;</span>+<span class="hljs-built_in">str</span>(item.Name)+<span class="hljs-string">&#x27;,&#x27;</span>+<span class="hljs-built_in">str</span>(item.PercentProcessorTime))<br></code></pre></td></tr></table></figure><p>当然，如果你用pywin32的话，只需要把<code>wmi=wmi.WMI()</code>这句变成<code>wmi=pywin32.GetObject(r&#39;winmgmts:/root/cimv2&#39;)</code>即可</p><p>参考：<br><a href="https://www.cnblogs.com/ceachy/archive/2013/03/22/WMI_Usage.html">https://www.cnblogs.com/ceachy/archive/2013/03/22/WMI_Usage.html</a><br><a href="https://wenku.baidu.com/view/dfbf88f14693daef5ef73d12.html">https://wenku.baidu.com/view/dfbf88f14693daef5ef73d12.html</a></p>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
-      
+    <summary type="html">&lt;h1 id=&quot;导语&quot;&gt;&lt;a href=&quot;#导语&quot; class=&quot;headerlink&quot; title=&quot;导语&quot;&gt;&lt;/a&gt;导语&lt;/h1&gt;&lt;p&gt;wmi全称为Windows Management Instrumentation，在win10下是一个非常好使的插件，可以用来管理、监控计算机资源。&lt;/p&gt;</summary>
     
     
     
