@@ -6,7 +6,7 @@
   <link href="https://www.smartpillar.xyz/atom.xml" rel="self"/>
   
   <link href="https://www.smartpillar.xyz/"/>
-  <updated>2022-02-21T12:00:12.678Z</updated>
+  <updated>2022-02-20T12:16:54.013Z</updated>
   <id>https://www.smartpillar.xyz/</id>
   
   <author>
@@ -15,30 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>BUU刷题日记_荷兰宽带数据泄露</title>
-    <link href="https://www.smartpillar.xyz/2022/02/21/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E8%8D%B7%E5%85%B0%E5%AE%BD%E5%B8%A6%E6%95%B0%E6%8D%AE%E6%B3%84%E9%9C%B2/"/>
-    <id>https://www.smartpillar.xyz/2022/02/21/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E8%8D%B7%E5%85%B0%E5%AE%BD%E5%B8%A6%E6%95%B0%E6%8D%AE%E6%B3%84%E9%9C%B2/</id>
-    <published>2022-02-21T11:49:48.000Z</published>
-    <updated>2022-02-21T12:00:12.678Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h1><p>pillar的刷题日记</p><h1 id="荷兰宽带数据泄露"><a href="#荷兰宽带数据泄露" class="headerlink" title="荷兰宽带数据泄露"></a>荷兰宽带数据泄露</h1><p>题目是一个.bin加上题目是宽带数据泄露，不禁让人想到是路由器信息数据。用RouterPassView查看</p><p><img src="/2022/02/21/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E8%8D%B7%E5%85%B0%E5%AE%BD%E5%B8%A6%E6%95%B0%E6%8D%AE%E6%B3%84%E9%9C%B2/1.jpg" alt="img"></p><p>路由信息数据可能藏的也就username和password，挨个试，发现是username（为什么username不设个flag{}这样的捏？是因会加密咩？）</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
-      
-    
-    
-    
-    
-    <category term="misc" scheme="https://www.smartpillar.xyz/tags/misc/"/>
-    
-    <category term="补题" scheme="https://www.smartpillar.xyz/tags/%E8%A1%A5%E9%A2%98/"/>
-    
-  </entry>
   
   <entry>
     <title>hgame2022_wp</title>
@@ -705,6 +681,30 @@
   </entry>
   
   <entry>
+    <title>BUU刷题日记_荷兰宽带数据泄露</title>
+    <link href="https://www.smartpillar.xyz/2020/03/27/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E8%8D%B7%E5%85%B0%E5%AE%BD%E5%B8%A6%E6%95%B0%E6%8D%AE%E6%B3%84%E9%9C%B2/"/>
+    <id>https://www.smartpillar.xyz/2020/03/27/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E8%8D%B7%E5%85%B0%E5%AE%BD%E5%B8%A6%E6%95%B0%E6%8D%AE%E6%B3%84%E9%9C%B2/</id>
+    <published>2020-03-27T11:49:48.000Z</published>
+    <updated>2022-02-23T04:54:21.798Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h1><p>pillar的刷题日记</p><h1 id="荷兰宽带数据泄露"><a href="#荷兰宽带数据泄露" class="headerlink" title="荷兰宽带数据泄露"></a>荷兰宽带数据泄露</h1><p>题目是一个.bin加上题目是宽带数据泄露，不禁让人想到是路由器信息数据。用RouterPassView查看</p><p><img src="/2020/03/27/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E8%8D%B7%E5%85%B0%E5%AE%BD%E5%B8%A6%E6%95%B0%E6%8D%AE%E6%B3%84%E9%9C%B2/1.jpg" alt="img"></p><p>路由信息数据可能藏的也就username和password，挨个试，发现是username（为什么username不设个flag{}这样的捏？是因会加密咩？）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="补题" scheme="https://www.smartpillar.xyz/tags/%E8%A1%A5%E9%A2%98/"/>
+    
+    <category term="misc" scheme="https://www.smartpillar.xyz/tags/misc/"/>
+    
+  </entry>
+  
+  <entry>
     <title>BUU刷题日记_刷新的图片</title>
     <link href="https://www.smartpillar.xyz/2020/03/20/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E5%88%B7%E6%96%B0%E7%9A%84%E5%9B%BE%E7%89%87/"/>
     <id>https://www.smartpillar.xyz/2020/03/20/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E5%88%B7%E6%96%B0%E7%9A%84%E5%9B%BE%E7%89%87/</id>
@@ -722,9 +722,9 @@
     
     
     
-    <category term="misc" scheme="https://www.smartpillar.xyz/tags/misc/"/>
-    
     <category term="补题" scheme="https://www.smartpillar.xyz/tags/%E8%A1%A5%E9%A2%98/"/>
+    
+    <category term="misc" scheme="https://www.smartpillar.xyz/tags/misc/"/>
     
   </entry>
   
@@ -765,9 +765,9 @@
     
     
     
-    <category term="misc" scheme="https://www.smartpillar.xyz/tags/misc/"/>
-    
     <category term="补题" scheme="https://www.smartpillar.xyz/tags/%E8%A1%A5%E9%A2%98/"/>
+    
+    <category term="misc" scheme="https://www.smartpillar.xyz/tags/misc/"/>
     
   </entry>
   
