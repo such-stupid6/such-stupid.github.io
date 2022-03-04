@@ -3,11 +3,11 @@
   <title>π1L4r</title>
   
   <subtitle>Stay sharp, stay cool</subtitle>
-  <link href="https://www.smartpillar.xyz/atom.xml" rel="self"/>
+  <link href="https://blog.pillar.fun/atom.xml" rel="self"/>
   
-  <link href="https://www.smartpillar.xyz/"/>
+  <link href="https://blog.pillar.fun/"/>
   <updated>2022-02-20T12:16:54.013Z</updated>
-  <id>https://www.smartpillar.xyz/</id>
+  <id>https://blog.pillar.fun/</id>
   
   <author>
     <name>π1L4r</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>hgame2022_wp</title>
-    <link href="https://www.smartpillar.xyz/2022/02/20/hgame2022-wp/"/>
-    <id>https://www.smartpillar.xyz/2022/02/20/hgame2022-wp/</id>
+    <link href="https://blog.pillar.fun/2022/02/20/hgame2022-wp/"/>
+    <id>https://blog.pillar.fun/2022/02/20/hgame2022-wp/</id>
     <published>2022-02-20T08:49:57.000Z</published>
     <updated>2022-02-20T12:16:54.013Z</updated>
     
@@ -34,14 +34,14 @@
     
     
     
-    <category term="writeup" scheme="https://www.smartpillar.xyz/tags/writeup/"/>
+    <category term="writeup" scheme="https://blog.pillar.fun/tags/writeup/"/>
     
   </entry>
   
   <entry>
     <title>MC服务器building</title>
-    <link href="https://www.smartpillar.xyz/2022/01/26/MC%E6%9C%8D%E5%8A%A1%E5%99%A8building/"/>
-    <id>https://www.smartpillar.xyz/2022/01/26/MC%E6%9C%8D%E5%8A%A1%E5%99%A8building/</id>
+    <link href="https://blog.pillar.fun/2022/01/26/MC%E6%9C%8D%E5%8A%A1%E5%99%A8building/"/>
+    <id>https://blog.pillar.fun/2022/01/26/MC%E6%9C%8D%E5%8A%A1%E5%99%A8building/</id>
     <published>2022-01-26T03:42:00.000Z</published>
     <updated>2022-02-21T05:27:09.382Z</updated>
     
@@ -56,14 +56,14 @@
     
     
     
-    <category term="运维" scheme="https://www.smartpillar.xyz/tags/%E8%BF%90%E7%BB%B4/"/>
+    <category term="运维" scheme="https://blog.pillar.fun/tags/%E8%BF%90%E7%BB%B4/"/>
     
   </entry>
   
   <entry>
     <title>vnctf2021wp</title>
-    <link href="https://www.smartpillar.xyz/2021/03/14/vnctf2021wp/"/>
-    <id>https://www.smartpillar.xyz/2021/03/14/vnctf2021wp/</id>
+    <link href="https://blog.pillar.fun/2021/03/14/vnctf2021wp/"/>
+    <id>https://blog.pillar.fun/2021/03/14/vnctf2021wp/</id>
     <published>2021-03-14T07:12:09.000Z</published>
     <updated>2022-02-21T05:27:24.200Z</updated>
     
@@ -78,14 +78,14 @@
     
     
     
-    <category term="writeup" scheme="https://www.smartpillar.xyz/tags/writeup/"/>
+    <category term="writeup" scheme="https://blog.pillar.fun/tags/writeup/"/>
     
   </entry>
   
   <entry>
     <title>XSS</title>
-    <link href="https://www.smartpillar.xyz/2021/03/11/XSS/"/>
-    <id>https://www.smartpillar.xyz/2021/03/11/XSS/</id>
+    <link href="https://blog.pillar.fun/2021/03/11/XSS/"/>
+    <id>https://blog.pillar.fun/2021/03/11/XSS/</id>
     <published>2021-03-11T13:49:49.000Z</published>
     <updated>2021-03-19T16:09:45.360Z</updated>
     
@@ -104,8 +104,8 @@
   
   <entry>
     <title>ssrfme</title>
-    <link href="https://www.smartpillar.xyz/2021/03/09/ssrfme/"/>
-    <id>https://www.smartpillar.xyz/2021/03/09/ssrfme/</id>
+    <link href="https://blog.pillar.fun/2021/03/09/ssrfme/"/>
+    <id>https://blog.pillar.fun/2021/03/09/ssrfme/</id>
     <published>2021-03-09T10:45:56.000Z</published>
     <updated>2021-03-10T05:14:19.583Z</updated>
     
@@ -124,8 +124,8 @@
   
   <entry>
     <title>面试押题</title>
-    <link href="https://www.smartpillar.xyz/2021/03/05/%E9%9D%A2%E8%AF%95%E6%8A%BC%E9%A2%98/"/>
-    <id>https://www.smartpillar.xyz/2021/03/05/%E9%9D%A2%E8%AF%95%E6%8A%BC%E9%A2%98/</id>
+    <link href="https://blog.pillar.fun/2021/03/05/%E9%9D%A2%E8%AF%95%E6%8A%BC%E9%A2%98/"/>
+    <id>https://blog.pillar.fun/2021/03/05/%E9%9D%A2%E8%AF%95%E6%8A%BC%E9%A2%98/</id>
     <published>2021-03-05T07:40:22.000Z</published>
     <updated>2021-03-10T09:29:03.363Z</updated>
     
@@ -144,8 +144,8 @@
   
   <entry>
     <title>PHP反序列化漏洞</title>
-    <link href="https://www.smartpillar.xyz/2021/03/03/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E/"/>
-    <id>https://www.smartpillar.xyz/2021/03/03/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E/</id>
+    <link href="https://blog.pillar.fun/2021/03/03/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E/"/>
+    <id>https://blog.pillar.fun/2021/03/03/PHP%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E/</id>
     <published>2021-03-03T14:38:08.000Z</published>
     <updated>2021-03-03T18:20:19.825Z</updated>
     
@@ -164,8 +164,8 @@
   
   <entry>
     <title>安全岗笔试题集</title>
-    <link href="https://www.smartpillar.xyz/2021/02/28/%E5%AE%89%E5%85%A8%E5%B2%97%E7%AC%94%E8%AF%95%E9%A2%98%E9%9B%86/"/>
-    <id>https://www.smartpillar.xyz/2021/02/28/%E5%AE%89%E5%85%A8%E5%B2%97%E7%AC%94%E8%AF%95%E9%A2%98%E9%9B%86/</id>
+    <link href="https://blog.pillar.fun/2021/02/28/%E5%AE%89%E5%85%A8%E5%B2%97%E7%AC%94%E8%AF%95%E9%A2%98%E9%9B%86/"/>
+    <id>https://blog.pillar.fun/2021/02/28/%E5%AE%89%E5%85%A8%E5%B2%97%E7%AC%94%E8%AF%95%E9%A2%98%E9%9B%86/</id>
     <published>2021-02-28T07:31:00.000Z</published>
     <updated>2021-03-01T11:55:27.828Z</updated>
     
@@ -184,8 +184,8 @@
   
   <entry>
     <title>文件解析漏洞</title>
-    <link href="https://www.smartpillar.xyz/2021/02/28/%E6%96%87%E4%BB%B6%E8%A7%A3%E6%9E%90%E6%BC%8F%E6%B4%9E/"/>
-    <id>https://www.smartpillar.xyz/2021/02/28/%E6%96%87%E4%BB%B6%E8%A7%A3%E6%9E%90%E6%BC%8F%E6%B4%9E/</id>
+    <link href="https://blog.pillar.fun/2021/02/28/%E6%96%87%E4%BB%B6%E8%A7%A3%E6%9E%90%E6%BC%8F%E6%B4%9E/"/>
+    <id>https://blog.pillar.fun/2021/02/28/%E6%96%87%E4%BB%B6%E8%A7%A3%E6%9E%90%E6%BC%8F%E6%B4%9E/</id>
     <published>2021-02-28T04:28:12.000Z</published>
     <updated>2021-02-28T05:11:23.770Z</updated>
     
@@ -204,8 +204,8 @@
   
   <entry>
     <title>wmi</title>
-    <link href="https://www.smartpillar.xyz/2021/02/23/wmi/"/>
-    <id>https://www.smartpillar.xyz/2021/02/23/wmi/</id>
+    <link href="https://blog.pillar.fun/2021/02/23/wmi/"/>
+    <id>https://blog.pillar.fun/2021/02/23/wmi/</id>
     <published>2021-02-23T08:09:15.000Z</published>
     <updated>2021-02-27T17:29:22.052Z</updated>
     
@@ -221,8 +221,8 @@
   
   <entry>
     <title>i春秋-random</title>
-    <link href="https://www.smartpillar.xyz/2021/01/30/i%E6%98%A5%E7%A7%8B-random/"/>
-    <id>https://www.smartpillar.xyz/2021/01/30/i%E6%98%A5%E7%A7%8B-random/</id>
+    <link href="https://blog.pillar.fun/2021/01/30/i%E6%98%A5%E7%A7%8B-random/"/>
+    <id>https://blog.pillar.fun/2021/01/30/i%E6%98%A5%E7%A7%8B-random/</id>
     <published>2021-01-30T08:34:27.000Z</published>
     <updated>2021-02-23T17:20:30.446Z</updated>
     
@@ -238,8 +238,8 @@
   
   <entry>
     <title>《从0到1：CTFer成长之路》Web之sql2</title>
-    <link href="https://www.smartpillar.xyz/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/"/>
-    <id>https://www.smartpillar.xyz/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/</id>
+    <link href="https://blog.pillar.fun/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/"/>
+    <id>https://blog.pillar.fun/2021/01/29/%E3%80%8A%E4%BB%8E0%E5%88%B01%EF%BC%9ACTFer%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%E3%80%8BWeb%E4%B9%8Bsql2/</id>
     <published>2021-01-29T11:16:33.000Z</published>
     <updated>2021-01-30T08:47:08.027Z</updated>
     
@@ -251,16 +251,16 @@
     
     
     
-    <category term="ctf" scheme="https://www.smartpillar.xyz/tags/ctf/"/>
+    <category term="ctf" scheme="https://blog.pillar.fun/tags/ctf/"/>
     
-    <category term="web" scheme="https://www.smartpillar.xyz/tags/web/"/>
+    <category term="web" scheme="https://blog.pillar.fun/tags/web/"/>
     
   </entry>
   
   <entry>
     <title>i春秋-Pretty_good_privacy</title>
-    <link href="https://www.smartpillar.xyz/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/"/>
-    <id>https://www.smartpillar.xyz/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/</id>
+    <link href="https://blog.pillar.fun/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/"/>
+    <id>https://blog.pillar.fun/2021/01/28/i%E6%98%A5%E7%A7%8B-Pretty-good-privacy/</id>
     <published>2021-01-28T10:05:27.000Z</published>
     <updated>2021-01-28T10:40:34.803Z</updated>
     
@@ -272,16 +272,16 @@
     
     
     
-    <category term="ctf" scheme="https://www.smartpillar.xyz/tags/ctf/"/>
+    <category term="ctf" scheme="https://blog.pillar.fun/tags/ctf/"/>
     
-    <category term="misc" scheme="https://www.smartpillar.xyz/tags/misc/"/>
+    <category term="misc" scheme="https://blog.pillar.fun/tags/misc/"/>
     
   </entry>
   
   <entry>
     <title>跨域及安全</title>
-    <link href="https://www.smartpillar.xyz/2021/01/15/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E5%AE%89%E5%85%A8/"/>
-    <id>https://www.smartpillar.xyz/2021/01/15/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E5%AE%89%E5%85%A8/</id>
+    <link href="https://blog.pillar.fun/2021/01/15/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E5%AE%89%E5%85%A8/"/>
+    <id>https://blog.pillar.fun/2021/01/15/%E8%B7%A8%E5%9F%9F%E5%8F%8A%E5%AE%89%E5%85%A8/</id>
     <published>2021-01-15T03:46:01.000Z</published>
     <updated>2021-01-18T13:50:26.370Z</updated>
     
@@ -297,8 +297,8 @@
   
   <entry>
     <title>给butterfly的valine评论添加emoji</title>
-    <link href="https://www.smartpillar.xyz/2021/01/04/%E7%BB%99butterfly%E7%9A%84valine%E8%AF%84%E8%AE%BA%E6%B7%BB%E5%8A%A0emoji/"/>
-    <id>https://www.smartpillar.xyz/2021/01/04/%E7%BB%99butterfly%E7%9A%84valine%E8%AF%84%E8%AE%BA%E6%B7%BB%E5%8A%A0emoji/</id>
+    <link href="https://blog.pillar.fun/2021/01/04/%E7%BB%99butterfly%E7%9A%84valine%E8%AF%84%E8%AE%BA%E6%B7%BB%E5%8A%A0emoji/"/>
+    <id>https://blog.pillar.fun/2021/01/04/%E7%BB%99butterfly%E7%9A%84valine%E8%AF%84%E8%AE%BA%E6%B7%BB%E5%8A%A0emoji/</id>
     <published>2021-01-04T04:34:03.000Z</published>
     <updated>2021-03-04T06:20:08.881Z</updated>
     
@@ -317,8 +317,8 @@
   
   <entry>
     <title>BUU刷题日记_PWN5</title>
-    <link href="https://www.smartpillar.xyz/2020/10/04/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-PWN5/"/>
-    <id>https://www.smartpillar.xyz/2020/10/04/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-PWN5/</id>
+    <link href="https://blog.pillar.fun/2020/10/04/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-PWN5/"/>
+    <id>https://blog.pillar.fun/2020/10/04/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-PWN5/</id>
     <published>2020-10-04T06:36:46.000Z</published>
     <updated>2022-02-24T10:37:14.841Z</updated>
     
@@ -333,16 +333,16 @@
     
     
     
-    <category term="补题" scheme="https://www.smartpillar.xyz/tags/%E8%A1%A5%E9%A2%98/"/>
+    <category term="补题" scheme="https://blog.pillar.fun/tags/%E8%A1%A5%E9%A2%98/"/>
     
-    <category term="pwn" scheme="https://www.smartpillar.xyz/tags/pwn/"/>
+    <category term="pwn" scheme="https://blog.pillar.fun/tags/pwn/"/>
     
   </entry>
   
   <entry>
     <title>BUU刷题日记_ciscn2019c1</title>
-    <link href="https://www.smartpillar.xyz/2020/09/22/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-ciscn2019c1/"/>
-    <id>https://www.smartpillar.xyz/2020/09/22/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-ciscn2019c1/</id>
+    <link href="https://blog.pillar.fun/2020/09/22/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-ciscn2019c1/"/>
+    <id>https://blog.pillar.fun/2020/09/22/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-ciscn2019c1/</id>
     <published>2020-09-22T10:49:19.000Z</published>
     <updated>2022-02-23T13:21:46.565Z</updated>
     
@@ -357,16 +357,16 @@
     
     
     
-    <category term="补题" scheme="https://www.smartpillar.xyz/tags/%E8%A1%A5%E9%A2%98/"/>
+    <category term="补题" scheme="https://blog.pillar.fun/tags/%E8%A1%A5%E9%A2%98/"/>
     
-    <category term="pwn" scheme="https://www.smartpillar.xyz/tags/pwn/"/>
+    <category term="pwn" scheme="https://blog.pillar.fun/tags/pwn/"/>
     
   </entry>
   
   <entry>
     <title>vulnhub-DC-1</title>
-    <link href="https://www.smartpillar.xyz/2020/08/01/vulnhub-DC-1/"/>
-    <id>https://www.smartpillar.xyz/2020/08/01/vulnhub-DC-1/</id>
+    <link href="https://blog.pillar.fun/2020/08/01/vulnhub-DC-1/"/>
+    <id>https://blog.pillar.fun/2020/08/01/vulnhub-DC-1/</id>
     <published>2020-08-01T08:33:28.000Z</published>
     <updated>2021-03-04T11:09:00.399Z</updated>
     
@@ -385,8 +385,8 @@
   
   <entry>
     <title>安卓内核pwn之缓冲区溢出</title>
-    <link href="https://www.smartpillar.xyz/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/"/>
-    <id>https://www.smartpillar.xyz/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/</id>
+    <link href="https://blog.pillar.fun/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/"/>
+    <id>https://blog.pillar.fun/2020/07/22/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8pwn%E4%B9%8B%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BA%A2%E5%87%BA/</id>
     <published>2020-07-22T05:04:01.000Z</published>
     <updated>2021-03-08T05:14:06.447Z</updated>
     
@@ -398,16 +398,16 @@
     
     
     
-    <category term="pwn" scheme="https://www.smartpillar.xyz/tags/pwn/"/>
+    <category term="pwn" scheme="https://blog.pillar.fun/tags/pwn/"/>
     
-    <category term="android" scheme="https://www.smartpillar.xyz/tags/android/"/>
+    <category term="android" scheme="https://blog.pillar.fun/tags/android/"/>
     
   </entry>
   
   <entry>
     <title>PlayWithAndroidKernel</title>
-    <link href="https://www.smartpillar.xyz/2020/07/19/PlayWithAndroidKernel/"/>
-    <id>https://www.smartpillar.xyz/2020/07/19/PlayWithAndroidKernel/</id>
+    <link href="https://blog.pillar.fun/2020/07/19/PlayWithAndroidKernel/"/>
+    <id>https://blog.pillar.fun/2020/07/19/PlayWithAndroidKernel/</id>
     <published>2020-07-19T04:02:18.000Z</published>
     <updated>2022-02-12T10:45:11.349Z</updated>
     
@@ -419,16 +419,16 @@
     
     
     
-    <category term="pwn" scheme="https://www.smartpillar.xyz/tags/pwn/"/>
+    <category term="pwn" scheme="https://blog.pillar.fun/tags/pwn/"/>
     
-    <category term="Android" scheme="https://www.smartpillar.xyz/tags/Android/"/>
+    <category term="Android" scheme="https://blog.pillar.fun/tags/Android/"/>
     
   </entry>
   
   <entry>
     <title>树的遍历</title>
-    <link href="https://www.smartpillar.xyz/2020/07/09/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/"/>
-    <id>https://www.smartpillar.xyz/2020/07/09/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/</id>
+    <link href="https://blog.pillar.fun/2020/07/09/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/"/>
+    <id>https://blog.pillar.fun/2020/07/09/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/</id>
     <published>2020-07-09T08:04:54.000Z</published>
     <updated>2020-07-09T08:18:25.090Z</updated>
     
@@ -440,14 +440,14 @@
     
     
     
-    <category term="数据结构" scheme="https://www.smartpillar.xyz/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <category term="数据结构" scheme="https://blog.pillar.fun/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
   <entry>
     <title>BST与AVL与RBT</title>
-    <link href="https://www.smartpillar.xyz/2020/07/09/BST%E4%B8%8EAVL%E4%B8%8ERBT/"/>
-    <id>https://www.smartpillar.xyz/2020/07/09/BST%E4%B8%8EAVL%E4%B8%8ERBT/</id>
+    <link href="https://blog.pillar.fun/2020/07/09/BST%E4%B8%8EAVL%E4%B8%8ERBT/"/>
+    <id>https://blog.pillar.fun/2020/07/09/BST%E4%B8%8EAVL%E4%B8%8ERBT/</id>
     <published>2020-07-09T02:27:20.000Z</published>
     <updated>2022-02-20T04:21:56.931Z</updated>
     
@@ -462,14 +462,14 @@
     
     
     
-    <category term="数据结构" scheme="https://www.smartpillar.xyz/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    <category term="数据结构" scheme="https://blog.pillar.fun/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
   <entry>
     <title>单元测试框架</title>
-    <link href="https://www.smartpillar.xyz/2020/07/07/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/"/>
-    <id>https://www.smartpillar.xyz/2020/07/07/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/</id>
+    <link href="https://blog.pillar.fun/2020/07/07/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/"/>
+    <id>https://blog.pillar.fun/2020/07/07/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/</id>
     <published>2020-07-07T07:27:26.000Z</published>
     <updated>2022-02-20T04:23:05.325Z</updated>
     
@@ -485,8 +485,8 @@
   
   <entry>
     <title>分区表</title>
-    <link href="https://www.smartpillar.xyz/2020/06/14/%E5%88%86%E5%8C%BA%E8%A1%A8/"/>
-    <id>https://www.smartpillar.xyz/2020/06/14/%E5%88%86%E5%8C%BA%E8%A1%A8/</id>
+    <link href="https://blog.pillar.fun/2020/06/14/%E5%88%86%E5%8C%BA%E8%A1%A8/"/>
+    <id>https://blog.pillar.fun/2020/06/14/%E5%88%86%E5%8C%BA%E8%A1%A8/</id>
     <published>2020-06-14T10:16:50.000Z</published>
     <updated>2020-06-15T10:37:18.803Z</updated>
     
@@ -498,14 +498,14 @@
     
     
     
-    <category term="计算机基础" scheme="https://www.smartpillar.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
+    <category term="计算机基础" scheme="https://blog.pillar.fun/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
   <entry>
     <title>VirtualProtect绕过DEP</title>
-    <link href="https://www.smartpillar.xyz/2020/06/08/VirtualProtect%E7%BB%95%E8%BF%87DEP/"/>
-    <id>https://www.smartpillar.xyz/2020/06/08/VirtualProtect%E7%BB%95%E8%BF%87DEP/</id>
+    <link href="https://blog.pillar.fun/2020/06/08/VirtualProtect%E7%BB%95%E8%BF%87DEP/"/>
+    <id>https://blog.pillar.fun/2020/06/08/VirtualProtect%E7%BB%95%E8%BF%87DEP/</id>
     <published>2020-06-08T05:05:46.000Z</published>
     <updated>2020-06-08T07:27:07.118Z</updated>
     
@@ -521,8 +521,8 @@
   
   <entry>
     <title>i春秋-小可爱</title>
-    <link href="https://www.smartpillar.xyz/2020/06/02/i%E6%98%A5%E7%A7%8B-%E5%B0%8F%E5%8F%AF%E7%88%B1/"/>
-    <id>https://www.smartpillar.xyz/2020/06/02/i%E6%98%A5%E7%A7%8B-%E5%B0%8F%E5%8F%AF%E7%88%B1/</id>
+    <link href="https://blog.pillar.fun/2020/06/02/i%E6%98%A5%E7%A7%8B-%E5%B0%8F%E5%8F%AF%E7%88%B1/"/>
+    <id>https://blog.pillar.fun/2020/06/02/i%E6%98%A5%E7%A7%8B-%E5%B0%8F%E5%8F%AF%E7%88%B1/</id>
     <published>2020-06-02T08:25:14.000Z</published>
     <updated>2020-06-08T11:29:24.142Z</updated>
     
@@ -534,16 +534,16 @@
     
     
     
-    <category term="ctf" scheme="https://www.smartpillar.xyz/tags/ctf/"/>
+    <category term="ctf" scheme="https://blog.pillar.fun/tags/ctf/"/>
     
-    <category term="misc" scheme="https://www.smartpillar.xyz/tags/misc/"/>
+    <category term="misc" scheme="https://blog.pillar.fun/tags/misc/"/>
     
   </entry>
   
   <entry>
     <title>i春秋-要想会，先学会</title>
-    <link href="https://www.smartpillar.xyz/2020/06/01/i%E6%98%A5%E7%A7%8B-%E8%A6%81%E6%83%B3%E4%BC%9A%EF%BC%8C%E5%85%88%E5%AD%A6%E4%BC%9A/"/>
-    <id>https://www.smartpillar.xyz/2020/06/01/i%E6%98%A5%E7%A7%8B-%E8%A6%81%E6%83%B3%E4%BC%9A%EF%BC%8C%E5%85%88%E5%AD%A6%E4%BC%9A/</id>
+    <link href="https://blog.pillar.fun/2020/06/01/i%E6%98%A5%E7%A7%8B-%E8%A6%81%E6%83%B3%E4%BC%9A%EF%BC%8C%E5%85%88%E5%AD%A6%E4%BC%9A/"/>
+    <id>https://blog.pillar.fun/2020/06/01/i%E6%98%A5%E7%A7%8B-%E8%A6%81%E6%83%B3%E4%BC%9A%EF%BC%8C%E5%85%88%E5%AD%A6%E4%BC%9A/</id>
     <published>2020-06-01T13:52:08.000Z</published>
     <updated>2020-06-08T11:30:07.228Z</updated>
     
@@ -555,16 +555,16 @@
     
     
     
-    <category term="ctf" scheme="https://www.smartpillar.xyz/tags/ctf/"/>
+    <category term="ctf" scheme="https://blog.pillar.fun/tags/ctf/"/>
     
-    <category term="misc" scheme="https://www.smartpillar.xyz/tags/misc/"/>
+    <category term="misc" scheme="https://blog.pillar.fun/tags/misc/"/>
     
   </entry>
   
   <entry>
     <title>i春秋-Recreators</title>
-    <link href="https://www.smartpillar.xyz/2020/05/31/i%E6%98%A5%E7%A7%8B-Recreators/"/>
-    <id>https://www.smartpillar.xyz/2020/05/31/i%E6%98%A5%E7%A7%8B-Recreators/</id>
+    <link href="https://blog.pillar.fun/2020/05/31/i%E6%98%A5%E7%A7%8B-Recreators/"/>
+    <id>https://blog.pillar.fun/2020/05/31/i%E6%98%A5%E7%A7%8B-Recreators/</id>
     <published>2020-05-31T09:17:22.000Z</published>
     <updated>2020-06-08T11:30:25.710Z</updated>
     
@@ -576,16 +576,16 @@
     
     
     
-    <category term="ctf" scheme="https://www.smartpillar.xyz/tags/ctf/"/>
+    <category term="ctf" scheme="https://blog.pillar.fun/tags/ctf/"/>
     
-    <category term="misc" scheme="https://www.smartpillar.xyz/tags/misc/"/>
+    <category term="misc" scheme="https://blog.pillar.fun/tags/misc/"/>
     
   </entry>
   
   <entry>
     <title>i春秋-手贱的A君</title>
-    <link href="https://www.smartpillar.xyz/2020/05/31/i%E6%98%A5%E7%A7%8B-%E6%89%8B%E8%B4%B1%E7%9A%84A%E5%90%9B/"/>
-    <id>https://www.smartpillar.xyz/2020/05/31/i%E6%98%A5%E7%A7%8B-%E6%89%8B%E8%B4%B1%E7%9A%84A%E5%90%9B/</id>
+    <link href="https://blog.pillar.fun/2020/05/31/i%E6%98%A5%E7%A7%8B-%E6%89%8B%E8%B4%B1%E7%9A%84A%E5%90%9B/"/>
+    <id>https://blog.pillar.fun/2020/05/31/i%E6%98%A5%E7%A7%8B-%E6%89%8B%E8%B4%B1%E7%9A%84A%E5%90%9B/</id>
     <published>2020-05-31T09:16:16.000Z</published>
     <updated>2020-06-08T11:30:16.614Z</updated>
     
@@ -597,16 +597,16 @@
     
     
     
-    <category term="ctf" scheme="https://www.smartpillar.xyz/tags/ctf/"/>
+    <category term="ctf" scheme="https://blog.pillar.fun/tags/ctf/"/>
     
-    <category term="misc" scheme="https://www.smartpillar.xyz/tags/misc/"/>
+    <category term="misc" scheme="https://blog.pillar.fun/tags/misc/"/>
     
   </entry>
   
   <entry>
     <title>i春秋-DoYouKnowUpload</title>
-    <link href="https://www.smartpillar.xyz/2020/05/31/i%E6%98%A5%E7%A7%8B-DoYouKnowUpload/"/>
-    <id>https://www.smartpillar.xyz/2020/05/31/i%E6%98%A5%E7%A7%8B-DoYouKnowUpload/</id>
+    <link href="https://blog.pillar.fun/2020/05/31/i%E6%98%A5%E7%A7%8B-DoYouKnowUpload/"/>
+    <id>https://blog.pillar.fun/2020/05/31/i%E6%98%A5%E7%A7%8B-DoYouKnowUpload/</id>
     <published>2020-05-31T09:11:22.000Z</published>
     <updated>2020-06-08T11:30:29.293Z</updated>
     
@@ -618,16 +618,16 @@
     
     
     
-    <category term="ctf" scheme="https://www.smartpillar.xyz/tags/ctf/"/>
+    <category term="ctf" scheme="https://blog.pillar.fun/tags/ctf/"/>
     
-    <category term="web" scheme="https://www.smartpillar.xyz/tags/web/"/>
+    <category term="web" scheme="https://blog.pillar.fun/tags/web/"/>
     
   </entry>
   
   <entry>
     <title>i春秋-流量分析</title>
-    <link href="https://www.smartpillar.xyz/2020/05/31/i%E6%98%A5%E7%A7%8B-%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/"/>
-    <id>https://www.smartpillar.xyz/2020/05/31/i%E6%98%A5%E7%A7%8B-%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/</id>
+    <link href="https://blog.pillar.fun/2020/05/31/i%E6%98%A5%E7%A7%8B-%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/"/>
+    <id>https://blog.pillar.fun/2020/05/31/i%E6%98%A5%E7%A7%8B-%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/</id>
     <published>2020-05-31T08:36:44.000Z</published>
     <updated>2020-06-08T11:30:22.263Z</updated>
     
@@ -639,16 +639,16 @@
     
     
     
-    <category term="ctf" scheme="https://www.smartpillar.xyz/tags/ctf/"/>
+    <category term="ctf" scheme="https://blog.pillar.fun/tags/ctf/"/>
     
-    <category term="misc" scheme="https://www.smartpillar.xyz/tags/misc/"/>
+    <category term="misc" scheme="https://blog.pillar.fun/tags/misc/"/>
     
   </entry>
   
   <entry>
     <title>PE病毒</title>
-    <link href="https://www.smartpillar.xyz/2020/04/08/PE%E7%97%85%E6%AF%92/"/>
-    <id>https://www.smartpillar.xyz/2020/04/08/PE%E7%97%85%E6%AF%92/</id>
+    <link href="https://blog.pillar.fun/2020/04/08/PE%E7%97%85%E6%AF%92/"/>
+    <id>https://blog.pillar.fun/2020/04/08/PE%E7%97%85%E6%AF%92/</id>
     <published>2020-04-08T05:45:59.000Z</published>
     <updated>2020-04-08T12:20:43.318Z</updated>
     
@@ -660,14 +660,38 @@
     
     
     
-    <category term="恶意代码" scheme="https://www.smartpillar.xyz/tags/%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81/"/>
+    <category term="恶意代码" scheme="https://blog.pillar.fun/tags/%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BUU刷题日记-喵喵喵</title>
+    <link href="https://blog.pillar.fun/2020/04/04/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E5%96%B5%E5%96%B5%E5%96%B5/"/>
+    <id>https://blog.pillar.fun/2020/04/04/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E5%96%B5%E5%96%B5%E5%96%B5/</id>
+    <published>2020-04-04T09:22:33.000Z</published>
+    <updated>2022-03-04T10:37:51.229Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h1><p>pillar的刷题日记</p><h1 id="喵喵喵"><a href="#喵喵喵" class="headerlink" title="喵喵喵"></a>喵喵喵</h1><p>开局一张图，010editor打开，发现没什么东西藏着。</p><p>用stegsolve打开，在RGB的0panel都能明显看到隐写</p><p><img src="/2020/04/04/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E5%96%B5%E5%96%B5%E5%96%B5/1.jpg" alt="img"></p><p>经过一番尝试，在Row LSB BGR顺序可以发现一个PNG，存下来，发现无法查看，这是因为前面多了0xFFFE，用16进制吧FFFE删掉就行了。</p><p>打开发现是半张二维码</p><p><img src="/2020/04/04/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E5%96%B5%E5%96%B5%E5%96%B5/2.jpg" alt="img"></p><p>用16进制编辑器把长宽改一样。</p><p><img src="/2020/04/04/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E5%96%B5%E5%96%B5%E5%96%B5/3.jpg" alt="img"></p><p>扫描出来</p><p><img src="/2020/04/04/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E5%96%B5%E5%96%B5%E5%96%B5/4.jpg" alt="img"></p><p>下载内容，提示flag不在这里哦  你猜猜flag在哪里呢？  找找看吧。</p><p>回头再看了一眼二维码的16进制，并确定无常规隐写。</p><p>考虑到txt文件，有可能是ntfs数据流，用winrar解压，用ntfsstreamseditor</p><p><img src="/2020/04/04/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E5%96%B5%E5%96%B5%E5%96%B5/6.jpg" alt="img"></p><p>在线反编译</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># visit https://tool.lu/pyc/ for more information</span></span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encode</span>():</span></span><br><span class="line">    flag = <span class="string">&#x27;*************&#x27;</span></span><br><span class="line">    ciphertext = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(flag)):</span><br><span class="line">        s = <span class="built_in">chr</span>(i ^ <span class="built_in">ord</span>(flag[i]))</span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">            s = <span class="built_in">ord</span>(s) + <span class="number">10</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            s = <span class="built_in">ord</span>(s) - <span class="number">10</span></span><br><span class="line">        ciphertext.append(<span class="built_in">str</span>(s))</span><br><span class="line">  </span><br><span class="line">    <span class="keyword">return</span> ciphertext[::-<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">ciphertext = [</span><br><span class="line">    <span class="string">&#x27;96&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;65&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;93&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;123&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;91&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;97&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;22&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;93&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;70&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;102&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;94&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;132&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;46&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;112&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;64&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;97&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;88&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;80&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;82&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;137&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;90&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;109&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;99&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;112&#x27;</span>]</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>很简单的re，写个代码求flag</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">ciphertext = [</span><br><span class="line">    <span class="string">&#x27;96&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;65&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;93&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;123&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;91&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;97&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;22&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;93&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;70&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;102&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;94&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;132&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;46&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;112&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;64&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;97&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;88&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;80&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;82&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;137&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;90&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;109&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;99&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;112&#x27;</span>][::-<span class="number">1</span>]</span><br><span class="line">flag=<span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(ciphertext)):</span><br><span class="line">    <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">        s=<span class="built_in">int</span>(ciphertext[i])-<span class="number">10</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        s=<span class="built_in">int</span>(ciphertext[i])+<span class="number">10</span></span><br><span class="line">    s^=i</span><br><span class="line">    flag+=<span class="built_in">chr</span>(s)</span><br><span class="line">print(flag)</span><br></pre></td></tr></table></figure><p>得到</p><p>flag{Y@e_Cl3veR_C1Ever!}</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="补题" scheme="https://blog.pillar.fun/tags/%E8%A1%A5%E9%A2%98/"/>
+    
+    <category term="misc" scheme="https://blog.pillar.fun/tags/misc/"/>
     
   </entry>
   
   <entry>
     <title>BUU刷题日记-我吃三明治</title>
-    <link href="https://www.smartpillar.xyz/2020/04/02/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E6%88%91%E5%90%83%E4%B8%89%E6%98%8E%E6%B2%BB/"/>
-    <id>https://www.smartpillar.xyz/2020/04/02/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E6%88%91%E5%90%83%E4%B8%89%E6%98%8E%E6%B2%BB/</id>
+    <link href="https://blog.pillar.fun/2020/04/02/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E6%88%91%E5%90%83%E4%B8%89%E6%98%8E%E6%B2%BB/"/>
+    <id>https://blog.pillar.fun/2020/04/02/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E6%88%91%E5%90%83%E4%B8%89%E6%98%8E%E6%B2%BB/</id>
     <published>2020-04-02T04:04:42.000Z</published>
     <updated>2022-03-04T04:39:18.632Z</updated>
     
@@ -682,16 +706,16 @@
     
     
     
-    <category term="补题" scheme="https://www.smartpillar.xyz/tags/%E8%A1%A5%E9%A2%98/"/>
+    <category term="补题" scheme="https://blog.pillar.fun/tags/%E8%A1%A5%E9%A2%98/"/>
     
-    <category term="misc" scheme="https://www.smartpillar.xyz/tags/misc/"/>
+    <category term="misc" scheme="https://blog.pillar.fun/tags/misc/"/>
     
   </entry>
   
   <entry>
     <title>brute_force</title>
-    <link href="https://www.smartpillar.xyz/2020/04/01/brute-force/"/>
-    <id>https://www.smartpillar.xyz/2020/04/01/brute-force/</id>
+    <link href="https://blog.pillar.fun/2020/04/01/brute-force/"/>
+    <id>https://blog.pillar.fun/2020/04/01/brute-force/</id>
     <published>2020-04-01T11:28:55.000Z</published>
     <updated>2021-03-12T12:42:14.158Z</updated>
     
@@ -710,8 +734,8 @@
   
   <entry>
     <title>BUU刷题日记_[ACTF新生赛2020]NTFS数据流1</title>
-    <link href="https://www.smartpillar.xyz/2020/04/01/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-ACTF%E6%96%B0%E7%94%9F%E8%B5%9B2020-NTFS%E6%95%B0%E6%8D%AE%E6%B5%811/"/>
-    <id>https://www.smartpillar.xyz/2020/04/01/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-ACTF%E6%96%B0%E7%94%9F%E8%B5%9B2020-NTFS%E6%95%B0%E6%8D%AE%E6%B5%811/</id>
+    <link href="https://blog.pillar.fun/2020/04/01/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-ACTF%E6%96%B0%E7%94%9F%E8%B5%9B2020-NTFS%E6%95%B0%E6%8D%AE%E6%B5%811/"/>
+    <id>https://blog.pillar.fun/2020/04/01/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-ACTF%E6%96%B0%E7%94%9F%E8%B5%9B2020-NTFS%E6%95%B0%E6%8D%AE%E6%B5%811/</id>
     <published>2020-04-01T02:31:24.000Z</published>
     <updated>2022-02-23T10:14:26.430Z</updated>
     
@@ -726,16 +750,16 @@
     
     
     
-    <category term="补题" scheme="https://www.smartpillar.xyz/tags/%E8%A1%A5%E9%A2%98/"/>
+    <category term="补题" scheme="https://blog.pillar.fun/tags/%E8%A1%A5%E9%A2%98/"/>
     
-    <category term="misc" scheme="https://www.smartpillar.xyz/tags/misc/"/>
+    <category term="misc" scheme="https://blog.pillar.fun/tags/misc/"/>
     
   </entry>
   
   <entry>
     <title>BUU刷题日记_Mysterious</title>
-    <link href="https://www.smartpillar.xyz/2020/03/28/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-Mysterious/"/>
-    <id>https://www.smartpillar.xyz/2020/03/28/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-Mysterious/</id>
+    <link href="https://blog.pillar.fun/2020/03/28/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-Mysterious/"/>
+    <id>https://blog.pillar.fun/2020/03/28/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-Mysterious/</id>
     <published>2020-03-28T01:57:36.000Z</published>
     <updated>2022-02-23T02:32:14.984Z</updated>
     
@@ -750,16 +774,16 @@
     
     
     
-    <category term="补题" scheme="https://www.smartpillar.xyz/tags/%E8%A1%A5%E9%A2%98/"/>
+    <category term="补题" scheme="https://blog.pillar.fun/tags/%E8%A1%A5%E9%A2%98/"/>
     
-    <category term="re" scheme="https://www.smartpillar.xyz/tags/re/"/>
+    <category term="re" scheme="https://blog.pillar.fun/tags/re/"/>
     
   </entry>
   
   <entry>
     <title>BUU刷题日记_荷兰宽带数据泄露</title>
-    <link href="https://www.smartpillar.xyz/2020/03/27/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E8%8D%B7%E5%85%B0%E5%AE%BD%E5%B8%A6%E6%95%B0%E6%8D%AE%E6%B3%84%E9%9C%B2/"/>
-    <id>https://www.smartpillar.xyz/2020/03/27/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E8%8D%B7%E5%85%B0%E5%AE%BD%E5%B8%A6%E6%95%B0%E6%8D%AE%E6%B3%84%E9%9C%B2/</id>
+    <link href="https://blog.pillar.fun/2020/03/27/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E8%8D%B7%E5%85%B0%E5%AE%BD%E5%B8%A6%E6%95%B0%E6%8D%AE%E6%B3%84%E9%9C%B2/"/>
+    <id>https://blog.pillar.fun/2020/03/27/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E8%8D%B7%E5%85%B0%E5%AE%BD%E5%B8%A6%E6%95%B0%E6%8D%AE%E6%B3%84%E9%9C%B2/</id>
     <published>2020-03-27T11:49:48.000Z</published>
     <updated>2022-02-23T04:54:21.798Z</updated>
     
@@ -774,16 +798,16 @@
     
     
     
-    <category term="补题" scheme="https://www.smartpillar.xyz/tags/%E8%A1%A5%E9%A2%98/"/>
+    <category term="补题" scheme="https://blog.pillar.fun/tags/%E8%A1%A5%E9%A2%98/"/>
     
-    <category term="misc" scheme="https://www.smartpillar.xyz/tags/misc/"/>
+    <category term="misc" scheme="https://blog.pillar.fun/tags/misc/"/>
     
   </entry>
   
   <entry>
     <title>BUU刷题日记_刷新的图片</title>
-    <link href="https://www.smartpillar.xyz/2020/03/20/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E5%88%B7%E6%96%B0%E7%9A%84%E5%9B%BE%E7%89%87/"/>
-    <id>https://www.smartpillar.xyz/2020/03/20/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E5%88%B7%E6%96%B0%E7%9A%84%E5%9B%BE%E7%89%87/</id>
+    <link href="https://blog.pillar.fun/2020/03/20/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E5%88%B7%E6%96%B0%E7%9A%84%E5%9B%BE%E7%89%87/"/>
+    <id>https://blog.pillar.fun/2020/03/20/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E5%88%B7%E6%96%B0%E7%9A%84%E5%9B%BE%E7%89%87/</id>
     <published>2020-03-20T08:46:21.000Z</published>
     <updated>2022-02-21T11:50:33.501Z</updated>
     
@@ -798,16 +822,16 @@
     
     
     
-    <category term="补题" scheme="https://www.smartpillar.xyz/tags/%E8%A1%A5%E9%A2%98/"/>
+    <category term="补题" scheme="https://blog.pillar.fun/tags/%E8%A1%A5%E9%A2%98/"/>
     
-    <category term="misc" scheme="https://www.smartpillar.xyz/tags/misc/"/>
+    <category term="misc" scheme="https://blog.pillar.fun/tags/misc/"/>
     
   </entry>
   
   <entry>
     <title>PE格式</title>
-    <link href="https://www.smartpillar.xyz/2020/03/19/PE%E6%A0%BC%E5%BC%8F/"/>
-    <id>https://www.smartpillar.xyz/2020/03/19/PE%E6%A0%BC%E5%BC%8F/</id>
+    <link href="https://blog.pillar.fun/2020/03/19/PE%E6%A0%BC%E5%BC%8F/"/>
+    <id>https://blog.pillar.fun/2020/03/19/PE%E6%A0%BC%E5%BC%8F/</id>
     <published>2020-03-19T05:58:39.000Z</published>
     <updated>2021-03-24T05:00:17.982Z</updated>
     
@@ -819,14 +843,14 @@
     
     
     
-    <category term="计算机基础" scheme="https://www.smartpillar.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
+    <category term="计算机基础" scheme="https://blog.pillar.fun/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
   <entry>
     <title>BUU刷题日记_base64隐写</title>
-    <link href="https://www.smartpillar.xyz/2020/03/18/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-base64%E9%9A%90%E5%86%99/"/>
-    <id>https://www.smartpillar.xyz/2020/03/18/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-base64%E9%9A%90%E5%86%99/</id>
+    <link href="https://blog.pillar.fun/2020/03/18/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-base64%E9%9A%90%E5%86%99/"/>
+    <id>https://blog.pillar.fun/2020/03/18/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-base64%E9%9A%90%E5%86%99/</id>
     <published>2020-03-18T04:59:35.000Z</published>
     <updated>2022-02-21T11:50:20.033Z</updated>
     
@@ -841,16 +865,16 @@
     
     
     
-    <category term="补题" scheme="https://www.smartpillar.xyz/tags/%E8%A1%A5%E9%A2%98/"/>
+    <category term="补题" scheme="https://blog.pillar.fun/tags/%E8%A1%A5%E9%A2%98/"/>
     
-    <category term="misc" scheme="https://www.smartpillar.xyz/tags/misc/"/>
+    <category term="misc" scheme="https://blog.pillar.fun/tags/misc/"/>
     
   </entry>
   
   <entry>
     <title>排序算法</title>
-    <link href="https://www.smartpillar.xyz/2020/03/13/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
-    <id>https://www.smartpillar.xyz/2020/03/13/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</id>
+    <link href="https://blog.pillar.fun/2020/03/13/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/"/>
+    <id>https://blog.pillar.fun/2020/03/13/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</id>
     <published>2020-03-13T10:35:57.000Z</published>
     <updated>2021-03-24T05:00:17.973Z</updated>
     
@@ -862,14 +886,14 @@
     
     
     
-    <category term="算法" scheme="https://www.smartpillar.xyz/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://blog.pillar.fun/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>vs2017安装libjpeg库</title>
-    <link href="https://www.smartpillar.xyz/2020/03/12/vs2017%E5%AE%89%E8%A3%85libjpeg%E5%BA%93/"/>
-    <id>https://www.smartpillar.xyz/2020/03/12/vs2017%E5%AE%89%E8%A3%85libjpeg%E5%BA%93/</id>
+    <link href="https://blog.pillar.fun/2020/03/12/vs2017%E5%AE%89%E8%A3%85libjpeg%E5%BA%93/"/>
+    <id>https://blog.pillar.fun/2020/03/12/vs2017%E5%AE%89%E8%A3%85libjpeg%E5%BA%93/</id>
     <published>2020-03-12T06:38:12.000Z</published>
     <updated>2020-05-30T05:11:28.506Z</updated>
     
@@ -881,14 +905,14 @@
     
     
     
-    <category term="图像处理" scheme="https://www.smartpillar.xyz/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    <category term="图像处理" scheme="https://blog.pillar.fun/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
     
   </entry>
   
   <entry>
     <title>SQL手注</title>
-    <link href="https://www.smartpillar.xyz/2020/03/08/SQL%E6%89%8B%E6%B3%A8/"/>
-    <id>https://www.smartpillar.xyz/2020/03/08/SQL%E6%89%8B%E6%B3%A8/</id>
+    <link href="https://blog.pillar.fun/2020/03/08/SQL%E6%89%8B%E6%B3%A8/"/>
+    <id>https://blog.pillar.fun/2020/03/08/SQL%E6%89%8B%E6%B3%A8/</id>
     <published>2020-03-08T04:14:52.000Z</published>
     <updated>2020-05-30T05:47:34.047Z</updated>
     
@@ -900,14 +924,14 @@
     
     
     
-    <category term="数据库" scheme="https://www.smartpillar.xyz/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <category term="数据库" scheme="https://blog.pillar.fun/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
   </entry>
   
   <entry>
     <title>Makefile</title>
-    <link href="https://www.smartpillar.xyz/2020/03/07/Makefile/"/>
-    <id>https://www.smartpillar.xyz/2020/03/07/Makefile/</id>
+    <link href="https://blog.pillar.fun/2020/03/07/Makefile/"/>
+    <id>https://blog.pillar.fun/2020/03/07/Makefile/</id>
     <published>2020-03-07T02:38:40.000Z</published>
     <updated>2020-05-30T05:12:32.357Z</updated>
     
@@ -919,16 +943,16 @@
     
     
     
-    <category term="工具" scheme="https://www.smartpillar.xyz/tags/%E5%B7%A5%E5%85%B7/"/>
+    <category term="工具" scheme="https://blog.pillar.fun/tags/%E5%B7%A5%E5%85%B7/"/>
     
-    <category term="Linux" scheme="https://www.smartpillar.xyz/tags/Linux/"/>
+    <category term="Linux" scheme="https://blog.pillar.fun/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>GCC</title>
-    <link href="https://www.smartpillar.xyz/2020/03/05/gcc/"/>
-    <id>https://www.smartpillar.xyz/2020/03/05/gcc/</id>
+    <link href="https://blog.pillar.fun/2020/03/05/gcc/"/>
+    <id>https://blog.pillar.fun/2020/03/05/gcc/</id>
     <published>2020-03-05T02:39:50.000Z</published>
     <updated>2020-05-30T05:10:23.466Z</updated>
     
@@ -940,16 +964,16 @@
     
     
     
-    <category term="工具" scheme="https://www.smartpillar.xyz/tags/%E5%B7%A5%E5%85%B7/"/>
+    <category term="工具" scheme="https://blog.pillar.fun/tags/%E5%B7%A5%E5%85%B7/"/>
     
-    <category term="Linux" scheme="https://www.smartpillar.xyz/tags/Linux/"/>
+    <category term="Linux" scheme="https://blog.pillar.fun/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>备份文件泄露漏洞</title>
-    <link href="https://www.smartpillar.xyz/2020/03/02/%E5%A4%87%E4%BB%BD%E6%96%87%E4%BB%B6%E6%B3%84%E9%9C%B2%E6%BC%8F%E6%B4%9E/"/>
-    <id>https://www.smartpillar.xyz/2020/03/02/%E5%A4%87%E4%BB%BD%E6%96%87%E4%BB%B6%E6%B3%84%E9%9C%B2%E6%BC%8F%E6%B4%9E/</id>
+    <link href="https://blog.pillar.fun/2020/03/02/%E5%A4%87%E4%BB%BD%E6%96%87%E4%BB%B6%E6%B3%84%E9%9C%B2%E6%BC%8F%E6%B4%9E/"/>
+    <id>https://blog.pillar.fun/2020/03/02/%E5%A4%87%E4%BB%BD%E6%96%87%E4%BB%B6%E6%B3%84%E9%9C%B2%E6%BC%8F%E6%B4%9E/</id>
     <published>2020-03-02T14:18:33.000Z</published>
     <updated>2020-03-09T11:22:47.604Z</updated>
     
@@ -961,18 +985,18 @@
     
     
     
-    <category term="ctf" scheme="https://www.smartpillar.xyz/tags/ctf/"/>
+    <category term="ctf" scheme="https://blog.pillar.fun/tags/ctf/"/>
     
-    <category term="web" scheme="https://www.smartpillar.xyz/tags/web/"/>
+    <category term="web" scheme="https://blog.pillar.fun/tags/web/"/>
     
-    <category term="信息泄露" scheme="https://www.smartpillar.xyz/tags/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/"/>
+    <category term="信息泄露" scheme="https://blog.pillar.fun/tags/%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2/"/>
     
   </entry>
   
   <entry>
     <title>FAT32文件系统</title>
-    <link href="https://www.smartpillar.xyz/2020/02/29/FAT32%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/"/>
-    <id>https://www.smartpillar.xyz/2020/02/29/FAT32%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</id>
+    <link href="https://blog.pillar.fun/2020/02/29/FAT32%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/"/>
+    <id>https://blog.pillar.fun/2020/02/29/FAT32%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/</id>
     <published>2020-02-29T11:23:07.000Z</published>
     <updated>2020-06-14T14:14:00.235Z</updated>
     
@@ -984,16 +1008,16 @@
     
     
     
-    <category term="计算机基础" scheme="https://www.smartpillar.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
+    <category term="计算机基础" scheme="https://blog.pillar.fun/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
     
-    <category term="操作系统" scheme="https://www.smartpillar.xyz/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    <category term="操作系统" scheme="https://blog.pillar.fun/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
   </entry>
   
   <entry>
     <title>vim快速上手</title>
-    <link href="https://www.smartpillar.xyz/2020/02/27/vim%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/"/>
-    <id>https://www.smartpillar.xyz/2020/02/27/vim%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/</id>
+    <link href="https://blog.pillar.fun/2020/02/27/vim%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/"/>
+    <id>https://blog.pillar.fun/2020/02/27/vim%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/</id>
     <published>2020-02-27T11:18:01.000Z</published>
     <updated>2020-03-09T11:22:55.713Z</updated>
     
@@ -1005,16 +1029,16 @@
     
     
     
-    <category term="工具" scheme="https://www.smartpillar.xyz/tags/%E5%B7%A5%E5%85%B7/"/>
+    <category term="工具" scheme="https://blog.pillar.fun/tags/%E5%B7%A5%E5%85%B7/"/>
     
-    <category term="Linux" scheme="https://www.smartpillar.xyz/tags/Linux/"/>
+    <category term="Linux" scheme="https://blog.pillar.fun/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>图片のEXIF信息</title>
-    <link href="https://www.smartpillar.xyz/2020/02/25/%E5%9B%BE%E7%89%87%E3%81%AEEXIF%E4%BF%A1%E6%81%AF/"/>
-    <id>https://www.smartpillar.xyz/2020/02/25/%E5%9B%BE%E7%89%87%E3%81%AEEXIF%E4%BF%A1%E6%81%AF/</id>
+    <link href="https://blog.pillar.fun/2020/02/25/%E5%9B%BE%E7%89%87%E3%81%AEEXIF%E4%BF%A1%E6%81%AF/"/>
+    <id>https://blog.pillar.fun/2020/02/25/%E5%9B%BE%E7%89%87%E3%81%AEEXIF%E4%BF%A1%E6%81%AF/</id>
     <published>2020-02-25T11:47:41.000Z</published>
     <updated>2020-05-30T04:54:01.084Z</updated>
     
@@ -1026,14 +1050,14 @@
     
     
     
-    <category term="数字取证" scheme="https://www.smartpillar.xyz/tags/%E6%95%B0%E5%AD%97%E5%8F%96%E8%AF%81/"/>
+    <category term="数字取证" scheme="https://blog.pillar.fun/tags/%E6%95%B0%E5%AD%97%E5%8F%96%E8%AF%81/"/>
     
   </entry>
   
   <entry>
     <title>算法的时间复杂度</title>
-    <link href="https://www.smartpillar.xyz/2020/02/22/%E7%AE%97%E6%B3%95%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/"/>
-    <id>https://www.smartpillar.xyz/2020/02/22/%E7%AE%97%E6%B3%95%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/</id>
+    <link href="https://blog.pillar.fun/2020/02/22/%E7%AE%97%E6%B3%95%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/"/>
+    <id>https://blog.pillar.fun/2020/02/22/%E7%AE%97%E6%B3%95%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6/</id>
     <published>2020-02-22T08:34:47.000Z</published>
     <updated>2020-03-21T04:57:09.278Z</updated>
     
@@ -1045,14 +1069,14 @@
     
     
     
-    <category term="算法分析" scheme="https://www.smartpillar.xyz/tags/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/"/>
+    <category term="算法分析" scheme="https://blog.pillar.fun/tags/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90/"/>
     
   </entry>
   
   <entry>
     <title>憨憨的git使用教程（1）</title>
-    <link href="https://www.smartpillar.xyz/2020/01/28/%E6%86%A8%E6%86%A8%E7%9A%84git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%881%EF%BC%89/"/>
-    <id>https://www.smartpillar.xyz/2020/01/28/%E6%86%A8%E6%86%A8%E7%9A%84git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%881%EF%BC%89/</id>
+    <link href="https://blog.pillar.fun/2020/01/28/%E6%86%A8%E6%86%A8%E7%9A%84git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%881%EF%BC%89/"/>
+    <id>https://blog.pillar.fun/2020/01/28/%E6%86%A8%E6%86%A8%E7%9A%84git%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%881%EF%BC%89/</id>
     <published>2020-01-28T07:49:14.000Z</published>
     <updated>2021-03-24T05:00:17.965Z</updated>
     
@@ -1064,14 +1088,14 @@
     
     
     
-    <category term="杂项" scheme="https://www.smartpillar.xyz/tags/%E6%9D%82%E9%A1%B9/"/>
+    <category term="杂项" scheme="https://blog.pillar.fun/tags/%E6%9D%82%E9%A1%B9/"/>
     
   </entry>
   
   <entry>
     <title>EZ密码</title>
-    <link href="https://www.smartpillar.xyz/2020/01/24/EZ%E7%BC%96%E7%A0%81/"/>
-    <id>https://www.smartpillar.xyz/2020/01/24/EZ%E7%BC%96%E7%A0%81/</id>
+    <link href="https://blog.pillar.fun/2020/01/24/EZ%E7%BC%96%E7%A0%81/"/>
+    <id>https://blog.pillar.fun/2020/01/24/EZ%E7%BC%96%E7%A0%81/</id>
     <published>2020-01-24T07:58:22.000Z</published>
     <updated>2020-05-30T04:55:43.524Z</updated>
     
@@ -1083,14 +1107,14 @@
     
     
     
-    <category term="杂项" scheme="https://www.smartpillar.xyz/tags/%E6%9D%82%E9%A1%B9/"/>
+    <category term="杂项" scheme="https://blog.pillar.fun/tags/%E6%9D%82%E9%A1%B9/"/>
     
   </entry>
   
   <entry>
     <title></title>
-    <link href="https://www.smartpillar.xyz/2020/01/16/%E5%9B%BE%E7%89%87base64%E7%BC%96%E7%A0%81/"/>
-    <id>https://www.smartpillar.xyz/2020/01/16/%E5%9B%BE%E7%89%87base64%E7%BC%96%E7%A0%81/</id>
+    <link href="https://blog.pillar.fun/2020/01/16/%E5%9B%BE%E7%89%87base64%E7%BC%96%E7%A0%81/"/>
+    <id>https://blog.pillar.fun/2020/01/16/%E5%9B%BE%E7%89%87base64%E7%BC%96%E7%A0%81/</id>
     <published>2020-01-15T16:00:00.000Z</published>
     <updated>2020-03-09T11:28:57.551Z</updated>
     
@@ -1106,8 +1130,8 @@
   
   <entry>
     <title>汇编</title>
-    <link href="https://www.smartpillar.xyz/2020/01/15/%E6%B1%87%E7%BC%96/"/>
-    <id>https://www.smartpillar.xyz/2020/01/15/%E6%B1%87%E7%BC%96/</id>
+    <link href="https://blog.pillar.fun/2020/01/15/%E6%B1%87%E7%BC%96/"/>
+    <id>https://blog.pillar.fun/2020/01/15/%E6%B1%87%E7%BC%96/</id>
     <published>2020-01-15T07:28:53.000Z</published>
     <updated>2020-05-30T05:49:36.647Z</updated>
     
@@ -1119,14 +1143,14 @@
     
     
     
-    <category term="计算机基础" scheme="https://www.smartpillar.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
+    <category term="计算机基础" scheme="https://blog.pillar.fun/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
   <entry>
     <title>python-sys_os</title>
-    <link href="https://www.smartpillar.xyz/2020/01/14/python-sys-os/"/>
-    <id>https://www.smartpillar.xyz/2020/01/14/python-sys-os/</id>
+    <link href="https://blog.pillar.fun/2020/01/14/python-sys-os/"/>
+    <id>https://blog.pillar.fun/2020/01/14/python-sys-os/</id>
     <published>2020-01-14T09:49:12.000Z</published>
     <updated>2020-03-09T11:29:29.826Z</updated>
     
@@ -1138,16 +1162,16 @@
     
     
     
-    <category term="python" scheme="https://www.smartpillar.xyz/tags/python/"/>
+    <category term="python" scheme="https://blog.pillar.fun/tags/python/"/>
     
-    <category term="操作系统" scheme="https://www.smartpillar.xyz/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    <category term="操作系统" scheme="https://blog.pillar.fun/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
   </entry>
   
   <entry>
     <title>cdn</title>
-    <link href="https://www.smartpillar.xyz/2020/01/13/cdn/"/>
-    <id>https://www.smartpillar.xyz/2020/01/13/cdn/</id>
+    <link href="https://blog.pillar.fun/2020/01/13/cdn/"/>
+    <id>https://blog.pillar.fun/2020/01/13/cdn/</id>
     <published>2020-01-13T08:41:36.000Z</published>
     <updated>2020-05-30T04:50:41.922Z</updated>
     
@@ -1159,14 +1183,14 @@
     
     
     
-    <category term="杂项" scheme="https://www.smartpillar.xyz/tags/%E6%9D%82%E9%A1%B9/"/>
+    <category term="杂项" scheme="https://blog.pillar.fun/tags/%E6%9D%82%E9%A1%B9/"/>
     
   </entry>
   
   <entry>
     <title>ss-ssr-build</title>
-    <link href="https://www.smartpillar.xyz/2020/01/10/ssr-build/"/>
-    <id>https://www.smartpillar.xyz/2020/01/10/ssr-build/</id>
+    <link href="https://blog.pillar.fun/2020/01/10/ssr-build/"/>
+    <id>https://blog.pillar.fun/2020/01/10/ssr-build/</id>
     <published>2020-01-09T16:08:23.000Z</published>
     <updated>2020-03-13T07:58:19.247Z</updated>
     
@@ -1178,16 +1202,16 @@
     
     
     
-    <category term="计算机网络" scheme="https://www.smartpillar.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <category term="计算机网络" scheme="https://blog.pillar.fun/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
-    <category term="工具" scheme="https://www.smartpillar.xyz/tags/%E5%B7%A5%E5%85%B7/"/>
+    <category term="工具" scheme="https://blog.pillar.fun/tags/%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
   <entry>
     <title>putty-ssh（1）</title>
-    <link href="https://www.smartpillar.xyz/2020/01/04/putty-ssh(1)/"/>
-    <id>https://www.smartpillar.xyz/2020/01/04/putty-ssh(1)/</id>
+    <link href="https://blog.pillar.fun/2020/01/04/putty-ssh(1)/"/>
+    <id>https://blog.pillar.fun/2020/01/04/putty-ssh(1)/</id>
     <published>2020-01-04T10:10:10.000Z</published>
     <updated>2020-05-30T05:46:29.123Z</updated>
     
@@ -1199,14 +1223,14 @@
     
     
     
-    <category term="杂项" scheme="https://www.smartpillar.xyz/tags/%E6%9D%82%E9%A1%B9/"/>
+    <category term="杂项" scheme="https://blog.pillar.fun/tags/%E6%9D%82%E9%A1%B9/"/>
     
   </entry>
   
   <entry>
     <title>检错</title>
-    <link href="https://www.smartpillar.xyz/2020/01/02/%E6%A3%80%E9%94%99/"/>
-    <id>https://www.smartpillar.xyz/2020/01/02/%E6%A3%80%E9%94%99/</id>
+    <link href="https://blog.pillar.fun/2020/01/02/%E6%A3%80%E9%94%99/"/>
+    <id>https://blog.pillar.fun/2020/01/02/%E6%A3%80%E9%94%99/</id>
     <published>2020-01-02T10:24:04.000Z</published>
     <updated>2020-05-30T05:50:13.590Z</updated>
     
@@ -1218,14 +1242,14 @@
     
     
     
-    <category term="计算机基础" scheme="https://www.smartpillar.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
+    <category term="计算机基础" scheme="https://blog.pillar.fun/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
   <entry>
     <title>Markdown</title>
-    <link href="https://www.smartpillar.xyz/2019/11/14/Markdown/"/>
-    <id>https://www.smartpillar.xyz/2019/11/14/Markdown/</id>
+    <link href="https://blog.pillar.fun/2019/11/14/Markdown/"/>
+    <id>https://blog.pillar.fun/2019/11/14/Markdown/</id>
     <published>2019-11-14T15:54:02.000Z</published>
     <updated>2021-03-24T05:00:17.959Z</updated>
     
@@ -1237,7 +1261,7 @@
     
     
     
-    <category term="杂项" scheme="https://www.smartpillar.xyz/tags/%E6%9D%82%E9%A1%B9/"/>
+    <category term="杂项" scheme="https://blog.pillar.fun/tags/%E6%9D%82%E9%A1%B9/"/>
     
   </entry>
   
