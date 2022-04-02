@@ -6,7 +6,7 @@
   <link href="https://blog.pillar.fun/atom.xml" rel="self"/>
   
   <link href="https://blog.pillar.fun/"/>
-  <updated>2022-04-02T04:04:57.818Z</updated>
+  <updated>2022-04-02T04:07:44.833Z</updated>
   <id>https://blog.pillar.fun/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://blog.pillar.fun/2022/04/02/%E9%9B%A8%E4%B8%AD%E5%86%92%E9%99%A92%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/"/>
     <id>https://blog.pillar.fun/2022/04/02/%E9%9B%A8%E4%B8%AD%E5%86%92%E9%99%A92%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</id>
     <published>2022-04-02T03:11:37.000Z</published>
-    <updated>2022-04-02T04:04:57.818Z</updated>
+    <updated>2022-04-02T04:07:44.833Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h1><p>简单记录一下雨中冒险2服务器的搭建</p><h1 id="法1-docker"><a href="#法1-docker" class="headerlink" title="法1-docker"></a>法1-docker</h1><p>github上有一个<a href="https://github.com/avivace/ror2-server">项目</a></p><p>直接随选一个linux系统，然后用对应分包管理工具装好他的依赖，运行就完事了。</p><p>这个项目是在docker里的linux用wine模拟windows环境来搭建ror2服务器。</p><p>实际上ror2的开发商貌似只开发了windows环境下的服务器，所以其实在各种意义上，这个用wine的docker都不是很稳定，在我和朋友们联机的过程中也深受其害，果断弃用。</p><h1 id="法2-windows"><a href="#法2-windows" class="headerlink" title="法2-windows"></a>法2-windows</h1><p>用windows来整就稳定一点，但也没有那么稳定，虽然实际上是我朋友网络的问题……</p><p>这里我们用到的是<a href="https://developer.valvesoftware.com/wiki/SteamCMD#Windows">steamcmd</a></p><p>在你的云服务商哪里选一个windowsserver，然后把steamcmd放进去，管理员运行之，等他自己安装，安装完了会显示</p><p><img src="/2022/04/02/%E9%9B%A8%E4%B8%AD%E5%86%92%E9%99%A92%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/2022~04~02~%E9%9B%A8%E4%B8%AD%E5%86%92%E9%99%A92%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%5C1.jpg" alt="img"></p><p>然后你随便建个文件夹，用来放你的ror2的服务器文件，接下来输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">force_install_dir=<span class="string">&quot;C:\ror2&quot;</span> <span class="comment"># 这里换你自己设置的文件夹</span></span><br><span class="line">login anonymous</span><br><span class="line">app_update 1180760 validate</span><br></pre></td></tr></table></figure><p>他就会下载（和你再linux上安装csgo服务器的步骤基本一致，如果你安装过的话）</p><p>然后等到下载完成，你就成了，去 <code>Risk of Rain 2_Data/config/server_startup.cfg</code>调整一下你的自定义设置。运行Risk of Rain 2.exe即可。</p><p><img src="/2022/04/02/%E9%9B%A8%E4%B8%AD%E5%86%92%E9%99%A92%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/2022~04~02~%E9%9B%A8%E4%B8%AD%E5%86%92%E9%99%A92%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%5C2.jpg" alt="img"></p><p><img src="/2022/04/02/%E9%9B%A8%E4%B8%AD%E5%86%92%E9%99%A92%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/2022~04~02~%E9%9B%A8%E4%B8%AD%E5%86%92%E9%99%A92%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%5C3.jpg" alt="img"></p><p>虽然他在这里说少了一些config啥的，但是没有什么影响，直接用就完事了。</p><h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>你还可以去<a href="thunderstore.io">thunderstore.io</a>下载一些mod来进一步完善你的服务器，让你的服务器更加好玩~</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h1><p>简单记录一下雨中冒险2服务器的搭建</p><h1 id="法1-docker"><a href="#法1-docker" class="headerlink" title="法1-docker"></a>法1-docker</h1><p>github上有一个<a href="https://github.com/avivace/ror2-server">项目</a></p><p>直接随选一个linux系统，然后用对应分包管理工具装好他的依赖，运行就完事了。</p><p>这个项目是在docker里的linux用wine模拟windows环境来搭建ror2服务器。</p><p>实际上ror2的开发商貌似只开发了windows环境下的服务器，所以其实在各种意义上，这个用wine的docker都不是很稳定，在我和朋友们联机的过程中也深受其害，果断弃用。</p><h1 id="法2-windows"><a href="#法2-windows" class="headerlink" title="法2-windows"></a>法2-windows</h1><p>用windows来整就稳定一点，但也没有那么稳定，虽然实际上是我朋友网络的问题……</p><p>这里我们用到的是<a href="https://developer.valvesoftware.com/wiki/SteamCMD#Windows">steamcmd</a></p><p>在你的云服务商哪里选一个windowsserver，然后把steamcmd放进去，管理员运行之，等他自己安装，安装完了会显示</p><p><img src="/2022/04/02/%E9%9B%A8%E4%B8%AD%E5%86%92%E9%99%A92%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/1.jpg" alt="img"></p><p>然后你随便建个文件夹，用来放你的ror2的服务器文件，接下来输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">force_install_dir=<span class="string">&quot;C:\ror2&quot;</span> <span class="comment"># 这里换你自己设置的文件夹</span></span><br><span class="line">login anonymous</span><br><span class="line">app_update 1180760 validate</span><br></pre></td></tr></table></figure><p>他就会下载（和你再linux上安装csgo服务器的步骤基本一致，如果你安装过的话）</p><p>然后等到下载完成，你就成了，去 <code>Risk of Rain 2_Data/config/server_startup.cfg</code>调整一下你的自定义设置。运行Risk of Rain 2.exe即可。</p><p><img src="/2022/04/02/%E9%9B%A8%E4%B8%AD%E5%86%92%E9%99%A92%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/2.jpg" alt="img"></p><p><img src="/2022/04/02/%E9%9B%A8%E4%B8%AD%E5%86%92%E9%99%A92%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/3.jpg" alt="img"></p><p>虽然他在这里说少了一些config啥的，但是没有什么影响，直接用就完事了。</p><h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>你还可以去<a href="thunderstore.io">thunderstore.io</a>下载一些mod来进一步完善你的服务器，让你的服务器更加好玩~~</p>]]></content>
     
     
       
@@ -666,6 +666,30 @@
   </entry>
   
   <entry>
+    <title>BUU刷题日记-弱口令</title>
+    <link href="https://blog.pillar.fun/2020/04/09/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E5%BC%B1%E5%8F%A3%E4%BB%A4/"/>
+    <id>https://blog.pillar.fun/2020/04/09/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E5%BC%B1%E5%8F%A3%E4%BB%A4/</id>
+    <published>2020-04-09T07:48:48.000Z</published>
+    <updated>2022-04-02T10:37:45.225Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h1><p>pillar的刷题日记</p><h1 id="弱口令"><a href="#弱口令" class="headerlink" title="弱口令"></a>弱口令</h1><p>开局一个带密码的压缩包。直奔注释</p><p>看上去没有，但实际上有</p><p><img src="/2020/04/09/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E5%BC%B1%E5%8F%A3%E4%BB%A4/1.jpg" alt="img"></p><p>在编辑器里更容易看</p><p><img src="/2020/04/09/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E5%BC%B1%E5%8F%A3%E4%BB%A4/2.jpg" alt="img"></p><p>猜测是摩斯密码，用-替换tab，用.替换空格</p><p><img src="/2020/04/09/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E5%BC%B1%E5%8F%A3%E4%BB%A4/3.jpg" alt="img"></p><p>解压得到一张赵丽颖</p><p>然后用<a href="https://github.com/livz/cloacked-pixel进行提取，密码是123456">https://github.com/livz/cloacked-pixel进行提取，密码是123456</a></p><p>（不懂就问，这个和stegpy那个有什么区别啊）</p><p>就得到flag了</p><p>flag{jsy09-wytg5-wius8}</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="补题" scheme="https://blog.pillar.fun/tags/%E8%A1%A5%E9%A2%98/"/>
+    
+    <category term="misc" scheme="https://blog.pillar.fun/tags/misc/"/>
+    
+  </entry>
+  
+  <entry>
     <title>PE病毒</title>
     <link href="https://blog.pillar.fun/2020/04/08/PE%E7%97%85%E6%AF%92/"/>
     <id>https://blog.pillar.fun/2020/04/08/PE%E7%97%85%E6%AF%92/</id>
@@ -681,6 +705,30 @@
     
     
     <category term="恶意代码" scheme="https://blog.pillar.fun/tags/%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BUU刷题日记-john-in-the-middle</title>
+    <link href="https://blog.pillar.fun/2020/04/07/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-john-in-the-middle/"/>
+    <id>https://blog.pillar.fun/2020/04/07/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-john-in-the-middle/</id>
+    <published>2020-04-07T07:28:15.000Z</published>
+    <updated>2022-04-02T07:41:15.610Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h1><p>pillar的刷题日记</p><h1 id="john-in-the-middle"><a href="#john-in-the-middle" class="headerlink" title="john in the middle"></a>john in the middle</h1><p>开局一个pcap</p><p><img src="/2020/04/07/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-john-in-the-middle/1.jpg" alt="img"></p><p>看一眼全是http，直接进行一个http对象的导出，得到一个网页文件</p><p><img src="/2020/04/07/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-john-in-the-middle/2.jpg" alt="img"></p><p>大概是个什么CTF比赛信息，谢谢赞助商blabla的</p><p>没什么头绪，拿stegsolve看看各个图片。</p><p>在plane0若有若无的看到了flag是john the sniffer，往后翻看到了更清晰的</p><p><img src="/2020/04/07/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-john-in-the-middle/3.jpg" alt="img"></p><p><img src="/2020/04/07/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-john-in-the-middle/4.jpg" alt="img"></p><p>flag{J0hn_th3_Sn1ff3r}</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="补题" scheme="https://blog.pillar.fun/tags/%E8%A1%A5%E9%A2%98/"/>
+    
+    <category term="misc" scheme="https://blog.pillar.fun/tags/misc/"/>
     
   </entry>
   
@@ -713,7 +761,7 @@
     <link href="https://blog.pillar.fun/2020/04/02/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E6%88%91%E5%90%83%E4%B8%89%E6%98%8E%E6%B2%BB/"/>
     <id>https://blog.pillar.fun/2020/04/02/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E6%88%91%E5%90%83%E4%B8%89%E6%98%8E%E6%B2%BB/</id>
     <published>2020-04-02T04:04:42.000Z</published>
-    <updated>2022-03-04T04:39:18.632Z</updated>
+    <updated>2022-04-02T07:34:19.553Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h1><p>pillar的刷题日记</p><h1 id="我吃三明治"><a href="#我吃三明治" class="headerlink" title="我吃三明治"></a>我吃三明治</h1><p>开局一张jpg，用010edito打开</p><p><img src="/2020/04/02/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E6%88%91%E5%90%83%E4%B8%89%E6%98%8E%E6%B2%BB/1.jpg" alt="img"></p><p>发现unknownpadding，开到FF D8 和JFIF，可知是另一张图片，保存出来，发现是同一张图靠的近了一点</p><p><img src="/2020/04/02/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E6%88%91%E5%90%83%E4%B8%89%E6%98%8E%E6%B2%BB/2.jpg" alt="img"></p><p>而unknownpadding中间还有一段，看起来是base32，也确实是。</p><p><img src="/2020/04/02/BUU%E5%88%B7%E9%A2%98%E6%97%A5%E8%AE%B0-%E6%88%91%E5%90%83%E4%B8%89%E6%98%8E%E6%B2%BB/3.jpg" alt="img"></p><p>flag{6f1797d4080b29b64da5897780463e30}</p>]]></content>
     
