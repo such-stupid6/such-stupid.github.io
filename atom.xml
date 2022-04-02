@@ -6,7 +6,7 @@
   <link href="https://blog.pillar.fun/atom.xml" rel="self"/>
   
   <link href="https://blog.pillar.fun/"/>
-  <updated>2022-02-20T12:16:54.013Z</updated>
+  <updated>2022-04-02T04:04:57.818Z</updated>
   <id>https://blog.pillar.fun/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>雨中冒险2服务器搭建</title>
+    <link href="https://blog.pillar.fun/2022/04/02/%E9%9B%A8%E4%B8%AD%E5%86%92%E9%99%A92%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/"/>
+    <id>https://blog.pillar.fun/2022/04/02/%E9%9B%A8%E4%B8%AD%E5%86%92%E9%99%A92%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/</id>
+    <published>2022-04-02T03:11:37.000Z</published>
+    <updated>2022-04-02T04:04:57.818Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="导语"><a href="#导语" class="headerlink" title="导语"></a>导语</h1><p>简单记录一下雨中冒险2服务器的搭建</p><h1 id="法1-docker"><a href="#法1-docker" class="headerlink" title="法1-docker"></a>法1-docker</h1><p>github上有一个<a href="https://github.com/avivace/ror2-server">项目</a></p><p>直接随选一个linux系统，然后用对应分包管理工具装好他的依赖，运行就完事了。</p><p>这个项目是在docker里的linux用wine模拟windows环境来搭建ror2服务器。</p><p>实际上ror2的开发商貌似只开发了windows环境下的服务器，所以其实在各种意义上，这个用wine的docker都不是很稳定，在我和朋友们联机的过程中也深受其害，果断弃用。</p><h1 id="法2-windows"><a href="#法2-windows" class="headerlink" title="法2-windows"></a>法2-windows</h1><p>用windows来整就稳定一点，但也没有那么稳定，虽然实际上是我朋友网络的问题……</p><p>这里我们用到的是<a href="https://developer.valvesoftware.com/wiki/SteamCMD#Windows">steamcmd</a></p><p>在你的云服务商哪里选一个windowsserver，然后把steamcmd放进去，管理员运行之，等他自己安装，安装完了会显示</p><p><img src="/2022/04/02/%E9%9B%A8%E4%B8%AD%E5%86%92%E9%99%A92%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/2022~04~02~%E9%9B%A8%E4%B8%AD%E5%86%92%E9%99%A92%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%5C1.jpg" alt="img"></p><p>然后你随便建个文件夹，用来放你的ror2的服务器文件，接下来输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">force_install_dir=<span class="string">&quot;C:\ror2&quot;</span> <span class="comment"># 这里换你自己设置的文件夹</span></span><br><span class="line">login anonymous</span><br><span class="line">app_update 1180760 validate</span><br></pre></td></tr></table></figure><p>他就会下载（和你再linux上安装csgo服务器的步骤基本一致，如果你安装过的话）</p><p>然后等到下载完成，你就成了，去 <code>Risk of Rain 2_Data/config/server_startup.cfg</code>调整一下你的自定义设置。运行Risk of Rain 2.exe即可。</p><p><img src="/2022/04/02/%E9%9B%A8%E4%B8%AD%E5%86%92%E9%99%A92%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/2022~04~02~%E9%9B%A8%E4%B8%AD%E5%86%92%E9%99%A92%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%5C2.jpg" alt="img"></p><p><img src="/2022/04/02/%E9%9B%A8%E4%B8%AD%E5%86%92%E9%99%A92%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/2022~04~02~%E9%9B%A8%E4%B8%AD%E5%86%92%E9%99%A92%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%5C3.jpg" alt="img"></p><p>虽然他在这里说少了一些config啥的，但是没有什么影响，直接用就完事了。</p><h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>你还可以去<a href="thunderstore.io">thunderstore.io</a>下载一些mod来进一步完善你的服务器，让你的服务器更加好玩~</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>hgame2022_wp</title>
